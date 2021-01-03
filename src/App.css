@@ -2,26 +2,43 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.presidenza span{
+  font-family: "Titillium Web";
+  font-size: 16px;
+  word-wrap: normal;
+  line-break: auto;
+  float: left;
+  margin-left: 10px;
+  position: relative;
+  display: block;
+}
+.logo-section {
+  max-width: 700px;
+}
+
+.main-logo {
+  height: 86px;
+  float: left;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo {
+  height: 58px;
+  float: left;
+  pointer-events: none;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #0059b3;
+  min-height: 100px;
   color: white;
+}
+
+.mainBanner {
+  min-height: 100px;
+  background-color: #0066cc;
+  color: white;
+  font-size: 48px;
 }
 
 .App-link {
