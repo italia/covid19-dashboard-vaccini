@@ -15,7 +15,7 @@ export const Total = (props) => {
           <div className="d-flex justify-content-center">
             <img src="meds.png" alt="meds" className="pr-5"/>
             {" "}
-            <h1 className="pl-5 mt-4 font-weight-light">{props.summary.tot.toLocaleString('en')}</h1>
+            <h1 className="pl-5 mt-4 font-weight-light">{props.summary.tot?.toLocaleString('en')}</h1>
           </div>
           <span className="border-top mt-2 mb-2"></span>
           <div className="d-flex justify-content-center">
