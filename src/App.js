@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { HeaderBar } from "./components/HeaderBar";
+import { Total } from "./components/Total";
 
 function App() {
   const [data, setData] = useState([]);
@@ -30,6 +31,7 @@ function App() {
   }, []);
 
   const elaborate = (data) => {
+    const timestamp = new Date().toISOString();
     const tot = data.reduce(sumDose, 0);
     const tot2 = data.reduce(sumDoseXY("TML_DOSE_1", "TML_DOSE_2"), 0);
     const areasRAW = data.reduce(aggrBy("TML_AREA"), {});
@@ -42,7 +44,7 @@ function App() {
     const totfascia2029 = fascia2029.reduce(sumDose, 0);
 
     console.log(data);
-    const sum = { tot, tot2, tot_m, tot_f, areas, totfascia1619, totfascia2029};
+    const sum = { timestamp, tot, tot_m, tot_f, areas, totfascia1619, totfascia2029};
     setSummary(sum);
     console.log(sum);
   };
@@ -55,7 +57,7 @@ function App() {
   return (
     <>
       <HeaderBar />
-      <body></body>
+      <Total summary={{...summary}} />
     </>
   );
 }

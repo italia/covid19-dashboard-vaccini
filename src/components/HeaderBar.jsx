@@ -31,7 +31,7 @@ export const HeaderBar = () => {
       <div className="d-flex flex-column justify-content-center mainBanner">
         <div className="d-flex justify-content-center">
           <img src="logo.png" alt="Logo" className="main-logo" />
-          <span>Report Vaccini Anti COVID-19</span>
+          <span className="pl-3">Report Vaccini Anti COVID-19</span>
         </div>
       </div>
     </>
