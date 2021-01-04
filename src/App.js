@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { HeaderBar } from "./components/HeaderBar";
+import { StaticBlock } from "./components/StaticBlock";
 import { Total } from "./components/Total";
 import { loadData } from "./loadData";
 
@@ -17,6 +18,28 @@ function App() {
     <>
       <HeaderBar />
       <Total summary={{ ...summary }} />
+      <div
+        className="d-flex justify-content-center w-75 mx-auto mt-3"
+        style={{ height: 150 }}
+      >
+        <StaticBlock
+          classes="bg-primary text-white"
+          text="Il 27 dicembre sono state consegnate 9.750 dosi di vaccino, interamente somministrate."
+        />
+        <StaticBlock
+          classes="bg-primary text-white"
+          text="Dal 30 Dicembre al 1° Gennaio sono state consegnate 469.950 dosi di vaccino."
+        />
+      </div>
+      <div
+        className="d-flex justify-content-center w-75 mx-auto"
+        style={{ height: 150 }}
+      >
+        <StaticBlock
+          classes="text-black text-uppercase font-weight-bold"
+          text="Le somministrazioni delle 469.950 dosi di vaccino su tutto il territorio sono iniziate il 31 dicembre"
+        />
+      </div>
     </>
   );
 }

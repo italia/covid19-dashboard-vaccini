@@ -12,6 +12,8 @@ export const aggrBy = (p) => (acc, x) => {
 export const filterBy = (y) => (z) => (x) => {
   return x[y] === z;
 };
+export const filterByArea = filterBy('area');
+export const filterByAreaITA = filterByArea('ITA');
 export const filterByAge = filterBy("TML_FASCIA_ETA");
 export const mapBy = (y) =>
   Object.keys(y).map((x) => {
