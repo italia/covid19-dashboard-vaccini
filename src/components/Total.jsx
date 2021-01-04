@@ -3,7 +3,7 @@ import moment from "moment";
 
 export const Total = (props) => {
   return (
-    <div className="d-flex flex-column justify-content-center mt-2 ">
+    <div className="d-flex flex-column justify-content-center h-100 mt-2 mb-3">
       <div className="timestamp mx-auto">
         <h6>
           Dati aggiornati al:{" "}

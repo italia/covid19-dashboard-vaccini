@@ -12,7 +12,7 @@ function App() {
   const [selected, setSelected] = useState({});
 
   const handleCountryClick = (countryIndex) => {
-    setSelected({...summary.deliverySummary[countryIndex]});
+    setSelected({ ...summary.deliverySummary[countryIndex] });
   };
 
   useEffect(() => {
@@ -24,9 +24,9 @@ function App() {
   return (
     <div>
       <HeaderBar />
-      <Total summary={{ ...summary }} />
+      <Total className="mb-3" summary={{ ...summary }} />
       <div
-        className="d-flex justify-content-center w-75 mx-auto mt-3"
+        className="d-flex flex-column flex-sm-row justify-content-center w-75 h-100 mx-auto mt-3"
         style={{ height: 150 }}
       >
         <StaticBlock
@@ -48,8 +48,7 @@ function App() {
         />
       </div>
       <div
-        className="d-flex justify-content-center w-75 mx-auto h-100 mt-3"
-        style={{ height: 150 }}
+        className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3"
       >
         <Table
           summary={{ ...summary }}
@@ -59,7 +58,7 @@ function App() {
         <MapArea
           summary={{ ...summary }}
           handleCountryClick={handleCountryClick}
-          className="ml-5"
+          className="ml-5 w-100 h-100"
         />
       </div>
     </div>
