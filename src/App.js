@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { HeaderBar } from "./components/HeaderBar";
+import { MapArea } from "./components/MapArea";
 import { StaticBlock } from "./components/StaticBlock";
 import { Table } from "./components/Table";
 import { Total } from "./components/Total";
@@ -42,10 +43,11 @@ function App() {
         />
       </div>
       <div
-        className="d-flex justify-content-center w-75 mx-auto mt-3"
+        className="d-flex justify-content-center w-75 mx-auto h-100 mt-3"
         style={{ height: 150 }}
       >
-        <Table summary={{ ...summary }} />
+        <Table summary={{ ...summary }} className="mr-5 h-100"/>
+        <MapArea summary={{ ...summary }} className="ml-5"/>
       </div>
     </>
   );
