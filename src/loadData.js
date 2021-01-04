@@ -4,6 +4,8 @@ const sommVaxSummaryURL = "data/somministrazioni-vaccini-summary-latest.json";
 const sommVaxDetailURL = "data/somministrazioni-vaccini-latest.json";
 const deliveryVaxDetailURL = "data/consegne-vaccini-latest.json";
 const vaxSummaryURL = "data/vaccini-summary-latest.json";
+const vaxLocationsURL = "data/punti-somministrazione-latest.json";
+
 
 const anagraficaSummaryURL = "data/anagrafica-vaccini-summary-latest.json";
 const puntiSommSummaryURL = "data/punti-somministrazione-latest.json";
@@ -50,6 +52,7 @@ export const loadData = async () => {
   const resVaxSummary = await fetch(vaxSummaryURL);
   const resProfileSummaryURL = await fetch(anagraficaSummaryURL);
   const resPointsSommSummaryURL = await fetch(puntiSommSummaryURL);
+  const resVaxLocations = await fetch(vaxLocationsURL);
 
   const dataSommVaxSummary = await resSommVaxSummary.json();
   const dataSommVaxDetail = await resSommVaxDetail.json();
@@ -57,13 +60,17 @@ export const loadData = async () => {
   const dataVaxSummary = await resVaxSummary.json();
   const dataProfileSummary = await resProfileSummaryURL.json();
   const dataPointsSommSummary = await resPointsSommSummaryURL.json();
+  const dataVaxLocations = await resVaxLocations.json();
 
-  return elaborate({
-    dataSommVaxSummary,
-    dataSommVaxDetail,
-    dataDeliveryVaxDetail,
-    dataVaxSummary,
-    dataProfileSummary,
-    dataPointsSommSummary,
-  });
+  return {
+      ...elaborate({
+          dataSommVaxSummary,
+          dataSommVaxDetail,
+          dataDeliveryVaxDetail,
+          dataVaxSummary,
+          dataProfileSummary,
+          dataPointsSommSummary,
+      }),
+      dataVaxLocations,
+  };
 };
