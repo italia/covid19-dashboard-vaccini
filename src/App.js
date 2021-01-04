@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import { HeaderBar } from "./components/HeaderBar";
 import { MapArea } from "./components/MapArea";
 import { StaticBlock } from "./components/StaticBlock";
 import { Table } from "./components/Table";
 import { Total } from "./components/Total";
 import { loadData } from "./loadData";
+import "./App.css";
 
 function App() {
   const [summary, setSummary] = useState({});
+  const [selected, setSelected] = useState({});
+
+  const handleCountryClick = (countryIndex) => {
+    setSelected({...summary.deliverySummary[countryIndex]});
+  };
 
   useEffect(() => {
     loadData().then((d) => {
@@ -17,7 +22,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div>
       <HeaderBar />
       <Total summary={{ ...summary }} />
       <div
@@ -46,10 +51,18 @@ function App() {
         className="d-flex justify-content-center w-75 mx-auto h-100 mt-3"
         style={{ height: 150 }}
       >
-        <Table summary={{ ...summary }} className="mr-5 h-100"/>
-        <MapArea summary={{ ...summary }} className="ml-5"/>
+        <Table
+          summary={{ ...summary }}
+          selected={selected}
+          className="mr-5 h-100"
+        />
+        <MapArea
+          summary={{ ...summary }}
+          handleCountryClick={handleCountryClick}
+          className="ml-5"
+        />
       </div>
-    </>
+    </div>
   );
 }
 

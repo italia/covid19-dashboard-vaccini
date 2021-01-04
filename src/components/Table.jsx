@@ -2,11 +2,8 @@ import { React, useEffect } from "react";
 import $ from "jquery";
 import DataTable from "datatables.net";
 // eslint-disable-next-line
-import dt from "datatables.net-bs4";
+import "datatables.net-bs4";
 
-// const dt = require("datatables.net")(window, $);
-
-// dt(window, $);
 $.DataTable = DataTable;
 const columns = [
   { title: "Regioni", data: "area" },
@@ -16,9 +13,8 @@ const columns = [
 ];
 
 export const Table = (props) => {
-  console.log(props);
   useEffect(() => {
-    $("#datatable")
+    const table = $("#datatable")
       .find("table")
       .DataTable({
         dom:
@@ -30,6 +26,11 @@ export const Table = (props) => {
         data: props.summary?.deliverySummary || [],
         columns,
       });
+    if (props?.selected?.area) {
+      table.search(props.selected.area).draw();
+    } else {
+      table.search(" ").draw();
+    }
   });
   return (
     <div id="datatable" className="d-flex">

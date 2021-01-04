@@ -31,7 +31,6 @@ const elaborate = (data) => {
   //     totfascia2029,
   //   };
   //   console.log(sum);
-  console.log(deliverySummary);
   return { timestamp, tot, deliverySummary };
 };
 

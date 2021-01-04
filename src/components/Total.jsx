@@ -2,7 +2,6 @@ import { React } from "react";
 import moment from "moment";
 
 export const Total = (props) => {
-  console.log(props);
   return (
     <div className="d-flex flex-column justify-content-center mt-2 ">
       <div className="timestamp mx-auto">

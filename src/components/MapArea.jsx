@@ -5,6 +5,18 @@ import { filterByArea } from "../utils";
 
 export const MapArea = (props) => {
   const [geographies, setGeographies] = useState([]);
+  const [select, setSelected] = useState([]);
+
+  const handleClick = (x) => {
+    if (select === x) {
+      props.handleCountryClick(null);
+      setSelected(null);
+    } else {
+      props.handleCountryClick(x);
+      setSelected(x);
+    }
+  };
+
   const width = 640,
     height = 640;
 
@@ -46,6 +58,7 @@ export const MapArea = (props) => {
               })`}
               stroke="#FFFFFF"
               strokeWidth={0.7}
+              onClick={() => handleClick(region.index)}
             >
               <title>
                 <span className="bg-info">
