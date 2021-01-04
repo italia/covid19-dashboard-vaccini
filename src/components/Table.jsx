@@ -1,6 +1,7 @@
 import { React, useEffect } from "react";
 import $ from "jquery";
 import DataTable from "datatables.net";
+// eslint-disable-next-line
 import dt from "datatables.net-bs4";
 
 // const dt = require("datatables.net")(window, $);
@@ -17,7 +18,7 @@ const columns = [
 export const Table = (props) => {
   console.log(props);
   useEffect(() => {
-    const table = $("#datatable")
+    $("#datatable")
       .find("table")
       .DataTable({
         dom:

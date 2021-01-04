@@ -1,21 +1,8 @@
-import {
-  sumDose,
-  sumDoseX,
-  aggrBy,
-  mapBy,
-  filterByAge,
-  filterByArea,
-  filterByAreaITA,
-  replaceArea,
-  areaMapping,
-} from "./utils";
+import { sumDoseX, filterByAreaITA, replaceArea } from "./utils";
 
 const sommVaxSummaryURL = "data/somministrazioni-vaccini-summary-latest.json";
-//   "https://raw.githubusercontent.com/teamdigitale/covid19-opendata-vaccini/master/dati/somministrazioni-vaccini-summary-latest.json?token=ACT7Q5GQ6UUAV5MUSXDNTLS76JODC";
 const sommVaxDetailURL = "data/somministrazioni-vaccini-latest.json";
-//   "https://raw.githubusercontent.com/teamdigitale/covid19-opendata-vaccini/master/dati/somministrazioni-vaccini-latest.json?token=ACT7Q5CEDP6JMS4BVM26MGC76JOUQ";
 const consegneVaxSummaryURL = "data/consegne-vaccini-summary-latest.json";
-//   "https://raw.githubusercontent.com/teamdigitale/covid19-opendata-vaccini/master/dati/consegne-vaccini-summary-latest.json?token=ACT7Q5AK2MOVUOWBNW5BCZC76JOYE";
 
 const elaborate = (data) => {
   console.log(data);

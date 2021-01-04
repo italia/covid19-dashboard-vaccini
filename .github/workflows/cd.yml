@@ -1,0 +1,36 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CD
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ main ]
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+      
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: yarn install --frozen-lockfile
+    # - run: yarn test
+    - name: Application build
+      run: yarn build
+      
+    - name: gh_pages_deploy
+      run: |
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/italia/covid19-dashboard-vaccini.git
+        yarn deploy -- --dotfiles -m "Automated deployment: ${CIRCLE_SHA1} [ci skip]"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
