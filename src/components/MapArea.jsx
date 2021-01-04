@@ -3,6 +3,8 @@ import * as d3 from "d3";
 import * as topojson from "topojson-client";
 import { filterByArea } from "../utils";
 
+import "./MapArea.css"
+
 export const MapArea = (props) => {
   const [geographies, setGeographies] = useState([]);
   const [select, setSelected] = useState([]);
