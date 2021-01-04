@@ -45,16 +45,14 @@ body {
   color: white;
   font-size: 48px;
 }
-
-.App-link {
-  color: #61dafb;
+.table thead {
+  border-bottom: black 1px solid;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.table td:first-child, .table th:first-child {
+  border-right: black 1px solid;
+}
+.table td, .table th {
+  padding: 5px !important;
+  font-size: 14px;
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { HeaderBar } from "./components/HeaderBar";
 import { StaticBlock } from "./components/StaticBlock";
+import { Table } from "./components/Table";
 import { Total } from "./components/Total";
 import { loadData } from "./loadData";
 
@@ -39,6 +40,12 @@ function App() {
           classes="text-black text-uppercase font-weight-bold"
           text="Le somministrazioni delle 469.950 dosi di vaccino su tutto il territorio sono iniziate il 31 dicembre"
         />
+      </div>
+      <div
+        className="d-flex justify-content-center w-75 mx-auto mt-3"
+        style={{ height: 150 }}
+      >
+        <Table summary={{ ...summary }} />
       </div>
     </>
   );

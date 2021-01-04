@@ -41,7 +41,7 @@ const elaborate = (data) => {
   //     totfascia2029,
   //   };
   //   console.log(sum);
-  return { timestamp, tot };
+  return { timestamp, tot, dataConsegneVaxSummary: data.dataConsegneVaxSummary };
 };
 
 export const loadData = async () => {
