@@ -17,15 +17,15 @@ export const MapArea = (props) => {
     }
   };
 
-  const width = 640,
-    height = 640;
+  const width = 498,
+    height = 478;
 
   const projection = d3
     .geoAlbers()
     .center([0, 41])
     .rotate([347, 0])
     .parallels([35, 45])
-    .scale(4000)
+    .scale(2200)
     .translate([width / 2, height / 2]);
 
   useEffect(() => {
@@ -38,38 +38,40 @@ export const MapArea = (props) => {
   }, []);
 
   return (
-    <svg width={width} height={height} viewBox="0 0 800 450">
-      <g className="countries">
-        {geographies.map((d, i) => {
-          const regions = props.summary?.deliverySummary?.filter(
-            filterByArea(d.properties.reg_name)
+    <div className="mw-100 h-100">
+      <svg width={width} height={height}>
+        <g className="countries">
+          {geographies.map((d, i) => {
+            const regions = props.summary?.deliverySummary?.filter(
+              filterByArea(d.properties.reg_name)
+            );
+            let region = {};
+            if (regions && regions.length > 0) {
+              region = regions[0];
+            }
+            return (
+              <path
+                key={`path-${i}`}
+                d={d3.geoPath().projection(projection)(d)}
+                className="country"
+                fill={`rgba(0,102,204,${
+                  (1 / 50) * region.percentuale_somministrazione
+                })`}
+                stroke="#FFFFFF"
+                strokeWidth={0.7}
+                onClick={() => handleClick(region.index)}
+              >
+                <title>
+                  <span className="bg-info">
+                    {region.area} {region.percentuale_somministrazione}%
+                  </span>
+                </title>
+              </path>
+            );
+          })}
           );
-          let region = {};
-          if (regions && regions.length > 0) {
-            region = regions[0];
-          }
-          return (
-            <path
-              key={`path-${i}`}
-              d={d3.geoPath().projection(projection)(d)}
-              className="country"
-              fill={`rgba(0,102,204,${
-                (1 / 50) * region.percentuale_somministrazione
-              })`}
-              stroke="#FFFFFF"
-              strokeWidth={0.7}
-              onClick={() => handleClick(region.index)}
-            >
-              <title>
-                <span className="bg-info">
-                  {region.area} {region.percentuale_somministrazione}%
-                </span>
-              </title>
-            </path>
-          );
-        })}
-        );
-      </g>
-    </svg>
+        </g>
+      </svg>
+    </div>
   );
 };
