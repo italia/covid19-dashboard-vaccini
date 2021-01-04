@@ -9,22 +9,17 @@ import { Header } from "design-react-kit";
 export const HeaderBar = () => {
   return (
     <>
-      <Header small={false} theme="" type="slim" className="App-header">
-        <div className="d-flex justify-content-center mb-3 logo-section mx-auto">
-          <div className="presidenza">
-            <img src="logo.svg" alt="Logo" className="logo" />
-            <span>Presidenza Del</span>
-            <span>Consiglio dei Ministri</span>
+      <Header small={false} theme="" type="slim">
+        <div className="d-flex mb-3 logo-section mx-auto pt-1 pb-2">
+          <div>
+            <div>
+              <a href="http://www.governo.it" target="_blank">
+                <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
+              </a>
+            </div>
           </div>
-          <div className="presidenza">
-            <img src="logo.svg" alt="Logo" className="logo" />
-            <span>Commissario</span>
-            <span>Straordinario Covid-19</span>
-          </div>
-          <div className="presidenza">
-            <img src="logo.svg" alt="Logo" className="logo" />
-            <span>Ministero</span>
-            <span>della Salute</span>
+          <div>
+            <p><strong>Governo Italiano</strong> Presidenza del Consiglio dei Ministri</p>
           </div>
         </div>
       </Header>

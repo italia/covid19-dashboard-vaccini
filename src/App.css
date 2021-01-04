@@ -7,18 +7,29 @@ body {
   font-size: 16px;
 }
 
-.presidenza span{
+.logo-section strong {
+    display: inline;
+}
+
+.logo-section p {
+  color: white;
   font-family: "Titillium Web";
   font-size: 16px;
-  word-wrap: normal;
-  line-break: auto;
-  float: left;
-  margin-left: 10px;
-  position: relative;
-  display: block;
+  margin-left: 1rem;
+  margin-top: 8px;
 }
+
 .logo-section {
-  max-width: 700px;
+  font-size: 0.9rem;
+}
+
+.logo-section a {
+  display: inline-block;
+  color: white;
+}
+
+.logo-section a:hover {
+  color: white;
 }
 
 .main-logo {
@@ -28,15 +39,9 @@ body {
 }
 
 .logo {
-  height: 58px;
+  height: 40px;
   float: left;
   pointer-events: none;
-}
-
-.App-header {
-  background-color: #0059b3;
-  min-height: 100px;
-  color: white;
 }
 
 .mainBanner {
@@ -55,4 +60,140 @@ body {
 .table td, .table th {
   padding: 5px !important;
   font-size: 14px;
+}
+
+/*
+ * Footer
+ *
+ */
+
+.footer-wrapper strong {
+    font-weight: bold;
+}
+
+.footer-wrapper {
+  background-color: #30373d;
+  color: white;
+}
+
+.logo_text h1, .logo_text .h1, .logo_text h2, .logo_text .h2 {
+    font-size: 1.778em;
+    font-weight: 700;
+    line-height: 1.2em;
+    color: #ffffff;
+    display: block;
+    margin: 8px 0 0 0;
+    letter-spacing: -0.5pt;
+}
+
+strong {
+    display: block;
+}
+
+.logo_wrapper {
+    width: 74px;
+    height: auto;
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 5px;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.footer_container .logo_container {
+    margin-top: 0px;
+    margin-bottom: 50px;
+    margin-left: 0px;
+}
+
+.logo_container {
+    margin: 0;
+    margin: 48px 0 0 120px;
+    margin-top: 48px;
+    margin-bottom: 0px;
+    margin-left: 120px;
+    position: relative;
+    z-index: 0;
+}
+
+.logo_text {
+    padding: 0 0 0 100px;
+}
+
+.logo_wrapper a {
+    display: block;
+}
+
+.h3_footer {
+    font-size: 24px;
+}
+
+.footer-wrapper h4 {
+    font-size: 21px;
+}
+
+.box_text_footer p {
+    color: #a5abb0;
+    font-size: 15px;
+    letter-spacing: 0.16px;
+}
+
+.new_footer {
+    padding-top: 20px;
+}
+
+.section_grey_darker h4, .section_grey_darker .h4 {
+    color: #ffffff;
+}
+
+.box_text_footer {
+    border-top: 1px solid #3e484f;
+    padding: 50px 20px 50px 20px;
+    color: #a5abb0;
+    font-size: 0.88em;
+}
+
+.box_text_footer p a {
+    color: #a5abb0;
+    display: inline-block;
+}
+
+.footer-wrapper a {
+    text-decoration: none;
+}
+
+.logo_wrapper img {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    margin: 0 0 0 0;
+    transition: all 0.3s ease;
+}
+
+footer a {
+  color: white;
+  margin: 0 8px 0 8px;
+  text-decoration: underline;
+}
+
+
+footer a:hover {
+  color: white;
+}
+
+ul.footer_links li a {
+    color: #65dbde;
+    margin: 0 8px 0 8px;
+    text-decoration: underline;
+}
+
+ul.footer_links {
+  list-style: none;
+  list-style-image: none;
+  list-style-image: none;
+}
+
+ul.footer_links li {
+    display: inline;
 }

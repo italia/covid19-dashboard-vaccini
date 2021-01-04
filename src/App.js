@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { HeaderBar } from "./components/HeaderBar";
+import { FooterBar } from "./components/FooterBar";
 import { MapArea } from "./components/MapArea";
 import { StaticBlock } from "./components/StaticBlock";
 import { Table } from "./components/Table";
@@ -61,6 +62,7 @@ function App() {
           className="ml-5 w-100 h-100"
         />
       </div>
+      <FooterBar />
     </div>
   );
 }
