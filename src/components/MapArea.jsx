@@ -1,8 +1,7 @@
 import { React, useEffect, useState } from "react";
 import * as d3 from "d3";
 import * as topojson from "topojson-client";
-
-const data = [{ Lazio: 1000 }];
+import { filterByArea } from "../utils";
 
 export const MapArea = (props) => {
   const [geographies, setGeographies] = useState([]);
@@ -29,16 +28,34 @@ export const MapArea = (props) => {
   return (
     <svg width={width} height={height} viewBox="0 0 800 450">
       <g className="countries">
-        {geographies.map((d, i) => (
-          <path
-            key={`path-${i}`}
-            d={d3.geoPath().projection(projection)(d)}
-            className="country"
-            fill={`rgba(38,50,56,${d.percentuale_somministrazione})`}
-            stroke="#FFFFFF"
-            strokeWidth={0.5}
-          />
-        ))}
+        {geographies.map((d, i) => {
+          const regions = props.summary?.deliverySummary?.filter(
+            filterByArea(d.properties.reg_name)
+          );
+          let region = {};
+          if (regions && regions.length > 0) {
+            region = regions[0];
+          }
+          return (
+            <path
+              key={`path-${i}`}
+              d={d3.geoPath().projection(projection)(d)}
+              className="country"
+              fill={`rgba(0,102,204,${
+                (1 / 50) * region.percentuale_somministrazione
+              })`}
+              stroke="#FFFFFF"
+              strokeWidth={0.7}
+            >
+              <title>
+                <span className="bg-info">
+                  {region.area} {region.percentuale_somministrazione}%
+                </span>
+              </title>
+            </path>
+          );
+        })}
+        );
       </g>
     </svg>
   );

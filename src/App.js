@@ -43,7 +43,7 @@ function App() {
         />
       </div>
       <div
-        className="d-flex justify-content-center w-75 mx-auto mt-3"
+        className="d-flex justify-content-center w-75 mx-auto h-100 mt-3"
         style={{ height: 150 }}
       >
         <Table summary={{ ...summary }} className="mr-5 h-100"/>
