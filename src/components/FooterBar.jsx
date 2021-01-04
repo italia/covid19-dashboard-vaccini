@@ -9,38 +9,38 @@ import { Icon } from "design-react-kit";
 export const FooterBar = () => {
   return (
     <>
-      <div class="footer-wrapper section section_grey_darker clearfix">
-        <footer class="footer_container container" id="footer">
-          <div class="row title_row">
-            <div class="col-md-12">
-              <div class="logo_container clearfix">
-                <div class="logo_wrapper clearfix">
+      <div className="footer-wrapper section section_grey_darker clearfix">
+        <footer className="footer_container container" id="footer">
+          <div className="row title_row">
+            <div className="col-md-12">
+              <div className="logo_container clearfix">
+                <div className="logo_wrapper clearfix">
                   <a href="http://www.governo.it">
-                    <img src="logo.svg" class="logo_footer" alt="Emblema della Repubblica Italiana" />
+                    <img src="logo.svg" className="logo_footer" alt="Emblema della Repubblica Italiana" />
                   </a>
                 </div>
-                <div class="logo_text clearfix">
+                <div className="logo_text clearfix">
                   <h1><strong>Governo Italiano</strong> Presidenza del Consiglio dei Ministri</h1>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-md-9">
-              <div class="row title_row">
-                <div class="col-md-12">
-                  <h3 class="contacts_footer">Contatti</h3>
+          <div className="row">
+            <div className="col-md-9">
+              <div className="row title_row">
+                <div className="col-md-12">
+                  <h3 className="contacts_footer">Contatti</h3>
                 </div>
               </div>
             </div>
 
-            <div class="col-md-3">
-              <div class="row title_row">
+            <div className="col-md-3">
+              <div className="row title_row">
 
-                <div class="col-md-12">
-                  <h3 class="h3_footer">Seguici su</h3>
-                  <div class="footer_social clearfix social_footer">
+                <div className="col-md-12">
+                  <h3 className="h3_footer">Seguici su</h3>
+                  <div className="footer_social clearfix social_footer">
                     <a href="https://www.facebook.com/palazzochigi.it/" title="Seguici su Facebook">
                       <Icon
                         color="white"
@@ -82,18 +82,18 @@ export const FooterBar = () => {
               </div>
             </div>
 
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-3">
-                  <div class="box_text box_text_footer new_footer clearfix">
+            <div className="col-md-12">
+              <div className="row">
+                <div className="col-md-3">
+                  <div className="box_text box_text_footer new_footer clearfix">
                     <h4>Presidenza del Consiglio dei Ministri</h4>
                     <p>Palazzo Chigi<br />
                       Piazza Colonna 370<br />
                         00187 Roma - Italia</p>
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <div class="box_text box_text_footer new_footer clearfix">
+                <div className="col-md-3">
+                  <div className="box_text box_text_footer new_footer clearfix">
                     <h4>Corrispondenza cartacea</h4>
                     <p>Via dell'Impresa 89<br />
                       00186 Roma - Italia</p>
@@ -101,16 +101,16 @@ export const FooterBar = () => {
                     <p><strong>È opportuno indicare chiaramente sull'involucro la Struttura destinataria</strong></p>
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <div class="box_text box_text_footer new_footer clearfix">
+                <div className="col-md-3">
+                  <div className="box_text box_text_footer new_footer clearfix">
                     <h4>Indirizzi di posta elettronica</h4>
                     <p><a href="http://presidenza.governo.it/AmministrazioneTrasparente/Organizzazione/TelefonoPostaElettronica/PEC.html">Elenco PEC</a></p>
 
                     <p><a href="http://presidenza.governo.it/AmministrazioneTrasparente/Organizzazione/TelefonoPostaElettronica/email.html">Elenco e-Mail</a></p>
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <div class="box_text box_text_footer new_footer clearfix">
+                <div className="col-md-3">
+                  <div className="box_text box_text_footer new_footer clearfix">
                     <h4>Recapiti telefonici</h4>
                     <p>Centralino: (+39) 06.6779.1</p>
                   </div>
@@ -120,12 +120,12 @@ export const FooterBar = () => {
 
           </div>
 
-          <div class="row">
-            <div class="col-md-12">
-              <ul class="footer_links clearfix"><li><a href="http://www.governo.it/sala-stampa" title="">Sala stampa</a></li>
+          <div className="row">
+            <div className="col-md-12">
+              <ul className="footer_links clearfix"><li><a href="http://www.governo.it/sala-stampa" title="">Sala stampa</a></li>
                 <li><a href="http://www.governo.it/privacy-policy" title="">Privacy policy</a></li>
                 <li><a href="http://www.governo.it/note-legali" title="">Note legali</a></li>
-                <a href="http://www.governo.it/feed/rss" title="Feed RSS" class="rss_feed"><span class="icon-rss-two"></span></a>
+                <a href="http://www.governo.it/feed/rss" title="Feed RSS" className="rss_feed"><span className="icon-rss-two"></span></a>
                 <li><a href="https://github.com/italia/covid19-dashboard-vaccini" title="">
                   <Icon
                     color="white"
