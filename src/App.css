@@ -7,18 +7,29 @@ body {
   font-size: 16px;
 }
 
-.presidenza span{
+.presidenza span {
+  color: white;
   font-family: "Titillium Web";
   font-size: 16px;
-  word-wrap: normal;
-  line-break: auto;
   float: left;
-  margin-left: 10px;
-  position: relative;
-  display: block;
+  margin-left: 1rem;
 }
+
+.presidenza {
+  color: white;
+}
+
 .logo-section {
-  max-width: 700px;
+  font-size: 0.9rem;
+}
+
+.logo-section a {
+  display: inline-block;
+  color: white;
+}
+
+.logo-section a:hover {
+  color: white;
 }
 
 .main-logo {
@@ -28,15 +39,9 @@ body {
 }
 
 .logo {
-  height: 58px;
+  height: 40px;
   float: left;
   pointer-events: none;
-}
-
-.App-header {
-  background-color: #0059b3;
-  min-height: 100px;
-  color: white;
 }
 
 .mainBanner {
@@ -55,4 +60,34 @@ body {
 .table td, .table th {
   padding: 5px !important;
   font-size: 14px;
+}
+
+.footer-wrapper {
+  background-color: #0059b3;
+}
+
+#footer {
+  font-size: 14px;
+  background-color: #0059b3;
+  color: white;
+}
+
+footer a {
+  color: white;
+  margin: 0 8px 0 8px;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: white;
+}
+
+ul.footer_links {
+  list-style: none;
+  list-style-image: none;
+  list-style-image: none;
+}
+
+ul.footer_links li {
+    display: inline;
 }
