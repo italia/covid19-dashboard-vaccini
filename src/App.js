@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { HeaderBar } from "./components/HeaderBar";
+import { FooterBar } from "./components/FooterBar";
 import { MapArea } from "./components/MapArea";
 import { StaticBlock } from "./components/StaticBlock";
 import { Table } from "./components/Table";
@@ -49,6 +50,7 @@ function App() {
         <Table summary={{ ...summary }} className="mr-5 h-100"/>
         <MapArea summary={{ ...summary }} className="ml-5"/>
       </div>
+      <FooterBar />
     </>
   );
 }
