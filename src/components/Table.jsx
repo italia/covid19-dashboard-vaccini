@@ -26,7 +26,7 @@ export const Table = (props) => {
         paging: false,
         searching: true,
         destroy: true,
-        data: props.summary?.dataConsegneVaxSummary?.data || [],
+        data: props.summary?.deliverySummary || [],
         columns,
       });
   });

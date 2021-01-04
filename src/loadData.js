@@ -6,6 +6,8 @@ import {
   filterByAge,
   filterByArea,
   filterByAreaITA,
+  replaceArea,
+  areaMapping,
 } from "./utils";
 
 const sommVaxSummaryURL = "data/somministrazioni-vaccini-summary-latest.json";
@@ -21,6 +23,7 @@ const elaborate = (data) => {
   const tot = data.dataSommVaxSummary.data
     .filter(filterByAreaITA)
     .reduce(sumDoseX("totale"), 0);
+  const deliverySummary = data.dataConsegneVaxSummary.data.map(replaceArea);
   //   //   const tot2 = data.reduce(sumDoseXY("TML_DOSE_1", "TML_DOSE_2"), 0);
   //   const areasRAW = data.reduce(aggrBy("TML_AREA"), {});
   //   const tot_m = data.reduce(sumDoseX("TML_SESSO_M"), 0);
@@ -41,7 +44,8 @@ const elaborate = (data) => {
   //     totfascia2029,
   //   };
   //   console.log(sum);
-  return { timestamp, tot, dataConsegneVaxSummary: data.dataConsegneVaxSummary };
+  console.log(deliverySummary);
+  return { timestamp, tot, deliverySummary };
 };
 
 export const loadData = async () => {
