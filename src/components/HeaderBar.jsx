@@ -13,7 +13,7 @@ export const HeaderBar = () => {
         <div className="d-flex mb-3 logo-section mx-auto pt-1 pb-2">
           <div>
             <div>
-              <a href="http://www.governo.it" target="_blank">
+              <a href="http://www.governo.it" target="_blank" rel="noreferrer">
                 <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
               </a>
             </div>
