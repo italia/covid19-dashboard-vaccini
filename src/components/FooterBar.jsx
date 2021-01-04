@@ -16,7 +16,7 @@ export const FooterBar = () => {
               <div class="logo_container clearfix">
                 <div class="logo_wrapper clearfix">
                   <a href="http://www.governo.it">
-                    <img src="http://www.governo.it/sites/new.governo.it/themes/governo/governo-assets/img/logo.svg" class="logo_footer" alt="Emblema della Repubblica Italiana" />
+                    <img src="/logo.svg" class="logo_footer" alt="Emblema della Repubblica Italiana" />
                   </a>
                 </div>
                 <div class="logo_text clearfix">
