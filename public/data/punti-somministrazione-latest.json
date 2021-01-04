@@ -1,0 +1,2083 @@
+{
+    "schema":{
+        "fields":[
+            {
+                "name":"index",
+                "type":"integer"
+            },
+            {
+                "name":"area",
+                "type":"string"
+            },
+            {
+                "name":"provincia",
+                "type":"string"
+            },
+            {
+                "name":"comune",
+                "type":"string"
+            },
+            {
+                "name":"presidio_ospedaliero",
+                "type":"string"
+            }
+        ],
+        "primaryKey":[
+            "index"
+        ],
+        "pandas_version":"0.20.0"
+    },
+    "data":[
+        {
+            "index":0,
+            "area":"abruzzo",
+            "provincia":"chieti",
+            "comune":"chieti",
+            "presidio_ospedaliero":"presidio ospedaliero ss annunziata"
+        },
+        {
+            "index":1,
+            "area":"abruzzo",
+            "provincia":"chieti",
+            "comune":"lanciano",
+            "presidio_ospedaliero":"presidio ospedaliero renzetti"
+        },
+        {
+            "index":2,
+            "area":"abruzzo",
+            "provincia":"chieti",
+            "comune":"vasto",
+            "presidio_ospedaliero":"presidio ospedaliero san pio"
+        },
+        {
+            "index":3,
+            "area":"abruzzo",
+            "provincia":"l'aquila",
+            "comune":"avezzano",
+            "presidio_ospedaliero":"p.o. ss. filippo e nicola"
+        },
+        {
+            "index":4,
+            "area":"abruzzo",
+            "provincia":"l'aquila",
+            "comune":"l'aquila",
+            "presidio_ospedaliero":"presidio ospedaliero san salvatore"
+        },
+        {
+            "index":5,
+            "area":"abruzzo",
+            "provincia":"pescara",
+            "comune":"pescara",
+            "presidio_ospedaliero":"presidio ospedaliero spirito santo"
+        },
+        {
+            "index":6,
+            "area":"abruzzo",
+            "provincia":"teramo",
+            "comune":"teramo",
+            "presidio_ospedaliero":"presidio ospedaliero mazzini \n"
+        },
+        {
+            "index":7,
+            "area":"basilicata",
+            "provincia":"matera",
+            "comune":"matera",
+            "presidio_ospedaliero":"a.s.m. p.o. madonna delle grazie"
+        },
+        {
+            "index":8,
+            "area":"basilicata",
+            "provincia":"potenza",
+            "comune":"chiaromonte",
+            "presidio_ospedaliero":"chiaromonte-asp di potenza"
+        },
+        {
+            "index":9,
+            "area":"basilicata",
+            "provincia":"potenza",
+            "comune":"potenza",
+            "presidio_ospedaliero":"aor san carlo"
+        },
+        {
+            "index":10,
+            "area":"basilicata",
+            "provincia":"potenza",
+            "comune":"rionero in vulture",
+            "presidio_ospedaliero":"irccs crob"
+        },
+        {
+            "index":11,
+            "area":"basilicata",
+            "provincia":"potenza",
+            "comune":"venosa",
+            "presidio_ospedaliero":"venosa-asp di potenza"
+        },
+        {
+            "index":12,
+            "area":"calabria",
+            "provincia":"catanzaro",
+            "comune":"catanzaro",
+            "presidio_ospedaliero":"mater domini"
+        },
+        {
+            "index":13,
+            "area":"calabria",
+            "provincia":"catanzaro",
+            "comune":"catanzaro",
+            "presidio_ospedaliero":"pugliese -ciaccio"
+        },
+        {
+            "index":14,
+            "area":"calabria",
+            "provincia":"cosenza",
+            "comune":"cosenza",
+            "presidio_ospedaliero":"ao cosenza\u00a0 - azienda ospedaliera di cosenza \"ss. annunziata\""
+        },
+        {
+            "index":15,
+            "area":"calabria",
+            "provincia":"crotone",
+            "comune":"crotone",
+            "presidio_ospedaliero":"ospedale spoke crotone"
+        },
+        {
+            "index":16,
+            "area":"calabria",
+            "provincia":"reggio calabria",
+            "comune":"reggio calabria",
+            "presidio_ospedaliero":"gom"
+        },
+        {
+            "index":17,
+            "area":"calabria",
+            "provincia":"vibo valentia",
+            "comune":"vibo valentia",
+            "presidio_ospedaliero":"ospedale spoke vibo valentia"
+        },
+        {
+            "index":18,
+            "area":"campania",
+            "provincia":"avellino",
+            "comune":"ariano irpino",
+            "presidio_ospedaliero":"asl av p.o. s.ottone frangipane"
+        },
+        {
+            "index":19,
+            "area":"campania",
+            "provincia":"avellino",
+            "comune":"avellino",
+            "presidio_ospedaliero":"a.o.r.n. moscati"
+        },
+        {
+            "index":20,
+            "area":"campania",
+            "provincia":"benevento",
+            "comune":"benevento",
+            "presidio_ospedaliero":"a.o. san pio"
+        },
+        {
+            "index":21,
+            "area":"campania",
+            "provincia":"caserta",
+            "comune":"aversa",
+            "presidio_ospedaliero":"asl ce po moscati"
+        },
+        {
+            "index":22,
+            "area":"campania",
+            "provincia":"caserta",
+            "comune":"caserta",
+            "presidio_ospedaliero":"a.o.r.n. sant'anna e san sebastiano"
+        },
+        {
+            "index":23,
+            "area":"campania",
+            "provincia":"caserta",
+            "comune":"maddaloni",
+            "presidio_ospedaliero":"asl ce po maddaloni"
+        },
+        {
+            "index":24,
+            "area":"campania",
+            "provincia":"caserta",
+            "comune":"marcianise",
+            "presidio_ospedaliero":"asl ce po marcianise"
+        },
+        {
+            "index":25,
+            "area":"campania",
+            "provincia":"caserta",
+            "comune":"piedimonte matese",
+            "presidio_ospedaliero":"asl ce po piedimonte matese"
+        },
+        {
+            "index":26,
+            "area":"campania",
+            "provincia":"caserta",
+            "comune":"sessa aurunca",
+            "presidio_ospedaliero":"asl ce po sessa aurunca"
+        },
+        {
+            "index":27,
+            "area":"campania",
+            "provincia":"napoli",
+            "comune":"castellamare di stabia",
+            "presidio_ospedaliero":"asl napoli 3 sud  po san leonardo"
+        },
+        {
+            "index":28,
+            "area":"campania",
+            "provincia":"napoli",
+            "comune":"frattamaggiore",
+            "presidio_ospedaliero":"asl napoli 2 nord po  san giovanni di dio"
+        },
+        {
+            "index":29,
+            "area":"campania",
+            "provincia":"napoli",
+            "comune":"giugliano in campania",
+            "presidio_ospedaliero":"asl napoli 2 nord po  san giuliano"
+        },
+        {
+            "index":30,
+            "area":"campania",
+            "provincia":"napoli",
+            "comune":"ischia",
+            "presidio_ospedaliero":"asl napoli 2 nord po a.m. rizzoli"
+        },
+        {
+            "index":31,
+            "area":"campania",
+            "provincia":"napoli",
+            "comune":"napoli",
+            "presidio_ospedaliero":"a.o. dei colli - po cotugno"
+        },
+        {
+            "index":32,
+            "area":"campania",
+            "provincia":"napoli",
+            "comune":"napoli",
+            "presidio_ospedaliero":"a.o. santobono pausilipon"
+        },
+        {
+            "index":33,
+            "area":"campania",
+            "provincia":"napoli",
+            "comune":"napoli",
+            "presidio_ospedaliero":"a.o.r.n. cardarelli"
+        },
+        {
+            "index":34,
+            "area":"campania",
+            "provincia":"napoli",
+            "comune":"napoli",
+            "presidio_ospedaliero":"a.o.u. federico ii"
+        },
+        {
+            "index":35,
+            "area":"campania",
+            "provincia":"napoli",
+            "comune":"napoli",
+            "presidio_ospedaliero":"a.o.u. vanvitelli"
+        },
+        {
+            "index":36,
+            "area":"campania",
+            "provincia":"napoli",
+            "comune":"napoli",
+            "presidio_ospedaliero":"asl na 1 centro po del mare"
+        },
+        {
+            "index":37,
+            "area":"campania",
+            "provincia":"napoli",
+            "comune":"napoli",
+            "presidio_ospedaliero":"asl na1 centro po san paolo"
+        },
+        {
+            "index":38,
+            "area":"campania",
+            "provincia":"napoli",
+            "comune":"nola",
+            "presidio_ospedaliero":"asl napoli 3 sud  po nola"
+        },
+        {
+            "index":39,
+            "area":"campania",
+            "provincia":"napoli",
+            "comune":"pozzuoli",
+            "presidio_ospedaliero":"asl napoli 2 nord p.o santa maria delle  grazie"
+        },
+        {
+            "index":40,
+            "area":"campania",
+            "provincia":"salerno",
+            "comune":"battipaglia",
+            "presidio_ospedaliero":"asl sa po santa maria della speranza"
+        },
+        {
+            "index":41,
+            "area":"campania",
+            "provincia":"salerno",
+            "comune":"nocera inferiore",
+            "presidio_ospedaliero":"asl sa po umberto i"
+        },
+        {
+            "index":42,
+            "area":"campania",
+            "provincia":"salerno",
+            "comune":"polla",
+            "presidio_ospedaliero":"asl sa po luigi curto"
+        },
+        {
+            "index":43,
+            "area":"campania",
+            "provincia":"salerno",
+            "comune":"salerno",
+            "presidio_ospedaliero":"a.o.u. ruggi d'aragona"
+        },
+        {
+            "index":44,
+            "area":"campania",
+            "provincia":"salerno",
+            "comune":"vallo della lucania",
+            "presidio_ospedaliero":"asl sa po san luca"
+        },
+        {
+            "index":45,
+            "area":"emilia romagna",
+            "provincia":"bologna",
+            "comune":"bologna",
+            "presidio_ospedaliero":"aosp s.orsola malpighi"
+        },
+        {
+            "index":46,
+            "area":"emilia romagna",
+            "provincia":"bologna",
+            "comune":"bologna",
+            "presidio_ospedaliero":"ausl bologna osp.le bellaria"
+        },
+        {
+            "index":47,
+            "area":"emilia romagna",
+            "provincia":"bologna",
+            "comune":"bologna",
+            "presidio_ospedaliero":"irccs istituto ortopedico rizzoli"
+        },
+        {
+            "index":48,
+            "area":"emilia romagna",
+            "provincia":"bologna",
+            "comune":"imola",
+            "presidio_ospedaliero":"ausl imola"
+        },
+        {
+            "index":49,
+            "area":"emilia romagna",
+            "provincia":"ferrara",
+            "comune":"cona",
+            "presidio_ospedaliero":"aou ferrara"
+        },
+        {
+            "index":50,
+            "area":"emilia romagna",
+            "provincia":"ferrara",
+            "comune":"lagosanto",
+            "presidio_ospedaliero":"ausl ferrara \nospedale del delta \u00a0"
+        },
+        {
+            "index":51,
+            "area":"emilia romagna",
+            "provincia":"forl\u00ec-cesena",
+            "comune":"pievesestina",
+            "presidio_ospedaliero":"centro servizi pievesistina"
+        },
+        {
+            "index":52,
+            "area":"emilia romagna",
+            "provincia":"modena",
+            "comune":"modena",
+            "presidio_ospedaliero":"ausl\/aou modena"
+        },
+        {
+            "index":53,
+            "area":"emilia romagna",
+            "provincia":"parma",
+            "comune":"parma",
+            "presidio_ospedaliero":"ausl\/aou parma osp.le maggiore"
+        },
+        {
+            "index":54,
+            "area":"emilia romagna",
+            "provincia":"piacenza",
+            "comune":"piacenza",
+            "presidio_ospedaliero":"osp.le guglielmo da saliceto"
+        },
+        {
+            "index":55,
+            "area":"emilia romagna",
+            "provincia":"ravenna",
+            "comune":"ravenna",
+            "presidio_ospedaliero":"ospedale ravenna"
+        },
+        {
+            "index":56,
+            "area":"emilia romagna",
+            "provincia":"reggio emilia",
+            "comune":"reggio emilia",
+            "presidio_ospedaliero":"irccs santa maria nuova"
+        },
+        {
+            "index":57,
+            "area":"emilia romagna",
+            "provincia":"rimini",
+            "comune":"rimini",
+            "presidio_ospedaliero":"ospedale rimini"
+        },
+        {
+            "index":58,
+            "area":"friuli venezia giulia",
+            "provincia":"gorizia",
+            "comune":"monfalcone",
+            "presidio_ospedaliero":"monfalcone"
+        },
+        {
+            "index":59,
+            "area":"friuli venezia giulia",
+            "provincia":"pordenone",
+            "comune":"pordenone",
+            "presidio_ospedaliero":"santa maria degli angeli"
+        },
+        {
+            "index":60,
+            "area":"friuli venezia giulia",
+            "provincia":"trieste",
+            "comune":"trieste",
+            "presidio_ospedaliero":"cattinara"
+        },
+        {
+            "index":61,
+            "area":"friuli venezia giulia",
+            "provincia":"udine",
+            "comune":"tolmezzo",
+            "presidio_ospedaliero":"tolmezzo"
+        },
+        {
+            "index":62,
+            "area":"friuli venezia giulia",
+            "provincia":"udine",
+            "comune":"udine",
+            "presidio_ospedaliero":"santa maria della misericordia"
+        },
+        {
+            "index":63,
+            "area":"lazio",
+            "provincia":"frosinone",
+            "comune":"frosinone",
+            "presidio_ospedaliero":"ospedale spaziani"
+        },
+        {
+            "index":64,
+            "area":"lazio",
+            "provincia":"latina",
+            "comune":"latina",
+            "presidio_ospedaliero":"ospedale santa maria goretti"
+        },
+        {
+            "index":65,
+            "area":"lazio",
+            "provincia":"rieti",
+            "comune":"rieti",
+            "presidio_ospedaliero":"ospedale san camillo de lellis"
+        },
+        {
+            "index":66,
+            "area":"lazio",
+            "provincia":"rm",
+            "comune":"roma",
+            "presidio_ospedaliero":"ao san giovanni addolorata"
+        },
+        {
+            "index":67,
+            "area":"lazio",
+            "provincia":"rm",
+            "comune":"roma",
+            "presidio_ospedaliero":"fondazione policlincio a. gemelli irccs"
+        },
+        {
+            "index":68,
+            "area":"lazio",
+            "provincia":"rm",
+            "comune":"roma",
+            "presidio_ospedaliero":"policlinico tor vergata"
+        },
+        {
+            "index":69,
+            "area":"lazio",
+            "provincia":"roma",
+            "comune":"ariccia rm",
+            "presidio_ospedaliero":"asl rm6 ospedale dei castelli"
+        },
+        {
+            "index":70,
+            "area":"lazio",
+            "provincia":"roma",
+            "comune":"civitavecchia - rm",
+            "presidio_ospedaliero":"asl rm4 ospedale san paolo"
+        },
+        {
+            "index":71,
+            "area":"lazio",
+            "provincia":"roma",
+            "comune":"colleferro rm",
+            "presidio_ospedaliero":"asl rm5 ospedale parodi delfino  distretto sanitario  g6 farmacia"
+        },
+        {
+            "index":72,
+            "area":"lazio",
+            "provincia":"roma",
+            "comune":"ostia-roma",
+            "presidio_ospedaliero":"asl rm3 ospedale g.b. grassi"
+        },
+        {
+            "index":73,
+            "area":"lazio",
+            "provincia":"roma",
+            "comune":"roma",
+            "presidio_ospedaliero":"asl rm2 ospedale sandro pertini"
+        },
+        {
+            "index":74,
+            "area":"lazio",
+            "provincia":"roma",
+            "comune":"roma",
+            "presidio_ospedaliero":"azienda opedalierasan camillo-forlanini"
+        },
+        {
+            "index":75,
+            "area":"lazio",
+            "provincia":"roma",
+            "comune":"roma",
+            "presidio_ospedaliero":"azienda ospedaliera universitaria sant'andrea"
+        },
+        {
+            "index":76,
+            "area":"lazio",
+            "provincia":"roma",
+            "comune":"roma",
+            "presidio_ospedaliero":"comprensorio santa maria della piet\u00e0 - padiglione 28"
+        },
+        {
+            "index":77,
+            "area":"lazio",
+            "provincia":"roma",
+            "comune":"roma",
+            "presidio_ospedaliero":"ifo istituti fiosioterapici ospitalieri"
+        },
+        {
+            "index":78,
+            "area":"lazio",
+            "provincia":"roma",
+            "comune":"roma",
+            "presidio_ospedaliero":"irccs lazzaro spallanzani"
+        },
+        {
+            "index":79,
+            "area":"lazio",
+            "provincia":"roma",
+            "comune":"roma",
+            "presidio_ospedaliero":"irccs ospedale pediatrico bambino ges\u00f9"
+        },
+        {
+            "index":80,
+            "area":"lazio",
+            "provincia":"roma",
+            "comune":"roma",
+            "presidio_ospedaliero":"policlinico umberto i"
+        },
+        {
+            "index":81,
+            "area":"lazio",
+            "provincia":"roma",
+            "comune":"roma",
+            "presidio_ospedaliero":"policlinico universitario campus bio-medico"
+        },
+        {
+            "index":82,
+            "area":"lazio",
+            "provincia":"viterbo",
+            "comune":"viterbo",
+            "presidio_ospedaliero":"ospedale bel colle"
+        },
+        {
+            "index":83,
+            "area":"liguria",
+            "provincia":"genova (asl3)",
+            "comune":"genova",
+            "presidio_ospedaliero":"ente ospedali galliera"
+        },
+        {
+            "index":84,
+            "area":"liguria",
+            "provincia":"genova (asl3)",
+            "comune":"genova",
+            "presidio_ospedaliero":"istituto g. gaslini-irccs"
+        },
+        {
+            "index":85,
+            "area":"liguria",
+            "provincia":"genova (asl3)",
+            "comune":"genova",
+            "presidio_ospedaliero":"ospedale evangelico internazionale"
+        },
+        {
+            "index":86,
+            "area":"liguria",
+            "provincia":"genova (asl3)",
+            "comune":"genova",
+            "presidio_ospedaliero":"ospedale policlinico san martino-irccs"
+        },
+        {
+            "index":87,
+            "area":"liguria",
+            "provincia":"genova (asl3)",
+            "comune":"genova",
+            "presidio_ospedaliero":"ospedale villa scassi"
+        },
+        {
+            "index":88,
+            "area":"liguria",
+            "provincia":"genova (asl4)",
+            "comune":"sestri levante (ge)",
+            "presidio_ospedaliero":"ospedale sestri levante"
+        },
+        {
+            "index":89,
+            "area":"liguria",
+            "provincia":"imperia (asl1)",
+            "comune":"bordighera (im)",
+            "presidio_ospedaliero":"ospedale bordighera"
+        },
+        {
+            "index":90,
+            "area":"liguria",
+            "provincia":"imperia (asl1)",
+            "comune":"imperia",
+            "presidio_ospedaliero":"ospedale imperia"
+        },
+        {
+            "index":91,
+            "area":"liguria",
+            "provincia":"imperia (asl1)",
+            "comune":"sanremo (im)",
+            "presidio_ospedaliero":"ospedale sanremo"
+        },
+        {
+            "index":92,
+            "area":"liguria",
+            "provincia":"la spezia (asl5)",
+            "comune":"la spezia",
+            "presidio_ospedaliero":"ospedale sant'andrea"
+        },
+        {
+            "index":93,
+            "area":"liguria",
+            "provincia":"la spezia (asl5)",
+            "comune":"sarzana (sp)",
+            "presidio_ospedaliero":"ospedale san bartolomeo"
+        },
+        {
+            "index":94,
+            "area":"liguria",
+            "provincia":"savona (asl2)",
+            "comune":"cairo montenotte (sv)",
+            "presidio_ospedaliero":"ospedale san giuseppe - cairo montenotte"
+        },
+        {
+            "index":95,
+            "area":"liguria",
+            "provincia":"savona (asl2)",
+            "comune":"pietra ligura (sv)",
+            "presidio_ospedaliero":"ospedale santa corona"
+        },
+        {
+            "index":96,
+            "area":"liguria",
+            "provincia":"savona (asl2)",
+            "comune":"savona",
+            "presidio_ospedaliero":"ospedale san paolo"
+        },
+        {
+            "index":97,
+            "area":"lombardia",
+            "provincia":"bergamo",
+            "comune":"alzano lombardo",
+            "presidio_ospedaliero":"asst bergamo est alzano lombardo"
+        },
+        {
+            "index":98,
+            "area":"lombardia",
+            "provincia":"bergamo",
+            "comune":"bergamo",
+            "presidio_ospedaliero":"asst papa giovanni xxiii 03090500 - bergamo ospedali riuniti"
+        },
+        {
+            "index":99,
+            "area":"lombardia",
+            "provincia":"bergamo",
+            "comune":"piario (bg)",
+            "presidio_ospedaliero":"asst di bergamo est 03038200 - groppino piario  osp. m.o.a. locatelli"
+        },
+        {
+            "index":100,
+            "area":"lombardia",
+            "provincia":"bergamo",
+            "comune":"seriate",
+            "presidio_ospedaliero":"asst di bergamo est 03014000 - seriate osp. bolognini"
+        },
+        {
+            "index":101,
+            "area":"lombardia",
+            "provincia":"bergamo",
+            "comune":"treviglio",
+            "presidio_ospedaliero":"asst bergamo ovest treviglio"
+        },
+        {
+            "index":102,
+            "area":"lombardia",
+            "provincia":"brescia",
+            "comune":"brescia",
+            "presidio_ospedaliero":"asst spedali civili di brescia, uoc farmacia aziendale"
+        },
+        {
+            "index":103,
+            "area":"lombardia",
+            "provincia":"brescia",
+            "comune":"brescia",
+            "presidio_ospedaliero":"fondazione poliambulanza"
+        },
+        {
+            "index":104,
+            "area":"lombardia",
+            "provincia":"brescia",
+            "comune":"brescia",
+            "presidio_ospedaliero":"istituto clinico citt\u00e0 di brescia di istituti ospedalieri bresciani"
+        },
+        {
+            "index":105,
+            "area":"lombardia",
+            "provincia":"brescia",
+            "comune":"chiari",
+            "presidio_ospedaliero":"asst franciacorta chiari"
+        },
+        {
+            "index":106,
+            "area":"lombardia",
+            "provincia":"brescia",
+            "comune":"desenzano",
+            "presidio_ospedaliero":"asst del garda desenzano"
+        },
+        {
+            "index":107,
+            "area":"lombardia",
+            "provincia":"brescia",
+            "comune":"edolo",
+            "presidio_ospedaliero":"asst della valcamonica 03027402 - ospedale valcamonica - edolo"
+        },
+        {
+            "index":108,
+            "area":"lombardia",
+            "provincia":"brescia",
+            "comune":"esine",
+            "presidio_ospedaliero":"asst valcamonica esine"
+        },
+        {
+            "index":109,
+            "area":"lombardia",
+            "provincia":"brescia",
+            "comune":"gavardo",
+            "presidio_ospedaliero":"asst del garda 03015700 \n- gavardo osp. civ. la memoria"
+        },
+        {
+            "index":110,
+            "area":"lombardia",
+            "provincia":"brescia",
+            "comune":"iseo",
+            "presidio_ospedaliero":"asst della franciacorta 03016300 - iseo osp. civile"
+        },
+        {
+            "index":111,
+            "area":"lombardia",
+            "provincia":"brescia",
+            "comune":"manerbio",
+            "presidio_ospedaliero":"asst garda manerbio"
+        },
+        {
+            "index":112,
+            "area":"lombardia",
+            "provincia":"como",
+            "comune":"cant\u00f9",
+            "presidio_ospedaliero":"asst lariana 03002200 - cantu' osp. circolo"
+        },
+        {
+            "index":113,
+            "area":"lombardia",
+            "provincia":"como",
+            "comune":"menaggio",
+            "presidio_ospedaliero":"asst lariana 03002600 - menaggio osp. di zona"
+        },
+        {
+            "index":114,
+            "area":"lombardia",
+            "provincia":"como",
+            "comune":"san fermo della battaglia",
+            "presidio_ospedaliero":"asst lariana - presidio ospedaliero sant'anna como"
+        },
+        {
+            "index":115,
+            "area":"lombardia",
+            "provincia":"cremona",
+            "comune":", casalmaggiore",
+            "presidio_ospedaliero":"asst di cremona 03027300 - casalmaggiore ospedale (oglio po)"
+        },
+        {
+            "index":116,
+            "area":"lombardia",
+            "provincia":"cremona",
+            "comune":"crema",
+            "presidio_ospedaliero":"asst crema  ospedale maggiore di crema"
+        },
+        {
+            "index":117,
+            "area":"lombardia",
+            "provincia":"cremona",
+            "comune":"cremona",
+            "presidio_ospedaliero":"asst cremona presidio cremona  immunoematologia e medicina trasfusionale"
+        },
+        {
+            "index":118,
+            "area":"lombardia",
+            "provincia":"lecco",
+            "comune":"bellano",
+            "presidio_ospedaliero":"asst di lecco 03002300 - bellano osp. circolo"
+        },
+        {
+            "index":119,
+            "area":"lombardia",
+            "provincia":"lecco",
+            "comune":"lecco",
+            "presidio_ospedaliero":"asst di lecco \"p.o.manzoni\" lecco"
+        },
+        {
+            "index":120,
+            "area":"lombardia",
+            "provincia":"lodi",
+            "comune":"codogno",
+            "presidio_ospedaliero":"asst lodi - ospedale codogno"
+        },
+        {
+            "index":121,
+            "area":"lombardia",
+            "provincia":"lodi",
+            "comune":"lodi",
+            "presidio_ospedaliero":"asst lodi - ospedale lodi"
+        },
+        {
+            "index":122,
+            "area":"lombardia",
+            "provincia":"mantova",
+            "comune":"mantova",
+            "presidio_ospedaliero":"asst di mantova - poma"
+        },
+        {
+            "index":123,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"cinisello balsamo",
+            "presidio_ospedaliero":"asst nord milano 03005800 - cinisello b. osp. bassini"
+        },
+        {
+            "index":124,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"garbagnate milanese",
+            "presidio_ospedaliero":"asst rhodense 03006600 - garbagnate milanese osp. salvini"
+        },
+        {
+            "index":125,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"legnano",
+            "presidio_ospedaliero":"asst ovest milanese legnano"
+        },
+        {
+            "index":126,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"magenta",
+            "presidio_ospedaliero":"asst ovest milanese magenta"
+        },
+        {
+            "index":127,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"melzo",
+            "presidio_ospedaliero":"asst melegnano e della martesana 03007101 - melzo osp. s.maria delle stelle"
+        },
+        {
+            "index":128,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"asst fatebenefratelli sacco 03091000 - milano osp. fatebenefratelli oftalmico"
+        },
+        {
+            "index":129,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"asst fbf sacco - p.o. sacco"
+        },
+        {
+            "index":130,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"asst gaetano pini cto"
+        },
+        {
+            "index":131,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"asst grande ospedale metropolitano niguarda"
+        },
+        {
+            "index":132,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"asst santi paolo e carlo"
+        },
+        {
+            "index":133,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"asst santi paolo e carlo 03091500 - milano osp. s.carlo"
+        },
+        {
+            "index":134,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"fondazione irccs ca' granda ospedale maggiore policlinico"
+        },
+        {
+            "index":135,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"fondazione irccs istituto nazionale dei tumori milano"
+        },
+        {
+            "index":136,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"fondazione irccs istituto neurologico besta"
+        },
+        {
+            "index":137,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"gruppo multimedica - ospedale san giuseppe"
+        },
+        {
+            "index":138,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"irccs ospedale san raffaele"
+        },
+        {
+            "index":139,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"ircss santa maria nascente (don gnocchi)"
+        },
+        {
+            "index":140,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"istituto auxologico italiano - ospedale san luca"
+        },
+        {
+            "index":141,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"milano",
+            "presidio_ospedaliero":"pio albergo trivulzio"
+        },
+        {
+            "index":142,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"rho",
+            "presidio_ospedaliero":"asst rhodense 03007300 - rho  osp. circolo"
+        },
+        {
+            "index":143,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"rozzano",
+            "presidio_ospedaliero":"humantias mirasole"
+        },
+        {
+            "index":144,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"san donato milanese",
+            "presidio_ospedaliero":"irccs policlinico san donato s.p.a."
+        },
+        {
+            "index":145,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"sesto",
+            "presidio_ospedaliero":"asst nord milano - p.o. sesto s.g."
+        },
+        {
+            "index":146,
+            "area":"lombardia",
+            "provincia":"milano",
+            "comune":"vizzolo predabissi",
+            "presidio_ospedaliero":"asst melegnano e della martesana 03007201 - melegnano osp. predabissi"
+        },
+        {
+            "index":147,
+            "area":"lombardia",
+            "provincia":"monza brianza",
+            "comune":"desio",
+            "presidio_ospedaliero":"asst di monza 03006800 - desio osp. circolo"
+        },
+        {
+            "index":148,
+            "area":"lombardia",
+            "provincia":"monza brianza",
+            "comune":"monza",
+            "presidio_ospedaliero":"asst di monza 03090900 - monza osp. s.gerardo"
+        },
+        {
+            "index":149,
+            "area":"lombardia",
+            "provincia":"monza brianza",
+            "comune":"vimercate",
+            "presidio_ospedaliero":"asst vimercate"
+        },
+        {
+            "index":150,
+            "area":"lombardia",
+            "provincia":"pavia",
+            "comune":"pavia",
+            "presidio_ospedaliero":"fondazione irccs policlinico san matteo"
+        },
+        {
+            "index":151,
+            "area":"lombardia",
+            "provincia":"pavia",
+            "comune":"vigevano",
+            "presidio_ospedaliero":"asst di pavia 03019300 - vigevano osp. civile"
+        },
+        {
+            "index":152,
+            "area":"lombardia",
+            "provincia":"pavia",
+            "comune":"voghera",
+            "presidio_ospedaliero":"asst di pavia 03019400 - voghera osp. civile"
+        },
+        {
+            "index":153,
+            "area":"lombardia",
+            "provincia":"sondrio",
+            "comune":"chiavenna",
+            "presidio_ospedaliero":"asst della valtellina e dell'alto lario 03004400 - chiavenna osp. civile"
+        },
+        {
+            "index":154,
+            "area":"lombardia",
+            "provincia":"sondrio",
+            "comune":"sondalo",
+            "presidio_ospedaliero":"asst della valtellina e dell'alto lario 03090400 - sondalo osp. eugenio morelli"
+        },
+        {
+            "index":155,
+            "area":"lombardia",
+            "provincia":"sondrio",
+            "comune":"sondrio",
+            "presidio_ospedaliero":"asst valtellina e dell'alto lario po di sondrio"
+        },
+        {
+            "index":156,
+            "area":"lombardia",
+            "provincia":"varese",
+            "comune":"angera",
+            "presidio_ospedaliero":"asst dei sette laghi 03001200 - angera osp. ondoli"
+        },
+        {
+            "index":157,
+            "area":"lombardia",
+            "provincia":"varese",
+            "comune":"busto arsizio",
+            "presidio_ospedaliero":"asst valle olona di busto arsizio - presidio di busto arsizio"
+        },
+        {
+            "index":158,
+            "area":"lombardia",
+            "provincia":"varese",
+            "comune":"gallarate",
+            "presidio_ospedaliero":"asst della valle olona 03000600 - gallarate osp. s.antonio abate"
+        },
+        {
+            "index":159,
+            "area":"lombardia",
+            "provincia":"varese",
+            "comune":"luino",
+            "presidio_ospedaliero":"asst dei sette laghi 03028202 - luino pres.del verbano"
+        },
+        {
+            "index":160,
+            "area":"lombardia",
+            "provincia":"varese",
+            "comune":"saronno",
+            "presidio_ospedaliero":"asst della valle olona 03000800 - saronno osp. circolo"
+        },
+        {
+            "index":161,
+            "area":"lombardia",
+            "provincia":"varese",
+            "comune":"varese",
+            "presidio_ospedaliero":"asst sette laghi"
+        },
+        {
+            "index":162,
+            "area":"marche",
+            "provincia":"ancona",
+            "comune":"ancona",
+            "presidio_ospedaliero":"inrca - presidio ospedaliero di ricerca"
+        },
+        {
+            "index":163,
+            "area":"marche",
+            "provincia":"ancona",
+            "comune":"jesi",
+            "presidio_ospedaliero":"ospedale \"carlo urbani\" - hub"
+        },
+        {
+            "index":164,
+            "area":"marche",
+            "provincia":"ascoli piceno",
+            "comune":"san benedetto del tronto",
+            "presidio_ospedaliero":"ospedale madonna del soccorso"
+        },
+        {
+            "index":165,
+            "area":"marche",
+            "provincia":"fermo",
+            "comune":"fermo",
+            "presidio_ospedaliero":"ospedale augusto murri - fermo"
+        },
+        {
+            "index":166,
+            "area":"marche",
+            "provincia":"macerata",
+            "comune":"camerino",
+            "presidio_ospedaliero":"ospedale di camerino"
+        },
+        {
+            "index":167,
+            "area":"marche",
+            "provincia":"macerata",
+            "comune":"civitanova marche",
+            "presidio_ospedaliero":"ospedale di civitanova marche"
+        },
+        {
+            "index":168,
+            "area":"marche",
+            "provincia":"pesaro urbino",
+            "comune":"fossombrone",
+            "presidio_ospedaliero":"ospedale di comunit\u00e0 fossombrone"
+        },
+        {
+            "index":169,
+            "area":"molise",
+            "provincia":"campobasso",
+            "comune":"campobasso",
+            "presidio_ospedaliero":"p.o. \"a. cardarelli\""
+        },
+        {
+            "index":170,
+            "area":"molise",
+            "provincia":"campobasso",
+            "comune":"termoli",
+            "presidio_ospedaliero":"p.o. \"san timoteo\""
+        },
+        {
+            "index":171,
+            "area":"pa bolzano",
+            "provincia":"pa bolzano",
+            "comune":"bolzano",
+            "presidio_ospedaliero":"ospedale di bolzano"
+        },
+        {
+            "index":172,
+            "area":"pa bolzano",
+            "provincia":"pa bolzano",
+            "comune":"bressanone",
+            "presidio_ospedaliero":"ospedale di bressanone"
+        },
+        {
+            "index":173,
+            "area":"pa bolzano",
+            "provincia":"pa bolzano",
+            "comune":"brunico",
+            "presidio_ospedaliero":"ospedale di brunico"
+        },
+        {
+            "index":174,
+            "area":"pa bolzano",
+            "provincia":"pa bolzano",
+            "comune":"merano",
+            "presidio_ospedaliero":"ospedale di merano"
+        },
+        {
+            "index":175,
+            "area":"pa bolzano",
+            "provincia":"pa bolzano",
+            "comune":"san candido bz",
+            "presidio_ospedaliero":"ospedale di san candido"
+        },
+        {
+            "index":176,
+            "area":"pa bolzano",
+            "provincia":"pa bolzano",
+            "comune":"silandro",
+            "presidio_ospedaliero":"ospedale di silandro"
+        },
+        {
+            "index":177,
+            "area":"pa bolzano",
+            "provincia":"pa bolzano",
+            "comune":"vipiteno bz",
+            "presidio_ospedaliero":"ospedale di vipiteno"
+        },
+        {
+            "index":178,
+            "area":"pa bolzano",
+            "provincia":"trento",
+            "comune":"revina",
+            "presidio_ospedaliero":"hub - unifarm"
+        },
+        {
+            "index":179,
+            "area":"pa trento",
+            "provincia":"pa trento",
+            "comune":"rovereto",
+            "presidio_ospedaliero":"ospedale di rovereto"
+        },
+        {
+            "index":180,
+            "area":"pa trento",
+            "provincia":"pa trento",
+            "comune":"trento",
+            "presidio_ospedaliero":"ospedale di trento"
+        },
+        {
+            "index":181,
+            "area":"piemonte",
+            "provincia":"alessandria",
+            "comune":"alessandria",
+            "presidio_ospedaliero":"aou santi antonio biagio e cesare arrigo alessandria"
+        },
+        {
+            "index":182,
+            "area":"piemonte",
+            "provincia":"alessandria",
+            "comune":"casale monferrato",
+            "presidio_ospedaliero":"asl al ospedale casale  monferrato"
+        },
+        {
+            "index":183,
+            "area":"piemonte",
+            "provincia":"alessandria",
+            "comune":"novi ligure",
+            "presidio_ospedaliero":"asl al ospedale novi ligure"
+        },
+        {
+            "index":184,
+            "area":"piemonte",
+            "provincia":"alessandria",
+            "comune":"tortona",
+            "presidio_ospedaliero":"asl al ospedale tortona"
+        },
+        {
+            "index":185,
+            "area":"piemonte",
+            "provincia":"asti",
+            "comune":"asti",
+            "presidio_ospedaliero":"asl at ospedale cardinal massaia asti"
+        },
+        {
+            "index":186,
+            "area":"piemonte",
+            "provincia":"asti",
+            "comune":"nizza monferrato",
+            "presidio_ospedaliero":"asl at ospedale nizza monferrato"
+        },
+        {
+            "index":187,
+            "area":"piemonte",
+            "provincia":"biella",
+            "comune":"ponderano",
+            "presidio_ospedaliero":"asl bi ospedale degli infermi biella"
+        },
+        {
+            "index":188,
+            "area":"piemonte",
+            "provincia":"cuneo",
+            "comune":"cuneo",
+            "presidio_ospedaliero":"ao s. croce e carle cuneo"
+        },
+        {
+            "index":189,
+            "area":"piemonte",
+            "provincia":"cuneo",
+            "comune":"mondovi\u2019",
+            "presidio_ospedaliero":"asl cn 1 ospedale mondovi\u2019"
+        },
+        {
+            "index":190,
+            "area":"piemonte",
+            "provincia":"cuneo",
+            "comune":"savigliano",
+            "presidio_ospedaliero":"asl cn 1 ospedale savigliano"
+        },
+        {
+            "index":191,
+            "area":"piemonte",
+            "provincia":"cuneo",
+            "comune":"verduno",
+            "presidio_ospedaliero":"asl cn 2 ospedale verduno"
+        },
+        {
+            "index":192,
+            "area":"piemonte",
+            "provincia":"novara",
+            "comune":"borgomanero",
+            "presidio_ospedaliero":"asl no ospedale borgomanero"
+        },
+        {
+            "index":193,
+            "area":"piemonte",
+            "provincia":"novara",
+            "comune":"novara",
+            "presidio_ospedaliero":"aou maggiore della carita\u2019 novara"
+        },
+        {
+            "index":194,
+            "area":"piemonte",
+            "provincia":"novara",
+            "comune":"novara",
+            "presidio_ospedaliero":"asl novara"
+        },
+        {
+            "index":195,
+            "area":"piemonte",
+            "provincia":"torino",
+            "comune":"chivasso",
+            "presidio_ospedaliero":"asl to 4 ospedale chivasso"
+        },
+        {
+            "index":196,
+            "area":"piemonte",
+            "provincia":"torino",
+            "comune":"cirie\u2019",
+            "presidio_ospedaliero":"asl to 4 ospedale cirie\u2019"
+        },
+        {
+            "index":197,
+            "area":"piemonte",
+            "provincia":"torino",
+            "comune":"ivrea",
+            "presidio_ospedaliero":"asl to 4 ospedale ivrea"
+        },
+        {
+            "index":198,
+            "area":"piemonte",
+            "provincia":"torino",
+            "comune":"moncalieri",
+            "presidio_ospedaliero":"asl to 5 ospedale moncalieri"
+        },
+        {
+            "index":199,
+            "area":"piemonte",
+            "provincia":"torino",
+            "comune":"orbassano",
+            "presidio_ospedaliero":"aou san luigi gonzaga  orbassano"
+        },
+        {
+            "index":200,
+            "area":"piemonte",
+            "provincia":"torino",
+            "comune":"pinerolo",
+            "presidio_ospedaliero":"asl to 3 ospedale pinerolo"
+        },
+        {
+            "index":201,
+            "area":"piemonte",
+            "provincia":"torino",
+            "comune":"rivoli",
+            "presidio_ospedaliero":"asl to 3 ospedale rivoli"
+        },
+        {
+            "index":202,
+            "area":"piemonte",
+            "provincia":"torino",
+            "comune":"torino",
+            "presidio_ospedaliero":"ao mauriziano torino"
+        },
+        {
+            "index":203,
+            "area":"piemonte",
+            "provincia":"torino",
+            "comune":"torino",
+            "presidio_ospedaliero":"aou citta\u2019 della salute e della scienza di torino"
+        },
+        {
+            "index":204,
+            "area":"piemonte",
+            "provincia":"torino",
+            "comune":"torino",
+            "presidio_ospedaliero":"asl citta\u2019 di torino ospedale san giovanni bosco\/ospedale maria vittoria"
+        },
+        {
+            "index":205,
+            "area":"piemonte",
+            "provincia":"verbano cusio ossola",
+            "comune":"domodossola",
+            "presidio_ospedaliero":"asl vco ospedale domodossola"
+        },
+        {
+            "index":206,
+            "area":"piemonte",
+            "provincia":"verbano cusio ossola",
+            "comune":"pallanza",
+            "presidio_ospedaliero":"asl vco ospedale verbania"
+        },
+        {
+            "index":207,
+            "area":"piemonte",
+            "provincia":"vercelli",
+            "comune":"borgosesia",
+            "presidio_ospedaliero":"asl vc ospedale borgosesia"
+        },
+        {
+            "index":208,
+            "area":"piemonte",
+            "provincia":"vercelli",
+            "comune":"vercelli",
+            "presidio_ospedaliero":"asl vc ospedale s. andrea vercelli"
+        },
+        {
+            "index":209,
+            "area":"puglia",
+            "provincia":"bari",
+            "comune":"acquaviva delle fonti",
+            "presidio_ospedaliero":"irccs miulli"
+        },
+        {
+            "index":210,
+            "area":"puglia",
+            "provincia":"bari",
+            "comune":"bari",
+            "presidio_ospedaliero":"consorziale policlinico"
+        },
+        {
+            "index":211,
+            "area":"puglia",
+            "provincia":"bari",
+            "comune":"bari",
+            "presidio_ospedaliero":"irccs giovanni paolo ii"
+        },
+        {
+            "index":212,
+            "area":"puglia",
+            "provincia":"bari",
+            "comune":"castellana grotte",
+            "presidio_ospedaliero":"irccs de bellis"
+        },
+        {
+            "index":213,
+            "area":"puglia",
+            "provincia":"barletta andria trani",
+            "comune":"barletta",
+            "presidio_ospedaliero":"dimiccoli (barletta)"
+        },
+        {
+            "index":214,
+            "area":"puglia",
+            "provincia":"brindisi",
+            "comune":"brindisi",
+            "presidio_ospedaliero":"ospedale di summa perrino"
+        },
+        {
+            "index":215,
+            "area":"puglia",
+            "provincia":"foggia",
+            "comune":"foggia",
+            "presidio_ospedaliero":"ospedali riuniti"
+        },
+        {
+            "index":216,
+            "area":"puglia",
+            "provincia":"foggia",
+            "comune":"san giovanni rotondo",
+            "presidio_ospedaliero":"irccs casa sollievo sofferenza"
+        },
+        {
+            "index":217,
+            "area":"puglia",
+            "provincia":"lecce",
+            "comune":"lecce",
+            "presidio_ospedaliero":"ospedale vito fazzi"
+        },
+        {
+            "index":218,
+            "area":"puglia",
+            "provincia":"lecce",
+            "comune":"tricase",
+            "presidio_ospedaliero":"irccs card. g. panico"
+        },
+        {
+            "index":219,
+            "area":"puglia",
+            "provincia":"taranto",
+            "comune":"statte",
+            "presidio_ospedaliero":"ospedale san giuseppe moscati"
+        },
+        {
+            "index":220,
+            "area":"sardegna",
+            "provincia":"cagliari",
+            "comune":"cagliari",
+            "presidio_ospedaliero":"a. businco - arnas g brotzu"
+        },
+        {
+            "index":221,
+            "area":"sardegna",
+            "provincia":"cagliari",
+            "comune":"cagliari",
+            "presidio_ospedaliero":"po binaghi"
+        },
+        {
+            "index":222,
+            "area":"sardegna",
+            "provincia":"cagliari",
+            "comune":"cagliari",
+            "presidio_ospedaliero":"san michele - arnas g brotzu"
+        },
+        {
+            "index":223,
+            "area":"sardegna",
+            "provincia":"cagliari",
+            "comune":"monserrato",
+            "presidio_ospedaliero":"aou cagliari policlinico duilio casula"
+        },
+        {
+            "index":224,
+            "area":"sardegna",
+            "provincia":"carbonia iglesias",
+            "comune":"carbonia",
+            "presidio_ospedaliero":"po sirai"
+        },
+        {
+            "index":225,
+            "area":"sardegna",
+            "provincia":"medio campidano",
+            "comune":"san gavino monreale",
+            "presidio_ospedaliero":"po ns di bonaria"
+        },
+        {
+            "index":226,
+            "area":"sardegna",
+            "provincia":"nuoro",
+            "comune":"nuoro",
+            "presidio_ospedaliero":"po san francesco"
+        },
+        {
+            "index":227,
+            "area":"sardegna",
+            "provincia":"ogliastra",
+            "comune":"lanusei",
+            "presidio_ospedaliero":"po nostra signora della mercede"
+        },
+        {
+            "index":228,
+            "area":"sardegna",
+            "provincia":"olbia tempio",
+            "comune":"olbia",
+            "presidio_ospedaliero":"po giovanni paolo ii"
+        },
+        {
+            "index":229,
+            "area":"sardegna",
+            "provincia":"oristano",
+            "comune":"oristano",
+            "presidio_ospedaliero":"po san martino"
+        },
+        {
+            "index":230,
+            "area":"sardegna",
+            "provincia":"sassari",
+            "comune":"ozieri",
+            "presidio_ospedaliero":"po antonio segni"
+        },
+        {
+            "index":231,
+            "area":"sardegna",
+            "provincia":"sassari",
+            "comune":"sassari",
+            "presidio_ospedaliero":"aou di sassari"
+        },
+        {
+            "index":232,
+            "area":"sicilia",
+            "provincia":"agrigento",
+            "comune":"agrigento",
+            "presidio_ospedaliero":"p.o. \u201cs. giovanni di dio\u201d di agrigento"
+        },
+        {
+            "index":233,
+            "area":"sicilia",
+            "provincia":"agrigento",
+            "comune":"canicatti\u00ec",
+            "presidio_ospedaliero":"p.o. \"barone lombardo\" di canicatt\u00ec"
+        },
+        {
+            "index":234,
+            "area":"sicilia",
+            "provincia":"agrigento",
+            "comune":"licata",
+            "presidio_ospedaliero":"p.o. \"san giacomo d'altopasso\" di licata"
+        },
+        {
+            "index":235,
+            "area":"sicilia",
+            "provincia":"agrigento",
+            "comune":"ribera",
+            "presidio_ospedaliero":"p.o. \"f.lli parlapiano\" di ribera"
+        },
+        {
+            "index":236,
+            "area":"sicilia",
+            "provincia":"agrigento",
+            "comune":"sciacca",
+            "presidio_ospedaliero":"p.o. \u201cospedali civili riuniti\u201d di sciacca"
+        },
+        {
+            "index":237,
+            "area":"sicilia",
+            "provincia":"caltanissetta",
+            "comune":"caltanissetta",
+            "presidio_ospedaliero":"p.o. \u201cs. elia\u201d di caltanissetta"
+        },
+        {
+            "index":238,
+            "area":"sicilia",
+            "provincia":"catania",
+            "comune":"caltagirone",
+            "presidio_ospedaliero":"p.o. gravina di caltagirone asp ct"
+        },
+        {
+            "index":239,
+            "area":"sicilia",
+            "provincia":"catania",
+            "comune":"catania",
+            "presidio_ospedaliero":"a.o. per l'emergenza \"cannizzaro\" \u2013 catania"
+        },
+        {
+            "index":240,
+            "area":"sicilia",
+            "provincia":"catania",
+            "comune":"catania",
+            "presidio_ospedaliero":"a.o. universitaria policlinico di catania \"s. marco\""
+        },
+        {
+            "index":241,
+            "area":"sicilia",
+            "provincia":"catania",
+            "comune":"catania",
+            "presidio_ospedaliero":"nuovo ospedale garibaldi - nesima \u2013 ospedale garibaldi \u2013 centro"
+        },
+        {
+            "index":242,
+            "area":"sicilia",
+            "provincia":"catania",
+            "comune":"catania",
+            "presidio_ospedaliero":"p.o. gasapare rodolico"
+        },
+        {
+            "index":243,
+            "area":"sicilia",
+            "provincia":"enna",
+            "comune":"enna",
+            "presidio_ospedaliero":"p.o. \u201cumberto i\u201d \u2013 enna"
+        },
+        {
+            "index":244,
+            "area":"sicilia",
+            "provincia":"enna",
+            "comune":"troina",
+            "presidio_ospedaliero":"irccs oasi maria ss."
+        },
+        {
+            "index":245,
+            "area":"sicilia",
+            "provincia":"messina",
+            "comune":"messina",
+            "presidio_ospedaliero":"auop g. martino"
+        },
+        {
+            "index":246,
+            "area":"sicilia",
+            "provincia":"messina",
+            "comune":"messina",
+            "presidio_ospedaliero":"irccs centro neurolesi 2 \u2013 bonino pulejo \u2013 p.o. casazza"
+        },
+        {
+            "index":247,
+            "area":"sicilia",
+            "provincia":"messina",
+            "comune":"messina",
+            "presidio_ospedaliero":"irccs centro neurolesi 2 \u2013 bonino pulejo \u2013 p.o. piemonte"
+        },
+        {
+            "index":248,
+            "area":"sicilia",
+            "provincia":"messina",
+            "comune":"messina",
+            "presidio_ospedaliero":"p.o. papardo messina"
+        },
+        {
+            "index":249,
+            "area":"sicilia",
+            "provincia":"messina",
+            "comune":"patti",
+            "presidio_ospedaliero":"p.o. patti"
+        },
+        {
+            "index":250,
+            "area":"sicilia",
+            "provincia":"messina",
+            "comune":"taormina",
+            "presidio_ospedaliero":"p.o. taormina"
+        },
+        {
+            "index":251,
+            "area":"sicilia",
+            "provincia":"palermo",
+            "comune":null,
+            "presidio_ospedaliero":"p.o. \u201cdei bianchi\u201d \u2013 corleone"
+        },
+        {
+            "index":252,
+            "area":"sicilia",
+            "provincia":"palermo",
+            "comune":null,
+            "presidio_ospedaliero":"p.o. \u201cg. f. ingrassia\u201d \/villa delle ginestre"
+        },
+        {
+            "index":253,
+            "area":"sicilia",
+            "provincia":"palermo",
+            "comune":null,
+            "presidio_ospedaliero":"p.o. partinico"
+        },
+        {
+            "index":254,
+            "area":"sicilia",
+            "provincia":"palermo",
+            "comune":"palermo",
+            "presidio_ospedaliero":"a.o.o.r. villa sofia \u2013 cervello p.o. cto"
+        },
+        {
+            "index":255,
+            "area":"sicilia",
+            "provincia":"palermo",
+            "comune":"palermo",
+            "presidio_ospedaliero":"a.u.o.p. palermo"
+        },
+        {
+            "index":256,
+            "area":"sicilia",
+            "provincia":"palermo",
+            "comune":"palermo",
+            "presidio_ospedaliero":"ismett"
+        },
+        {
+            "index":257,
+            "area":"sicilia",
+            "provincia":"palermo",
+            "comune":"palermo",
+            "presidio_ospedaliero":"p.o. arnas civico pa"
+        },
+        {
+            "index":258,
+            "area":"sicilia",
+            "provincia":"palermo",
+            "comune":"petralia sottana",
+            "presidio_ospedaliero":"p.o. madonna dell\u2019alto \u2013 petralia sottana"
+        },
+        {
+            "index":259,
+            "area":"sicilia",
+            "provincia":"palermo",
+            "comune":"termini imerese",
+            "presidio_ospedaliero":"p.o. s.cimino termini imerese"
+        },
+        {
+            "index":260,
+            "area":"sicilia",
+            "provincia":"ragusa",
+            "comune":"ragusa",
+            "presidio_ospedaliero":"dea i livello ragusa (simt)\\giovanni paolo ii"
+        },
+        {
+            "index":261,
+            "area":"sicilia",
+            "provincia":"ragusa",
+            "comune":"ragusa",
+            "presidio_ospedaliero":"p.o. \u201cbusacca\u201d di scicli"
+        },
+        {
+            "index":262,
+            "area":"sicilia",
+            "provincia":"ragusa",
+            "comune":"ragusa",
+            "presidio_ospedaliero":"p.o. \u201cguzzardi\u201d di vittoria"
+        },
+        {
+            "index":263,
+            "area":"sicilia",
+            "provincia":"ragusa",
+            "comune":"ragusa",
+            "presidio_ospedaliero":"p.o. \u201cmaggiore\u201d di modica"
+        },
+        {
+            "index":264,
+            "area":"sicilia",
+            "provincia":"ragusa",
+            "comune":"ragusa",
+            "presidio_ospedaliero":"p.o. \u201cr. margherita\u201d di comiso"
+        },
+        {
+            "index":265,
+            "area":"sicilia",
+            "provincia":"siracusa",
+            "comune":null,
+            "presidio_ospedaliero":"p.o. \u201cumberto i\u201d \u2013 siracusa"
+        },
+        {
+            "index":266,
+            "area":"sicilia",
+            "provincia":"trapani",
+            "comune":"casa santa",
+            "presidio_ospedaliero":"\u201cs. antonio abate\u201d di trapani"
+        },
+        {
+            "index":267,
+            "area":"sicilia",
+            "provincia":"trapani",
+            "comune":"mazara del vallo",
+            "presidio_ospedaliero":"p.o. \"abele ajello\" - mazara del vallo"
+        },
+        {
+            "index":268,
+            "area":"toscana",
+            "provincia":"arezzo",
+            "comune":"arezzo",
+            "presidio_ospedaliero":"ospedale s. donato"
+        },
+        {
+            "index":269,
+            "area":"toscana",
+            "provincia":"firenze",
+            "comune":"empoli",
+            "presidio_ospedaliero":"ospedale san giuseppe"
+        },
+        {
+            "index":270,
+            "area":"toscana",
+            "provincia":"firenze",
+            "comune":"firenze",
+            "presidio_ospedaliero":"aou careggi"
+        },
+        {
+            "index":271,
+            "area":"toscana",
+            "provincia":"firenze",
+            "comune":"firenze",
+            "presidio_ospedaliero":"ospedale nuovo s.giovanni di dio"
+        },
+        {
+            "index":272,
+            "area":"toscana",
+            "provincia":"grosseto",
+            "comune":"grosseto",
+            "presidio_ospedaliero":"ospedale della misericordia"
+        },
+        {
+            "index":273,
+            "area":"toscana",
+            "provincia":"livorno",
+            "comune":"livorno",
+            "presidio_ospedaliero":"ospedale livorno"
+        },
+        {
+            "index":274,
+            "area":"toscana",
+            "provincia":"lucca",
+            "comune":"lucca",
+            "presidio_ospedaliero":"presidio ospedaliero san luca"
+        },
+        {
+            "index":275,
+            "area":"toscana",
+            "provincia":"massa-carrara",
+            "comune":"massa",
+            "presidio_ospedaliero":"ospedale  delle apuane"
+        },
+        {
+            "index":276,
+            "area":"toscana",
+            "provincia":"pisa",
+            "comune":"pisa",
+            "presidio_ospedaliero":"aou pisana"
+        },
+        {
+            "index":277,
+            "area":"toscana",
+            "provincia":"pistoia",
+            "comune":"pistoia",
+            "presidio_ospedaliero":"ospedale san iacopo"
+        },
+        {
+            "index":278,
+            "area":"toscana",
+            "provincia":"prato",
+            "comune":"prato",
+            "presidio_ospedaliero":"ospedale santo stefano"
+        },
+        {
+            "index":279,
+            "area":"toscana",
+            "provincia":"siena",
+            "comune":"siena",
+            "presidio_ospedaliero":"aou senese"
+        },
+        {
+            "index":280,
+            "area":"umbria",
+            "provincia":"perugia",
+            "comune":"citt\u00e0 di castello",
+            "presidio_ospedaliero":"ospedale di citta' di castello"
+        },
+        {
+            "index":281,
+            "area":"umbria",
+            "provincia":"perugia",
+            "comune":"foligno",
+            "presidio_ospedaliero":"ospedale di foligno"
+        },
+        {
+            "index":282,
+            "area":"umbria",
+            "provincia":"perugia",
+            "comune":"perugia",
+            "presidio_ospedaliero":"azienda ospedaliera di perugia"
+        },
+        {
+            "index":283,
+            "area":"umbria",
+            "provincia":"terni",
+            "comune":"terni",
+            "presidio_ospedaliero":"azienda ospedaliera di terni"
+        },
+        {
+            "index":284,
+            "area":"valle d'aosta",
+            "provincia":"aosta",
+            "comune":"aosta",
+            "presidio_ospedaliero":"ospedale umberto parini"
+        },
+        {
+            "index":285,
+            "area":"valle d'aosta",
+            "provincia":"aosta",
+            "comune":"aosta",
+            "presidio_ospedaliero":"ospedale umberto parini - hub"
+        },
+        {
+            "index":286,
+            "area":"veneto",
+            "provincia":"belluno",
+            "comune":"belluno",
+            "presidio_ospedaliero":"ospedale s. martino belluno"
+        },
+        {
+            "index":287,
+            "area":"veneto",
+            "provincia":"padova",
+            "comune":"padova",
+            "presidio_ospedaliero":"azienda ospedale universita' padova"
+        },
+        {
+            "index":288,
+            "area":"veneto",
+            "provincia":"rovigo",
+            "comune":"rovigo",
+            "presidio_ospedaliero":"ospedale \"santa maria della misericordia\""
+        },
+        {
+            "index":289,
+            "area":"veneto",
+            "provincia":"treviso",
+            "comune":"vittorio veneto",
+            "presidio_ospedaliero":"ospedale di vittorio veneto"
+        },
+        {
+            "index":290,
+            "area":"veneto",
+            "provincia":"venezia",
+            "comune":"venezia mestre",
+            "presidio_ospedaliero":"ospedale dell'angelo"
+        },
+        {
+            "index":291,
+            "area":"veneto",
+            "provincia":"verona",
+            "comune":"verona",
+            "presidio_ospedaliero":"azienda ospedaliera universitaria integrata di verona"
+        },
+        {
+            "index":292,
+            "area":"veneto",
+            "provincia":"vicenza",
+            "comune":"vicenza",
+            "presidio_ospedaliero":"ospedale di vicenza"
+        }
+    ]
+}

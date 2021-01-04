@@ -35,10 +35,10 @@
         {
             "index":0,
             "area":"ABR",
-            "dosi_somministrate":1156,
+            "dosi_somministrate":1342,
             "dosi_consegnate":7935,
-            "percentuale_somministrazione":14.6,
-            "data":"2021-01-04T00:53:19.730Z"
+            "percentuale_somministrazione":16.9,
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":1,
@@ -46,7 +46,7 @@
             "dosi_somministrate":1864,
             "dosi_consegnate":4980,
             "percentuale_somministrazione":37.4,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":2,
@@ -54,7 +54,7 @@
             "dosi_somministrate":453,
             "dosi_consegnate":12955,
             "percentuale_somministrazione":3.5,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":3,
@@ -62,7 +62,7 @@
             "dosi_somministrate":10745,
             "dosi_consegnate":33870,
             "percentuale_somministrazione":31.7,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":4,
@@ -70,7 +70,7 @@
             "dosi_somministrate":8254,
             "dosi_consegnate":43875,
             "percentuale_somministrazione":18.8,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":5,
@@ -78,23 +78,23 @@
             "dosi_somministrate":3471,
             "dosi_consegnate":11965,
             "percentuale_somministrazione":29.0,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":6,
             "area":"LAZ",
-            "dosi_somministrate":22314,
+            "dosi_somministrate":22344,
             "dosi_consegnate":45805,
-            "percentuale_somministrazione":48.7,
-            "data":"2021-01-04T00:53:19.730Z"
+            "percentuale_somministrazione":48.8,
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":7,
             "area":"LIG",
-            "dosi_somministrate":2582,
+            "dosi_somministrate":2766,
             "dosi_consegnate":15920,
-            "percentuale_somministrazione":16.2,
-            "data":"2021-01-04T00:53:19.730Z"
+            "percentuale_somministrazione":17.4,
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":8,
@@ -102,7 +102,7 @@
             "dosi_somministrate":3126,
             "dosi_consegnate":80595,
             "percentuale_somministrazione":3.9,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":9,
@@ -110,7 +110,7 @@
             "dosi_somministrate":1727,
             "dosi_consegnate":8975,
             "percentuale_somministrazione":19.2,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":10,
@@ -118,7 +118,7 @@
             "dosi_somministrate":50,
             "dosi_consegnate":2975,
             "percentuale_somministrazione":1.7,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":11,
@@ -126,23 +126,23 @@
             "dosi_somministrate":1037,
             "dosi_consegnate":5995,
             "percentuale_somministrazione":17.3,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":12,
             "area":"PAT",
-            "dosi_somministrate":2726,
+            "dosi_somministrate":2768,
             "dosi_consegnate":4975,
-            "percentuale_somministrazione":54.8,
-            "data":"2021-01-04T00:53:19.730Z"
+            "percentuale_somministrazione":55.6,
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":13,
             "area":"PIE",
-            "dosi_somministrate":12604,
+            "dosi_somministrate":12722,
             "dosi_consegnate":40885,
-            "percentuale_somministrazione":30.8,
-            "data":"2021-01-04T00:53:19.730Z"
+            "percentuale_somministrazione":31.1,
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":14,
@@ -150,7 +150,7 @@
             "dosi_somministrate":6802,
             "dosi_consegnate":25855,
             "percentuale_somministrazione":26.3,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":15,
@@ -158,7 +158,7 @@
             "dosi_somministrate":392,
             "dosi_consegnate":12855,
             "percentuale_somministrazione":3.0,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":16,
@@ -166,7 +166,7 @@
             "dosi_somministrate":11636,
             "dosi_consegnate":46510,
             "percentuale_somministrazione":25.0,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":17,
@@ -174,7 +174,7 @@
             "dosi_somministrate":10545,
             "dosi_consegnate":27920,
             "percentuale_somministrazione":37.8,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":18,
@@ -182,7 +182,7 @@
             "dosi_somministrate":1250,
             "dosi_consegnate":4960,
             "percentuale_somministrazione":25.2,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":19,
@@ -190,15 +190,15 @@
             "dosi_somministrate":44,
             "dosi_consegnate":995,
             "percentuale_somministrazione":4.4,
-            "data":"2021-01-04T00:53:19.730Z"
+            "data":"2021-01-04T00:00:00.000Z"
         },
         {
             "index":20,
             "area":"VEN",
-            "dosi_somministrate":15767,
+            "dosi_somministrate":15776,
             "dosi_consegnate":38900,
-            "percentuale_somministrazione":40.5,
-            "data":"2021-01-04T00:53:19.730Z"
+            "percentuale_somministrazione":40.6,
+            "data":"2021-01-04T00:00:00.000Z"
         }
     ]
 }
