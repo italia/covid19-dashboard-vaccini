@@ -7,6 +7,7 @@ import { Table } from "./components/Table";
 import { Total } from "./components/Total";
 import { loadData } from "./loadData";
 import "./App.css";
+import { BarChart } from "./components/BarChart";
 
 function App() {
   const [summary, setSummary] = useState({});
@@ -48,9 +49,7 @@ function App() {
           text="Le somministrazioni delle 469.950 dosi di vaccino su tutto il territorio sono iniziate il 31 dicembre"
         />
       </div>
-      <div
-        className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3"
-      >
+      <div className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3">
         <Table
           summary={{ ...summary }}
           selected={selected}
@@ -60,6 +59,16 @@ function App() {
           summary={{ ...summary }}
           handleCountryClick={handleCountryClick}
           className="ml-5 w-100 h-100"
+        />
+      </div>
+      <div className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3">
+        <BarChart
+          title=""
+          xtitle="Fascia d'età"
+          ytitle=""
+          width="800"
+          height="300"
+          data={summary.categoriesAndAges}
         />
       </div>
       <FooterBar />

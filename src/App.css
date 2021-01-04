@@ -54,10 +54,12 @@ body {
   border-bottom: black 1px solid;
 }
 
-.table td:first-child, .table th:first-child {
+.table td:first-child,
+.table th:first-child {
   border-right: black 1px solid;
 }
-.table td, .table th {
+.table td,
+.table th {
   padding: 5px !important;
   font-size: 14px;
 }
@@ -196,4 +198,37 @@ ul.footer_links {
 
 ul.footer_links li {
     display: inline;
+}
+
+/*
+ * BarChart
+ *
+ */
+.grid-hline .tick line,
+.grid-hline .domain {
+  stroke: #3333330f;
+}
+.title {
+  font-size: 20px;
+  text-anchor: middle;
+  fill: #333;
+}
+.bar {
+  fill: #06c;
+  stroke: #06f;
+}
+.axis .tick line {
+  stroke: #333;
+}
+.axis .tick text {
+  fill: #333;
+}
+.axis .domain {
+  stroke: #333;
+}
+
+.line {
+  fill: none;
+  stroke: #333;
+  stroke-width: 3;
 }

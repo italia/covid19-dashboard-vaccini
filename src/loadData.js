@@ -5,13 +5,20 @@ const sommVaxDetailURL = "data/somministrazioni-vaccini-latest.json";
 const deliveryVaxDetailURL = "data/consegne-vaccini-latest.json";
 const vaxSummaryURL = "data/vaccini-summary-latest.json";
 
+const anagraficaSummaryURL = "data/anagrafica-vaccini-summary-latest.json";
+const puntiSommSummaryURL = "data/punti-somministrazione-latest.json";
+
 const elaborate = (data) => {
   console.log(data);
   const timestamp = data.dataDeliveryVaxDetail.data.slice(0, 1)[0].data;
   const tot = data.dataSommVaxSummary.data
     .filter(filterByAreaITA)
     .reduce(sumDoseX("totale"), 0);
+  // datatable and map
   const deliverySummary = data.dataVaxSummary.data.map(replaceArea);
+
+  // categories and ages summary
+  const categoriesAndAges = data.dataProfileSummary.data;
   //   //   const tot2 = data.reduce(sumDoseXY("TML_DOSE_1", "TML_DOSE_2"), 0);
   //   const areasRAW = data.reduce(aggrBy("TML_AREA"), {});
   //   const tot_m = data.reduce(sumDoseX("TML_SESSO_M"), 0);
@@ -32,7 +39,8 @@ const elaborate = (data) => {
   //     totfascia2029,
   //   };
   //   console.log(sum);
-  return { timestamp, tot, deliverySummary };
+  console.log(categoriesAndAges);
+  return { timestamp, tot, deliverySummary, categoriesAndAges };
 };
 
 export const loadData = async () => {
@@ -40,16 +48,22 @@ export const loadData = async () => {
   const resSommVaxDetail = await fetch(sommVaxDetailURL);
   const resDeliveryVaxDetail = await fetch(deliveryVaxDetailURL);
   const resVaxSummary = await fetch(vaxSummaryURL);
+  const resProfileSummaryURL = await fetch(anagraficaSummaryURL);
+  const resPointsSommSummaryURL = await fetch(puntiSommSummaryURL);
 
   const dataSommVaxSummary = await resSommVaxSummary.json();
   const dataSommVaxDetail = await resSommVaxDetail.json();
   const dataDeliveryVaxDetail = await resDeliveryVaxDetail.json();
   const dataVaxSummary = await resVaxSummary.json();
+  const dataProfileSummary = await resProfileSummaryURL.json();
+  const dataPointsSommSummary = await resPointsSommSummaryURL.json();
 
   return elaborate({
     dataSommVaxSummary,
     dataSommVaxDetail,
     dataDeliveryVaxDetail,
     dataVaxSummary,
+    dataProfileSummary,
+    dataPointsSommSummary,
   });
 };
