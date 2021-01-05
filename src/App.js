@@ -10,11 +10,13 @@ import { loadData } from "./loadData";
 import "./App.css";
 import { BarChart } from "./components/BarChart";
 import { HBarChart } from "./components/HBarChart";
+import { areaMappingReverse } from "./utils";
 
 function App() {
   const [summary, setSummary] = useState({});
   const [selected, setSelected] = useState({});
   const [selectedLocation, setSelectedLocation] = useState({});
+  const [selectedCategory, setSelectedCategory] = useState({});
 
   const handleCountryClick = (countryIndex) => {
     setSelected({ ...summary.deliverySummary[countryIndex] });
@@ -22,6 +24,16 @@ function App() {
 
   const handleCountryClickLocations = (countryIndex) => {
     setSelectedLocation({ ...summary.deliverySummary[countryIndex] });
+  };
+
+  const handleCountryClickCategories = (countryIndex) => {
+    const area = summary.deliverySummary[countryIndex]?.area;
+    const areaCode = areaMappingReverse[area];
+    const data = summary.categoriesByRegions[areaCode];
+    summary.categories = data; //need to be pure
+    setSummary(summary);
+    console.log(countryIndex, area, areaMappingReverse[area], data);
+    setSelectedCategory({ ...summary.deliverySummary[countryIndex] });
   };
 
   useEffect(() => {
@@ -93,7 +105,7 @@ function App() {
         />
         <MapArea
           summary={{ ...summary }}
-          handleCountryClick={handleCountryClick}
+          handleCountryClick={handleCountryClickCategories}
           className="ml-5 w-100 h-100"
         />
       </div>

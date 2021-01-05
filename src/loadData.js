@@ -1,4 +1,10 @@
-import { sumDoseX, filterByAreaITA, replaceArea } from "./utils";
+import {
+  sumDoseX,
+  filterByAreaITA,
+  replaceArea,
+  aggrBy,
+  mapByX,
+} from "./utils";
 
 const sommVaxSummaryURL = "data/somministrazioni-vaccini-summary-latest.json";
 const sommVaxDetailURL = "data/somministrazioni-vaccini-latest.json";
@@ -22,6 +28,7 @@ const elaborate = (data) => {
   const categories = [
     {
       name: "Categoria OSS",
+      code: "cat_oss",
       total: categoriesAndAges.reduce(
         sumDoseX("categoria_operatori_sanitari_sociosanitari"),
         0
@@ -29,16 +36,53 @@ const elaborate = (data) => {
     },
     {
       name: "Categoria Ospiti RSA",
+      code: "cat_rsa",
       total: categoriesAndAges.reduce(sumDoseX("categoria_ospiti_rsa"), 0),
     },
     {
       name: "Categoria Personale non sanitario",
+      code: "cat_pns",
       total: categoriesAndAges.reduce(
         sumDoseX("categoria_personale_non_sanitario"),
         0
       ),
     },
   ];
+  const categoriesByRegionRAW = data.dataSommVaxSummary.data.reduce(
+    aggrBy("area"),
+    {}
+  );
+  let categoriesByRegions = {};
+  Object.keys(categoriesByRegionRAW).map((x) => {
+    categoriesByRegions[x] = [
+      {
+        name: "Categoria OSS",
+        code: "cat_oss",
+        total: categoriesByRegionRAW[x].reduce(
+          sumDoseX("categoria_operatori_sanitari_sociosanitari"),
+          0
+        ),
+      },
+      {
+        name: "Categoria Ospiti RSA",
+        code: "cat_rsa",
+        total: categoriesByRegionRAW[x].reduce(
+          sumDoseX("categoria_ospiti_rsa"),
+          0
+        ),
+      },
+      {
+        name: "Categoria Personale non sanitario",
+        code: "cat_pns",
+        total: categoriesByRegionRAW[x].reduce(
+          sumDoseX("categoria_personale_non_sanitario"),
+          0
+        ),
+      },
+    ];
+    return categoriesByRegions;
+  });
+
   const gender = {
     gen_m: categoriesAndAges.reduce(sumDoseX("sesso_maschile"), 0),
     gen_f: categoriesAndAges.reduce(sumDoseX("sesso_femminile"), 0),
@@ -51,6 +95,7 @@ const elaborate = (data) => {
     deliverySummary,
     categoriesAndAges,
     categories,
+    categoriesByRegions,
     gender,
   };
   console.log(aggr);

@@ -7,9 +7,10 @@ export const HBarChart = (props) => {
   const width = +props.width, //hack to get int
     height = +props.height;
   const myRef = useRef();
+  const divRef = useRef();
 
   useEffect(() => {
-    d3.select(myRef.current).attr("width", width).attr("height", height);
+    doExit(props.data);
     draw();
   });
 
@@ -39,10 +40,21 @@ export const HBarChart = (props) => {
     }
   };
 
+  function doExit(data) {
+    d3.select(divRef.current).selectAll("svg").remove();
+  }
+
   const draw = () => {
+    console.log("draw called");
     const data = props?.data || [];
     const maxScale = data.reduce(maxX(props.property.yprop), 0);
-    const svg = d3.select(myRef.current);
+
+    // append element
+    const svg = d3
+      .select(divRef.current)
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
     const margin = { y: 80, x: 50 };
 
     // Add X axis
@@ -103,9 +115,9 @@ export const HBarChart = (props) => {
       .attr("class", "grid-hline")
       .call(d3.axisLeft().scale(yScale).tickSize(-width, 0, 0).tickFormat(""));
 
-    chart
-      .selectAll()
-      .data(data)
+    const path = chart.selectAll().data(data);
+
+    path
       .enter()
       .append("rect")
       .attr("class", "bar")
@@ -121,9 +133,7 @@ export const HBarChart = (props) => {
           `Fascia ${d[props.property.xprop]} totale: ${d[props.property.yprop]}`
       );
 
-    chart
-      .selectAll(".bartext")
-      .data(data)
+    path
       .enter()
       .append("text")
       .attr("class", "bartext")
@@ -136,11 +146,13 @@ export const HBarChart = (props) => {
           : yScale(d[props.property.xprop])
       )
       .text((d) => `${d[props.property.yprop]}`);
+
+    path.exit().remove();
   };
 
   return (
-    <div className="chart svg-container">
-      <svg ref={myRef} className="svg-content-responsive"></svg>
+    <div ref={divRef} className="chart svg-container">
+      <svg ref={myRef} id="content" className="svg-content-responsive"></svg>
     </div>
   );
 };

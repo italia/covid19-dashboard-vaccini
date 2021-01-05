@@ -1,7 +1,7 @@
 export const sumDose = (acc, x) => acc + +x?.TML_DOSE_1 + +x?.TML_DOSE_2;
 export const sumDoseXY = (y, z) => (acc, x) => acc + +x?.[y] + +x?.[z];
 export const sumDoseX = (y) => (acc, x) => acc + +x?.[y];
-export const maxX = (y) => (acc, x) => (x?.[y] > acc ? x?.[y]: acc);
+export const maxX = (y) => (acc, x) => (x?.[y] > acc ? x?.[y] : acc);
 export const aggrBy = (p) => (acc, x) => {
   let key = x[p];
   if (!acc[key]) {
@@ -20,7 +20,18 @@ export const mapBy = (y) =>
   Object.keys(y).map((x) => {
     return { [x]: { sum: y[x].reduce(sumDose, 0) } };
   });
-export const replaceArea = (x) => ({ ...x, area: areaMapping[x.area]});
+export const mapByX = (y, z) =>
+  Object.keys(y).map((x) => {
+    return { [x]: y[x].reduce(sumDoseX(z), 0) };
+  });
+const inverse = (obj) => {
+  let retobj = {};
+  for (const key in obj) {
+    retobj[obj[key]] = key;
+  }
+  return retobj;
+};
+export const replaceArea = (x) => ({ ...x, area: areaMapping[x.area] });
 export const areaMapping = {
   ABR: "Abruzzo",
   BAS: "Basilicata",
@@ -44,6 +55,7 @@ export const areaMapping = {
   VDA: "Valle d'Aosta/Vallée d'Aoste",
   VEN: "Veneto",
 };
+export const areaMappingReverse = inverse(areaMapping);
 
 //
 //   const tot2 = data.reduce(sumDoseXY("TML_DOSE_1", "TML_DOSE_2"), 0);
