@@ -1,13 +1,13 @@
 import { sumDoseX, filterByAreaITA, replaceArea } from "./utils";
 
-const sommVaxSummaryURL = "data/somministrazioni-vaccini-summary-latest.json";
-const sommVaxDetailURL = "data/somministrazioni-vaccini-latest.json";
-const deliveryVaxDetailURL = "data/consegne-vaccini-latest.json";
-const vaxSummaryURL = "data/vaccini-summary-latest.json";
-const vaxLocationsURL = "data/punti-somministrazione-latest.json";
+export const sommVaxSummaryURL = "data/somministrazioni-vaccini-summary-latest.json";
+export const sommVaxDetailURL = "data/somministrazioni-vaccini-latest.json";
+export const deliveryVaxDetailURL = "data/consegne-vaccini-latest.json";
+export const vaxSummaryURL = "data/vaccini-summary-latest.json";
+export const vaxLocationsURL = "data/punti-somministrazione-latest.json";
 
-const anagraficaSummaryURL = "data/anagrafica-vaccini-summary-latest.json";
-const puntiSommSummaryURL = "data/punti-somministrazione-latest.json";
+export const anagraficaSummaryURL = "data/anagrafica-vaccini-summary-latest.json";
+export const puntiSommSummaryURL = "data/punti-somministrazione-latest.json";
 
 const elaborate = (data) => {
   console.log(data);

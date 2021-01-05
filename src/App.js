@@ -6,7 +6,16 @@ import { StaticBlock } from "./components/StaticBlock";
 import { LocationsTable } from "./components/LocationsTable";
 import { Table } from "./components/Table";
 import { Total } from "./components/Total";
-import { loadData } from "./loadData";
+import {
+  loadData,
+  sommVaxSummaryURL,
+  // sommVaxDetailURL,
+  // deliveryVaxDetailURL,
+  // vaxSummaryURL,
+  // vaxLocationsURL,
+  // anagraficaSummaryURL,
+  // puntiSommSummaryURL
+} from "./loadData";
 import "./App.css";
 import { BarChart } from "./components/BarChart";
 import { HBarChart } from "./components/HBarChart";
@@ -68,6 +77,15 @@ function App() {
           className="ml-5 w-100 h-100"
         />
       </div>
+      <p className="text-center text-muted small">
+        Fonte: <a
+          href={`https://github.com/italia/covid19-dashboard-vaccini/tree/main/${sommVaxSummaryURL}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          https://github.com/italia/covid19-dashboard-vaccini/tree/main/{ sommVaxSummaryURL }
+        </a>
+      </p>
 
       <div className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3">
         <BarChart
@@ -79,6 +97,15 @@ function App() {
           data={summary.categoriesAndAges}
         />
       </div>
+      <p className="text-center text-muted small">
+        Fonte: <a
+          href={`https://github.com/italia/covid19-dashboard-vaccini/tree/main/${sommVaxSummaryURL}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          https://github.com/italia/covid19-dashboard-vaccini/tree/main/{ sommVaxSummaryURL }
+        </a>
+      </p>
 
       <h4 className="text-center mt-5">Vaccinazioni per categoria</h4>
       <div className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3">
@@ -97,6 +124,15 @@ function App() {
           className="ml-5 w-100 h-100"
         />
       </div>
+      <p className="text-center text-muted small">
+        Fonte: <a
+          href={`https://github.com/italia/covid19-dashboard-vaccini/tree/main/${sommVaxSummaryURL}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          https://github.com/italia/covid19-dashboard-vaccini/tree/main/{ sommVaxSummaryURL }
+        </a>
+      </p>
 
       <h4 className="text-center mt-5">Punti di somministrazione</h4>
       <div className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3">
@@ -111,6 +147,16 @@ function App() {
           className="ml-5 w-100 h-100"
         />
       </div>
+      <p className="text-center text-muted small">
+        Fonte: <a
+          href={`https://github.com/italia/covid19-dashboard-vaccini/tree/main/${sommVaxSummaryURL}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          https://github.com/italia/covid19-dashboard-vaccini/tree/main/{ sommVaxSummaryURL }
+        </a>
+      </p>
+
 
       <p className="text-center pt-20">
         I dati visualizzati sono disponibili all'indirizzo <a href="https://github.com/italia/covid19-opendata-vaccini">
