@@ -7,16 +7,16 @@ import { LocationsTable } from "./components/LocationsTable";
 import { Table } from "./components/Table";
 import { Total } from "./components/Total";
 import { loadData } from "./loadData";
-import "./App.css";
 import { BarChart } from "./components/BarChart";
 import { HBarChart } from "./components/HBarChart";
 import { areaMappingReverse } from "./utils";
+import "./App.css";
 
 function App() {
   const [summary, setSummary] = useState({});
   const [selected, setSelected] = useState({});
   const [selectedLocation, setSelectedLocation] = useState({});
-  const [selectedCategory, setSelectedCategory] = useState({});
+  const [selectedCategory, setSelectedCategory] = useState([]);
 
   const handleCountryClick = (countryIndex) => {
     setSelected({ ...summary.deliverySummary[countryIndex] });
@@ -30,15 +30,16 @@ function App() {
     const area = summary.deliverySummary[countryIndex]?.area;
     const areaCode = areaMappingReverse[area];
     const data = summary.categoriesByRegions[areaCode];
-    summary.categories = data; //need to be pure
-    setSummary(summary);
-    console.log(countryIndex, area, areaMappingReverse[area], data);
-    setSelectedCategory({ ...summary.deliverySummary[countryIndex] });
+
+    setSelectedCategory(
+      countryIndex ? data?.slice() || [] : summary.categories
+    );
   };
 
   useEffect(() => {
     loadData().then((d) => {
       setSummary(d);
+      setSelectedCategory(d.categories);
     });
   }, []);
 
@@ -80,7 +81,7 @@ function App() {
           className="ml-5 w-100 h-100"
         />
       </div>
-
+      <h4 className="text-center mt-5">Vaccinazione per fasce di età</h4>
       <div className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3">
         <BarChart
           title=""
@@ -88,7 +89,7 @@ function App() {
           ytitle=""
           width="800"
           height="300"
-          data={summary.categoriesAndAges}
+          data={summary?.categoriesAndAges?.slice() || []}
         />
       </div>
 
@@ -100,8 +101,8 @@ function App() {
           ytitle=""
           width="400"
           height="400"
-          property={{xprop: "name", yprop: "total"}}
-          data={summary.categories}
+          property={{ xprop: "name", yprop: "total" }}
+          data={selectedCategory?.slice() || []}
         />
         <MapArea
           summary={{ ...summary }}
@@ -125,7 +126,8 @@ function App() {
       </div>
 
       <p className="text-center pt-20">
-        I dati visualizzati sono disponibili all'indirizzo <a href="https://github.com/italia/covid19-opendata-vaccini">
+        I dati visualizzati sono disponibili all'indirizzo{" "}
+        <a href="https://github.com/italia/covid19-opendata-vaccini">
           https://github.com/italia/covid19-opendata-vaccini
         </a>
       </p>

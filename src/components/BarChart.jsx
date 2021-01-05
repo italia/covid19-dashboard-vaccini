@@ -39,6 +39,7 @@ export const BarChart = (props) => {
   }
 
   const draw = () => {
+    console.log("draw bar", props);
     const data = props?.data || [];
     const svg = d3.select(myRef.current);
     const margin = { y: 50, x: 50 };

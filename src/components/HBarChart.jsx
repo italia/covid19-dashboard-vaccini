@@ -47,7 +47,7 @@ export const HBarChart = (props) => {
   const draw = () => {
     console.log("draw called");
     const data = props?.data || [];
-    const maxScale = data.reduce(maxX(props.property.yprop), 0);
+    const maxScale = data?.reduce(maxX(props.property.yprop), 0) || 0;
 
     // append element
     const svg = d3

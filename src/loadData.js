@@ -3,7 +3,6 @@ import {
   filterByAreaITA,
   replaceArea,
   aggrBy,
-  mapByX,
 } from "./utils";
 
 const sommVaxSummaryURL = "data/somministrazioni-vaccini-summary-latest.json";
