@@ -104,7 +104,7 @@ export const HBarChart = (props) => {
       .append("g")
       .attr("class", "hb-axis")
       .attr("transform", `translate(0,${height})`)
-      .call(d3.axisBottom(xScale))
+      .call(d3.axisBottom(xScale).tickFormat(d => d.toLocaleString('it')))
       .selectAll("text")
       .attr("transform", "translate(-10,0)rotate(-45)")
       .style("text-anchor", "end");
@@ -144,7 +144,7 @@ export const HBarChart = (props) => {
           ? yScale(d[props.property.xprop]) + 60
           : yScale(d[props.property.xprop])
       )
-      .text((d) => `${d[props.property.yprop]}`);
+      .text((d) => d[props.property.yprop].toLocaleString('it'));
 
     path.exit().remove();
   };
