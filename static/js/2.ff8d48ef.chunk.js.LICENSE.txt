@@ -67,10 +67,6 @@ and limitations under the License.
  * ©2008-2020 SpryMedia Ltd - datatables.net/license
  */
 
-/*! DataTables Bootstrap 4 integration
- * ©2011-2017 SpryMedia Ltd - datatables.net/license
- */
-
 /** @license React v0.20.1
  * scheduler.production.min.js
  *
