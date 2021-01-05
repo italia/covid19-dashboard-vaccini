@@ -7,8 +7,8 @@ import "datatables.net-bs4";
 $.DataTable = DataTable;
 const columns = [
   { title: "Regioni", data: "area" },
-  { title: "Somm", data: "dosi_somministrate" },
-  { title: "Cons", data: "dosi_consegnate" },
+  { title: "Somministrazioni", data: "dosi_somministrate" },
+  { title: "Consegne", data: "dosi_consegnate" },
   { title: "%", data: "percentuale_somministrazione" },
 ];
 
@@ -18,7 +18,7 @@ export const Table = (props) => {
       .find("table")
       .DataTable({
         dom:
-          "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
+          "<'row'<'col-sm-12 col-md-12'lf>>" +
           "<'row'<'col-sm-12'tr>>",
         paging: false,
         searching: true,
@@ -35,7 +35,7 @@ export const Table = (props) => {
   return (
     <div id="datatable" className="d-flex">
       <table
-        className="table table-borderless compact"
+        className="table table-borderless compact table-striped table-hover"
         cellSpacing="0"
         width="100%"
       />

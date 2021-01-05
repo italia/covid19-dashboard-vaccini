@@ -40,7 +40,7 @@ export const MapArea = (props) => {
   }, []);
 
   return (
-    <div className="mw-100 h-100">
+    <div className="mw-100 h-100 align-self-center">
       <svg width={width} height={height}>
         <g className="countries">
           {geographies.map((d, i) => {
