@@ -62,7 +62,6 @@ body {
 .table th {
   padding: 5px !important;
   font-size: 14px;
-  text-align: center;
 }
 .table th:nth-child(n+2),
 .table td:nth-child(n+2) {
