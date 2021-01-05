@@ -26,6 +26,9 @@ export const LocationsTable = (props) => {
         destroy: true,
         pagingType: "full_numbers",
         data: props.summary?.dataVaxLocations?.data || [],
+        language: {
+          url: 'datatables.it.json',
+        },
         columns,
       });
     if (props?.selected?.area) {
