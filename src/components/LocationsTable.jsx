@@ -1,8 +1,7 @@
 import { React, useEffect } from "react";
 import $ from "jquery";
 import DataTable from "datatables.net";
-// eslint-disable-next-line
-import "datatables.net-bs4";
+import "datatables.net-bs4/css/dataTables.bootstrap4.min.css";
 
 $.DataTable = DataTable;
 const columns = [
