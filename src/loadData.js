@@ -10,6 +10,7 @@ const vaxLocationsURL = `${baseURL}/punti-somministrazione-latest.json`;
 
 const anagraficaSummaryURL = `${baseURL}/anagrafica-vaccini-summary-latest.json`;
 const puntiSommSummaryURL = `${baseURL}/punti-somministrazione-latest.json`;
+const lastUpdateURL = `${baseURL}/last-update-dataset.json`;
 
 const elaborate = (data) => {
   console.log(data);
@@ -84,7 +85,7 @@ const elaborate = (data) => {
     gen_f: categoriesAndAges.reduce(sumDoseX("sesso_femminile"), 0),
   };
 
-  const timestamp = categoriesAndAges[0].ultimo_aggiornamento;
+  const timestamp = data.dataLastUpdate.ultimo_aggiornamento;
   const aggr = {
     timestamp,
     tot,
@@ -107,6 +108,7 @@ export const loadData = async () => {
   const resProfileSummaryURL = await fetch(anagraficaSummaryURL);
   const resPointsSommSummaryURL = await fetch(puntiSommSummaryURL);
   const resVaxLocations = await fetch(vaxLocationsURL);
+  const resLastUpdate = await fetch(lastUpdateURL);
 
   const dataSommVaxSummary = await resSommVaxSummary.json();
   const dataSommVaxDetail = await resSommVaxDetail.json();
@@ -115,6 +117,7 @@ export const loadData = async () => {
   const dataProfileSummary = await resProfileSummaryURL.json();
   const dataPointsSommSummary = await resPointsSommSummaryURL.json();
   const dataVaxLocations = await resVaxLocations.json();
+  const dataLastUpdate = await resLastUpdate.json();
 
   return {
     ...elaborate({
@@ -124,6 +127,7 @@ export const loadData = async () => {
       dataVaxSummary,
       dataProfileSummary,
       dataPointsSommSummary,
+      dataLastUpdate,
     }),
     dataVaxLocations,
   };
