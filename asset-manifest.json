@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "./static/css/main.7e5d797a.chunk.css",
-    "main.js": "./static/js/main.9e84d188.chunk.js",
-    "main.js.map": "./static/js/main.9e84d188.chunk.js.map",
+    "main.css": "./static/css/main.969589c0.chunk.css",
+    "main.js": "./static/js/main.11da838a.chunk.js",
+    "main.js.map": "./static/js/main.11da838a.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.05c3868f.js",
     "runtime-main.js.map": "./static/js/runtime-main.05c3868f.js.map",
     "static/css/2.9d53cb15.chunk.css": "./static/css/2.9d53cb15.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.7a41daad.chunk.js.map": "./static/js/3.7a41daad.chunk.js.map",
     "index.html": "./index.html",
     "static/css/2.9d53cb15.chunk.css.map": "./static/css/2.9d53cb15.chunk.css.map",
-    "static/css/main.7e5d797a.chunk.css.map": "./static/css/main.7e5d797a.chunk.css.map",
+    "static/css/main.969589c0.chunk.css.map": "./static/css/main.969589c0.chunk.css.map",
     "static/js/2.db23d671.chunk.js.LICENSE.txt": "./static/js/2.db23d671.chunk.js.LICENSE.txt",
     "static/media/index.css": "./static/media/titillium-web-latin-900.a0f44950.woff2"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.05c3868f.js",
     "static/css/2.9d53cb15.chunk.css",
     "static/js/2.db23d671.chunk.js",
-    "static/css/main.7e5d797a.chunk.css",
-    "static/js/main.9e84d188.chunk.js"
+    "static/css/main.969589c0.chunk.css",
+    "static/js/main.11da838a.chunk.js"
   ]
 }
