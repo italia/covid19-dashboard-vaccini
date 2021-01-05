@@ -1,0 +1,4 @@
+.country:hover {
+  fill: red;
+  cursor: pointer;
+}
