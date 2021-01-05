@@ -12,7 +12,6 @@ const puntiSommSummaryURL = "data/punti-somministrazione-latest.json";
 
 const elaborate = (data) => {
   console.log(data);
-  const timestamp = data.dataDeliveryVaxDetail.data.slice(0, 1)[0].data;
   const tot = data.dataSommVaxSummary.data
     .filter(filterByAreaITA)
     .reduce(sumDoseX("totale"), 0);
@@ -42,6 +41,7 @@ const elaborate = (data) => {
   //   };
   //   console.log(sum);
   console.log(categoriesAndAges);
+  const timestamp = categoriesAndAges[0].data;
   return { timestamp, tot, deliverySummary, categoriesAndAges };
 };
 
