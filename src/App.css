@@ -210,33 +210,33 @@ ul.footer_links li {
  */
 .grid-hline .tick line,
 .grid-hline .domain {
-  stroke: #3333330f;
+  stroke: #ffffff0f;
 }
 .title {
   font-size: 20px;
   text-anchor: middle;
-  fill: #333;
+  fill: #fff;
 }
 .bar {
-  fill: #06c;
-  stroke: #06f;
+  fill: #fff;
+  stroke: #fff;
 }
 .axis .tick line {
-  stroke: #333;
+  stroke: #fff;
 }
 .axis .tick text {
-  fill: #333;
+  fill: #fff;
 }
 .axis .domain {
-  stroke: #333;
+  stroke: #fff;
 }
 
 .line {
   fill: none;
-  stroke: #333;
+  stroke: #fff;
   stroke-width: 3;
 }
 .bartext {
-  color: black;
-  fill: black
+  color: #fff;
+  fill: #fff
 }
