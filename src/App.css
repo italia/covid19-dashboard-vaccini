@@ -205,9 +205,46 @@ ul.footer_links li {
 }
 
 /*
- * BarChart
+ * HBarChart
  *
  */
+.hb-grid-hline .tick line,
+.hb-grid-hline .domain {
+  stroke: #3333330f;
+}
+.hb-title {
+  font-size: 20px;
+  text-anchor: middle;
+  fill: #333;
+}
+.hb-bar {
+  fill: #06c;
+  stroke: #06f;
+}
+.hb-axis .tick line {
+  stroke: #333;
+}
+.hb-axis .tick text {
+  fill: #333;
+}
+.hb-axis .domain {
+  stroke: #333;
+}
+
+.hb-line {
+  fill: none;
+  stroke: #333;
+  stroke-width: 3;
+}
+.hb-bartext {
+  color: black;
+  fill: black
+}
+
+/**
+* BarChart
+*
+*/
 .grid-hline .tick line,
 .grid-hline .domain {
   stroke: #ffffff0f;
