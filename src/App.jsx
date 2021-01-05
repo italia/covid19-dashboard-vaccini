@@ -95,13 +95,13 @@ function App() {
           data={summary?.categoriesAndAges?.slice() || []}
         />
         <div className="d-flex flex-column justify-content-center">
-          <img src="user_m.png" alt="users" className="d-flex"/>
+          <img src="user_f.png" alt="users" className="d-flex" width="140px"/>
           <span className="text-center font-weight-light text-white">
-            <h3>238903</h3>
+            <h3>{summary?.gender?.gen_f}</h3>
           </span>
-          <img src="user_f.png" alt="users" className="d-flex"/>
+          <img src="user_m.png" alt="users" className="d-flex" width="140px"/>
           <span className="text-center font-weight-light text-white">
-            <h3>894894</h3>
+            <h3>{summary?.gender?.gen_m}</h3>
           </span>
         </div>
       </div>
