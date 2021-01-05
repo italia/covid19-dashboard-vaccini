@@ -43,7 +43,7 @@ export const HBarChart = (props) => {
     const data = props?.data || [];
     const maxScale = data.reduce(maxX(props.property.yprop), 0);
     const svg = d3.select(myRef.current);
-    const margin = { y: 50, x: 50 };
+    const margin = { y: 80, x: 50 };
 
     // Add X axis
     const xScale = d3.scaleLinear().domain([0, maxScale]).range([0, width]);
