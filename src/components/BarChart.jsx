@@ -135,7 +135,7 @@ export const BarChart = (props) => {
           ? yScale(d[props.property.yprop]) - 10
           : yScale(d[props.property.yprop])
       )
-      .text((d) => `${d[props.property.yprop]}`);
+      .text((d) => d[props.property.yprop].toLocaleString('it'));
 
     path.exit().remove();
   };
