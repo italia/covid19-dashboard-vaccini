@@ -69,13 +69,13 @@ export const HBarChart = (props) => {
       .attr("width", width + 2 * margin.x)
       .attr("height", height + 2 * margin.y)
       .call(responsivefy) // Call responsivefy to make the chart responsive
-      .attr("id", "svg-bar");
+      .attr("id", "svg-horizontal-bar");
 
     svg
       .append("text")
       .attr("x", width / 2 + margin.x)
       .attr("y", margin.y / 2)
-      .attr("class", "title")
+      .attr("class", "hb-title")
       .attr("text-anchor", "middle")
       .attr(props.title);
 
@@ -84,7 +84,7 @@ export const HBarChart = (props) => {
       .attr("x", width / 2 + margin.x)
       .attr("y", margin.y * 2)
       .attr("transform", `translate(0,${height - margin.y / 4})`)
-      .attr("class", "title")
+      .attr("class", "hb-title")
       .text(props.xtitle);
 
     svg
@@ -92,17 +92,17 @@ export const HBarChart = (props) => {
       .attr("x", -(height / 2) - margin.y)
       .attr("y", margin.x / 2.4)
       .attr("transform", "rotate(-90)")
-      .attr("class", "title")
+      .attr("class", "hb-title")
       .text(props.ytitle);
 
     const chart = svg
       .append("g")
       .attr("transform", `translate(${margin.x},${margin.y})`);
 
-    chart.append("g").attr("class", "axis").call(d3.axisLeft(yScale));
+    chart.append("g").attr("class", "hb-axis").call(d3.axisLeft(yScale));
     chart
       .append("g")
-      .attr("class", "axis")
+      .attr("class", "hb-axis")
       .attr("transform", `translate(0,${height})`)
       .call(d3.axisBottom(xScale))
       .selectAll("text")
@@ -111,7 +111,7 @@ export const HBarChart = (props) => {
 
     chart
       .append("g")
-      .attr("class", "grid-hline")
+      .attr("class", "hb-grid-hline")
       .call(d3.axisLeft().scale(yScale).tickSize(-width, 0, 0).tickFormat(""));
 
     const path = chart.selectAll().data(data);
@@ -119,12 +119,12 @@ export const HBarChart = (props) => {
     path
       .enter()
       .append("rect")
-      .attr("class", "bar")
+      .attr("class", "hb-bar")
       .attr("x", xScale(0))
       .attr("y", (d) => yScale(d[props.property.xprop]))
       .attr("width", (d) => xScale(d[props.property.yprop]))
       .attr("height", yScale.bandwidth())
-      .append("title")
+      .append("hb-title")
       .attr("x", (d) => xScale(d[props.property.xprop]))
       .attr("y", (d) => yScale(d[props.property.yprop]))
       .text(
@@ -135,7 +135,7 @@ export const HBarChart = (props) => {
     path
       .enter()
       .append("text")
-      .attr("class", "bartext")
+      .attr("class", "hb-bartext")
       .attr("text-anchor", "middle")
       .attr("fill", "white")
       .attr("x", (d) => xScale(d[props.property.yprop]) + 35)

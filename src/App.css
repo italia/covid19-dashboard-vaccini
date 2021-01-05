@@ -205,38 +205,75 @@ ul.footer_links li {
 }
 
 /*
- * BarChart
+ * HBarChart
  *
  */
-.grid-hline .tick line,
-.grid-hline .domain {
+.hb-grid-hline .tick line,
+.hb-grid-hline .domain {
   stroke: #3333330f;
 }
-.title {
+.hb-title {
   font-size: 20px;
   text-anchor: middle;
   fill: #333;
 }
-.bar {
+.hb-bar {
   fill: #06c;
   stroke: #06f;
 }
-.axis .tick line {
+.hb-axis .tick line {
   stroke: #333;
 }
-.axis .tick text {
+.hb-axis .tick text {
   fill: #333;
 }
-.axis .domain {
+.hb-axis .domain {
   stroke: #333;
 }
 
-.line {
+.hb-line {
   fill: none;
   stroke: #333;
   stroke-width: 3;
 }
-.bartext {
+.hb-bartext {
   color: black;
   fill: black
+}
+
+/**
+* BarChart
+*
+*/
+.grid-hline .tick line,
+.grid-hline .domain {
+  stroke: #ffffff0f;
+}
+.title {
+  font-size: 20px;
+  text-anchor: middle;
+  fill: #fff;
+}
+.bar {
+  fill: #fff;
+  stroke: #fff;
+}
+.axis .tick line {
+  stroke: #fff;
+}
+.axis .tick text {
+  fill: #fff;
+}
+.axis .domain {
+  stroke: #fff;
+}
+
+.line {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+}
+.bartext {
+  color: #fff;
+  fill: #fff
 }

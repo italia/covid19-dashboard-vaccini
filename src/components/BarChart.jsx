@@ -131,8 +131,8 @@ export const BarChart = (props) => {
       .attr("fill", "white")
       .attr("x", (d) => xScale(d[props.property.xprop]) + 35)
       .attr("y", (d) =>
-        height - yScale(d[props.property.yprop]) >= 20
-          ? yScale(d[props.property.yprop]) + 20
+        height - yScale(d[props.property.yprop]) >= 0
+          ? yScale(d[props.property.yprop]) - 10
           : yScale(d[props.property.yprop])
       )
       .text((d) => `${d[props.property.yprop]}`);
