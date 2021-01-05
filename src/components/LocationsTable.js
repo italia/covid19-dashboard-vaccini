@@ -14,7 +14,7 @@ const columns = [
 
 export const LocationsTable = (props) => {
   useEffect(() => {
-    $("#datatable-locations")
+    const table = $("#datatable-locations")
       .find("table")
       .DataTable({
         dom:
@@ -28,6 +28,11 @@ export const LocationsTable = (props) => {
         data: props.summary?.dataVaxLocations?.data || [],
         columns,
       });
+    if (props?.selected?.area) {
+      table.search(props.selected.area).draw();
+    } else {
+      table.search(" ").draw();
+    }
   });
   return (
     <div id="datatable-locations" style={{ width: '80%' }}>

@@ -13,9 +13,14 @@ import { BarChart } from "./components/BarChart";
 function App() {
   const [summary, setSummary] = useState({});
   const [selected, setSelected] = useState({});
+  const [selectedLocation, setSelectedLocation] = useState({});
 
   const handleCountryClick = (countryIndex) => {
     setSelected({ ...summary.deliverySummary[countryIndex] });
+  };
+
+  const handleCountryClickLocations = (countryIndex) => {
+    setSelectedLocation({ ...summary.deliverySummary[countryIndex] });
   };
 
   useEffect(() => {
@@ -74,14 +79,19 @@ function App() {
         />
       </div>
 
-      <div
-        className="w-75 mx-auto h-100 mt-3"
-      >
-        <h4>Punti di somministrazione</h4>
+      <h4 className="text-center mt-5">Punti di somministrazione</h4>
+      <div className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3">
         <LocationsTable
           summary={{ ...summary }}
+          selected={selectedLocation}
           className="mr-5 h-100"
         />
+        <MapArea
+          summary={{ ...summary }}
+          handleCountryClick={handleCountryClickLocations}
+          className="ml-5 w-100 h-100"
+        />
+
       </div>
 
       <FooterBar />
