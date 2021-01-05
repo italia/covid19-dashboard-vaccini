@@ -12,6 +12,32 @@ export const BarChart = (props) => {
     draw();
   });
 
+  const responsivefy = (svg) => {
+    // Container is the DOM element, svg is appended.
+    // Then we measure the container and find its
+    // aspect ratio.
+    const container = d3.select(svg.node().parentNode),
+      width = parseInt(svg.style("width"), 10),
+      height = parseInt(svg.style("height"), 10),
+      aspect = width / height;
+
+    // Add viewBox attribute to set the value to initial size
+    // add preserveAspectRatio attribute to specify how to scale
+    // and call resize so that svg resizes on page load
+    svg
+      .attr("viewBox", `0 0 ${width} ${height}`)
+      .attr("preserveAspectRatio", "xMinYMid")
+      .call(resize);
+
+    d3.select(window).on("resize." + container.attr("id"), resize);
+
+    function resize() {
+      const targetWidth = parseInt(container.style("width"));
+      svg.attr("width", targetWidth);
+      svg.attr("height", Math.round(targetWidth / aspect));
+    }
+  }
+
   const draw = () => {
     const data = props?.data || [];
     const svg = d3.select(myRef.current);
@@ -23,7 +49,7 @@ export const BarChart = (props) => {
     svg
       .attr("width", width + 2 * margin.x)
       .attr("height", height + 2 * margin.y)
-      .attr("preserveAspectRatio", "xMinYMin meet")
+      .call(responsivefy) // Call responsivefy to make the chart responsive
       .attr("id", "svg-bar");
 
     svg
