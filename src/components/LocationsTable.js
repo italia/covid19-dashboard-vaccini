@@ -9,7 +9,7 @@ const columns = [
   { title: "Regione", data: "area" },
   { title: "Provincia", data: "provincia" },
   { title: "Comune", data: "comune" },
-  { title: "Presidio ospedaliero", data: "presidio_ospedaliero" },
+  { title: "Punto di somministrazione", data: "presidio_ospedaliero" },
 ];
 
 export const LocationsTable = (props) => {
