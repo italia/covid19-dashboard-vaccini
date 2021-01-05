@@ -23,6 +23,7 @@ export const BarChart = (props) => {
     svg
       .attr("width", width + 2 * margin.x)
       .attr("height", height + 2 * margin.y)
+      .attr("preserveAspectRatio", "xMinYMin meet")
       .attr("id", "svg-bar");
 
     svg
@@ -98,8 +99,8 @@ export const BarChart = (props) => {
   };
 
   return (
-    <div className="chart">
-      <svg ref={myRef}></svg>
+    <div className="chart svg-container">
+      <svg ref={myRef} className="svg-content-responsive"></svg>
     </div>
   );
 };
