@@ -24,9 +24,6 @@ export const Table = (props) => {
         searching: true,
         destroy: true,
         data: props.summary?.deliverySummary || [],
-        language: {
-          url: 'datatables.it.json',
-        },
         columns,
       });
     if (props?.selected?.area) {
