@@ -25,7 +25,7 @@ export const LocationsTable = (props) => {
         searching: true,
         destroy: true,
         pagingType: "full_numbers",
-        data: props.summary?.dataVaxLocations?.data || [],
+        data: props.summary?.locations || [],
         columns,
       });
     if (props?.selected?.area) {

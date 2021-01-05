@@ -80,6 +80,8 @@ const elaborate = (data) => {
     return categoriesByRegions;
   });
 
+  const locations = data.dataVaxLocations.data.map(replaceArea);
+
   const gender = {
     gen_m: categoriesAndAges.reduce(sumDoseX("sesso_maschile"), 0),
     gen_f: categoriesAndAges.reduce(sumDoseX("sesso_femminile"), 0),
@@ -93,6 +95,7 @@ const elaborate = (data) => {
     categoriesAndAges,
     categories,
     categoriesByRegions,
+    locations,
     gender,
   };
   console.log(aggr);
@@ -128,7 +131,7 @@ export const loadData = async () => {
       dataProfileSummary,
       dataPointsSommSummary,
       dataLastUpdate,
+      dataVaxLocations,
     }),
-    dataVaxLocations,
   };
 };
