@@ -1,3 +1,9 @@
+[![License](https://img.shields.io/github/license/italia/covid19-dashboard-vaccini.svg)](https://github.com/italia/covid19-dashboard-vaccini/blob/master/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/italia/covid19-dashboard-vaccini.svg)](https://github.com/italia/covid19-dashboard-vaccini/issues)
+[![Join the #website channel](https://img.shields.io/badge/Slack%20channel-%23design-blue.svg)](https://developersitalia.slack.com/messages/C7VPAUVB3/)
+[![Get invited](https://slack.developers.italia.it/badge.svg)](https://slack.developers.italia.it/)
+![GH Action](https://github.com/italia/covid19-dashboard-vaccini/workflows/CD/badge.svg)
+
 # COVID-19 Dashboard Vaccini
 > [Work in Progress] This is a WIP repository, please find further instructions below.
 
