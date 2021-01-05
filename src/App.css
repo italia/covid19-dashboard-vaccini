@@ -232,3 +232,7 @@ ul.footer_links li {
   stroke: #333;
   stroke-width: 3;
 }
+.bartext {
+  color: black;
+  fill: black
+}

@@ -79,6 +79,22 @@ export const BarChart = (props) => {
       .attr("x", (d) => xScale(d.fascia_anagrafica))
       .attr("y", (d) => yScale(d.totale))
       .text((d) => `Fascia ${d.fascia_anagrafica} totale: ${d.totale}`);
+
+    chart
+      .selectAll(".bartext")
+      .data(data)
+      .enter()
+      .append("text")
+      .attr("class", "bartext")
+      .attr("text-anchor", "middle")
+      .attr("fill", "white")
+      .attr("x", (d) => xScale(d.fascia_anagrafica) + 35)
+      .attr("y", (d) =>
+        height - yScale(d.totale) >= 20
+          ? yScale(d.totale) + 20
+          : yScale(d.totale)
+      )
+      .text((d) => `${d.totale}`);
   };
 
   return (
