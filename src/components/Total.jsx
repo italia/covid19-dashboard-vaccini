@@ -7,7 +7,7 @@ export const Total = (props) => {
       <div className="timestamp mx-auto">
         <h6>
           Dati aggiornati al:{" "}
-          {moment(props.summary.timestamp).format("DD-MM-YYYY HH:mm")}
+          {props.summary.timestamp && moment(props.summary.timestamp).format("DD-MM-YYYY HH:mm")}
         </h6>
       </div>
       <div className="container">
