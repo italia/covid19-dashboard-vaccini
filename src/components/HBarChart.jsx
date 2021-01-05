@@ -44,10 +44,16 @@ export const HBarChart = (props) => {
     const maxScale = data.reduce(maxX(props.property.yprop), 0);
     const svg = d3.select(myRef.current);
     const margin = { y: 50, x: 50 };
-    const xScale = d3.scaleBand().padding(0.2);
-    const yScale = d3.scaleLinear().domain([0, maxScale]); //max scale should be dynamic
-    yScale.range([height, 0]);
-    xScale.range([0, width]).domain(data.map((d) => d[props.property.xprop]));
+
+    // Add X axis
+    const xScale = d3.scaleLinear().domain([0, maxScale]).range([0, width]);
+    // Y axis
+    const yScale = d3
+      .scaleBand()
+      .range([0, height])
+      .domain(data.map((d) => d[props.property.xprop]))
+      .padding(0.1);
+
     svg
       .attr("width", width + 2 * margin.x)
       .attr("height", height + 2 * margin.y)
@@ -87,7 +93,10 @@ export const HBarChart = (props) => {
       .append("g")
       .attr("class", "axis")
       .attr("transform", `translate(0,${height})`)
-      .call(d3.axisBottom(xScale));
+      .call(d3.axisBottom(xScale))
+      .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
 
     chart
       .append("g")
@@ -100,10 +109,10 @@ export const HBarChart = (props) => {
       .enter()
       .append("rect")
       .attr("class", "bar")
-      .attr("x", (d) => xScale(d[props.property.xprop]))
-      .attr("y", (d) => yScale(d[props.property.yprop]))
-      .attr("height", (d) => height - yScale(d[props.property.yprop]))
-      .attr("width", xScale.bandwidth())
+      .attr("x", xScale(0))
+      .attr("y", (d) => yScale(d[props.property.xprop]))
+      .attr("width", (d) => xScale(d[props.property.yprop]))
+      .attr("height", yScale.bandwidth())
       .append("title")
       .attr("x", (d) => xScale(d[props.property.xprop]))
       .attr("y", (d) => yScale(d[props.property.yprop]))
@@ -120,11 +129,11 @@ export const HBarChart = (props) => {
       .attr("class", "bartext")
       .attr("text-anchor", "middle")
       .attr("fill", "white")
-      .attr("x", (d) => xScale(d[props.property.xprop]) + 35)
+      .attr("x", (d) => xScale(d[props.property.yprop]) + 35)
       .attr("y", (d) =>
-        height - yScale(d[props.property.yprop]) >= 20
-          ? yScale(d[props.property.yprop]) + 20
-          : yScale(d[props.property.yprop])
+        height - yScale(d[props.property.xprop]) >= 60
+          ? yScale(d[props.property.xprop]) + 60
+          : yScale(d[props.property.xprop])
       )
       .text((d) => `${d[props.property.yprop]}`);
   };
