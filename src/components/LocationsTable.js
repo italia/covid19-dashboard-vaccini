@@ -37,7 +37,7 @@ export const LocationsTable = (props) => {
   return (
     <div id="datatable-locations" style={{ width: '80%' }}>
       <table
-        className="table table-borderless compact"
+        className="table table-borderless compact table-striped table-hover"
         cellSpacing="0"
         width="100%"
       />
