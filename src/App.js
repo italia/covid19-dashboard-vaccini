@@ -9,6 +9,7 @@ import { Total } from "./components/Total";
 import { loadData } from "./loadData";
 import "./App.css";
 import { BarChart } from "./components/BarChart";
+import { HBarChart } from "./components/HBarChart";
 
 function App() {
   const [summary, setSummary] = useState({});
@@ -79,6 +80,24 @@ function App() {
         />
       </div>
 
+      <h4 className="text-center mt-5">Vaccinazioni per categoria</h4>
+      <div className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3">
+        <HBarChart
+          title=""
+          xtitle="Vaccinazioni per categoria"
+          ytitle=""
+          width="400"
+          height="400"
+          property={{xprop: "name", yprop: "total"}}
+          data={summary.categories}
+        />
+        <MapArea
+          summary={{ ...summary }}
+          handleCountryClick={handleCountryClick}
+          className="ml-5 w-100 h-100"
+        />
+      </div>
+
       <h4 className="text-center mt-5">Punti di somministrazione</h4>
       <div className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3">
         <LocationsTable
@@ -91,7 +110,6 @@ function App() {
           handleCountryClick={handleCountryClickLocations}
           className="ml-5 w-100 h-100"
         />
-
       </div>
 
       <p className="text-center pt-20">

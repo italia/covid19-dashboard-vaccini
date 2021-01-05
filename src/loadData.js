@@ -6,7 +6,6 @@ const deliveryVaxDetailURL = "data/consegne-vaccini-latest.json";
 const vaxSummaryURL = "data/vaccini-summary-latest.json";
 const vaxLocationsURL = "data/punti-somministrazione-latest.json";
 
-
 const anagraficaSummaryURL = "data/anagrafica-vaccini-summary-latest.json";
 const puntiSommSummaryURL = "data/punti-somministrazione-latest.json";
 
@@ -20,29 +19,43 @@ const elaborate = (data) => {
 
   // categories and ages summary
   const categoriesAndAges = data.dataProfileSummary.data;
-  //   //   const tot2 = data.reduce(sumDoseXY("TML_DOSE_1", "TML_DOSE_2"), 0);
-  //   const areasRAW = data.reduce(aggrBy("TML_AREA"), {});
-  //   const tot_m = data.reduce(sumDoseX("TML_SESSO_M"), 0);
-  //   const tot_f = data.reduce(sumDoseX("TML_SESSO_F"), 0);
-  //   const areas = mapBy(areasRAW);
-  //   const fascia1619 = data.filter(filterByAge("16-19"));
-  //   const fascia2029 = data.filter(filterByAge("20-29"));
-  //   const totfascia1619 = fascia1619.reduce(sumDose, 0);
-  //   const totfascia2029 = fascia2029.reduce(sumDose, 0);
+  const categories = [
+    {
+      name: "Categoria OSS",
+      total: categoriesAndAges.reduce(
+        sumDoseX("categoria_operatori_sanitari_sociosanitari"),
+        0
+      ),
+    },
+    {
+      name: "Categoria Ospiti RSA",
+      total: categoriesAndAges.reduce(sumDoseX("categoria_ospiti_rsa"), 0),
+    },
+    {
+      name: "Categoria Personale non sanitario",
+      total: categoriesAndAges.reduce(
+        sumDoseX("categoria_personale_non_sanitario"),
+        0
+      ),
+    },
+  ];
+  const gender = {
+    gen_m: categoriesAndAges.reduce(sumDoseX("sesso_maschile"), 0),
+    gen_f: categoriesAndAges.reduce(sumDoseX("sesso_femminile"), 0),
+  };
 
-  //   const sum = {
-  //     timestamp,
-  //     tot,
-  //     tot_m,
-  //     tot_f,
-  //     areas,
-  //     totfascia1619,
-  //     totfascia2029,
-  //   };
-  //   console.log(sum);
-  console.log(categoriesAndAges);
   const timestamp = categoriesAndAges[0].data;
-  return { timestamp, tot, deliverySummary, categoriesAndAges };
+  const aggr = {
+    timestamp,
+    tot,
+    deliverySummary,
+    categoriesAndAges,
+    categories,
+    gender,
+  };
+  console.log(aggr);
+
+  return aggr;
 };
 
 export const loadData = async () => {
@@ -63,14 +76,14 @@ export const loadData = async () => {
   const dataVaxLocations = await resVaxLocations.json();
 
   return {
-      ...elaborate({
-          dataSommVaxSummary,
-          dataSommVaxDetail,
-          dataDeliveryVaxDetail,
-          dataVaxSummary,
-          dataProfileSummary,
-          dataPointsSommSummary,
-      }),
-      dataVaxLocations,
+    ...elaborate({
+      dataSommVaxSummary,
+      dataSommVaxDetail,
+      dataDeliveryVaxDetail,
+      dataVaxSummary,
+      dataProfileSummary,
+      dataPointsSommSummary,
+    }),
+    dataVaxLocations,
   };
 };
