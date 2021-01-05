@@ -10,7 +10,7 @@ export const HBarChart = (props) => {
   const divRef = useRef();
 
   useEffect(() => {
-    doExit(props.data);
+    doExit();
     draw();
   });
 
@@ -40,12 +40,11 @@ export const HBarChart = (props) => {
     }
   };
 
-  function doExit(data) {
+  function doExit() {
     d3.select(divRef.current).selectAll("svg").remove();
   }
 
   const draw = () => {
-    console.log("draw called");
     const data = props?.data || [];
     const maxScale = data?.reduce(maxX(props.property.yprop), 0) || 0;
 
@@ -152,7 +151,7 @@ export const HBarChart = (props) => {
 
   return (
     <div ref={divRef} className="chart svg-container">
-      <svg ref={myRef} id="content" className="svg-content-responsive"></svg>
+      <svg ref={myRef} className="svg-content-responsive"></svg>
     </div>
   );
 };

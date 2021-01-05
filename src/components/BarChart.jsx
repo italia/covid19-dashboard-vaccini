@@ -1,14 +1,16 @@
 import { React, useEffect, useRef } from "react";
 import * as d3 from "d3";
 import "../App.css";
+import { maxX } from "../utils";
 
 export const BarChart = (props) => {
   const width = +props.width, //hack to get int
     height = +props.height;
   const myRef = useRef();
+  const divRef = useRef();
 
   useEffect(() => {
-    d3.select(myRef.current).attr("width", width).attr("height", height);
+    doExit();
     draw();
   });
 
@@ -36,17 +38,30 @@ export const BarChart = (props) => {
       svg.attr("width", targetWidth);
       svg.attr("height", Math.round(targetWidth / aspect));
     }
+  };
+
+  function doExit() {
+    d3.select(divRef.current).selectAll("svg").remove();
   }
 
   const draw = () => {
-    console.log("draw bar", props);
     const data = props?.data || [];
-    const svg = d3.select(myRef.current);
+    const maxScale = data?.reduce(maxX(props.property.yprop), 0) || 0;
+
+    // append element
+    const svg = d3
+      .select(divRef.current)
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
     const margin = { y: 50, x: 50 };
+
+    // axis
     const xScale = d3.scaleBand().padding(0.2);
-    const yScale = d3.scaleLinear().domain([0, 50000]); //max scale should be dynamic
+    const yScale = d3.scaleLinear().domain([0, maxScale]); //max scale should be dynamic
     yScale.range([height, 0]);
-    xScale.range([0, width]).domain(data.map((d) => d.fascia_anagrafica));
+    xScale.range([0, width]).domain(data.map((d) => d[props.property.xprop]));
+
     svg
       .attr("width", width + 2 * margin.x)
       .attr("height", height + 2 * margin.y)
@@ -93,40 +108,40 @@ export const BarChart = (props) => {
       .attr("class", "grid-hline")
       .call(d3.axisLeft().scale(yScale).tickSize(-width, 0, 0).tickFormat(""));
 
-    chart
-      .selectAll()
-      .data(data)
+    const path = chart.selectAll().data(data);
+
+    path
       .enter()
       .append("rect")
       .attr("class", "bar")
-      .attr("x", (d) => xScale(d.fascia_anagrafica))
-      .attr("y", (d) => yScale(d.totale))
-      .attr("height", (d) => height - yScale(d.totale))
+      .attr("x", (d) => xScale(d[props.property.xprop]))
+      .attr("y", (d) => yScale(d[props.property.yprop]))
+      .attr("height", (d) => height - yScale(d[props.property.yprop]))
       .attr("width", xScale.bandwidth())
       .append("title")
-      .attr("x", (d) => xScale(d.fascia_anagrafica))
-      .attr("y", (d) => yScale(d.totale))
-      .text((d) => `Fascia ${d.fascia_anagrafica} totale: ${d.totale}`);
+      .attr("x", (d) => xScale(d[props.property.xprop]))
+      .attr("y", (d) => yScale(d[props.property.yprop]))
+      .text((d) => `Fascia ${d[props.property.xprop]} totale: ${d[props.property.yprop]}`);
 
-    chart
-      .selectAll(".bartext")
-      .data(data)
+    path
       .enter()
       .append("text")
       .attr("class", "bartext")
       .attr("text-anchor", "middle")
       .attr("fill", "white")
-      .attr("x", (d) => xScale(d.fascia_anagrafica) + 35)
+      .attr("x", (d) => xScale(d[props.property.xprop]) + 35)
       .attr("y", (d) =>
-        height - yScale(d.totale) >= 20
-          ? yScale(d.totale) + 20
-          : yScale(d.totale)
+        height - yScale(d[props.property.yprop]) >= 20
+          ? yScale(d[props.property.yprop]) + 20
+          : yScale(d[props.property.yprop])
       )
-      .text((d) => `${d.totale}`);
+      .text((d) => `${d[props.property.yprop]}`);
+
+    path.exit().remove();
   };
 
   return (
-    <div className="chart svg-container">
+    <div ref={divRef} className="chart svg-container">
       <svg ref={myRef} className="svg-content-responsive"></svg>
     </div>
   );

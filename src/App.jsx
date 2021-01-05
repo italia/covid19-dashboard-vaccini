@@ -89,6 +89,7 @@ function App() {
           ytitle=""
           width="800"
           height="300"
+          property={{ xprop: "fascia_anagrafica", yprop: "totale" }}
           data={summary?.categoriesAndAges?.slice() || []}
         />
       </div>
