@@ -81,7 +81,7 @@ function App() {
           className="ml-5 w-100 h-100"
         />
       </div>
-      <h4 className="text-center mt-5">Vaccinazione per fasce di età</h4>
+      <h4 className="text-center mt-5">Vaccinazioni per fasce di età</h4>
       <div className="d-flex flex-column flex-sm-row justify-content-center w-100 mx-auto h-100 mt-3" style={{
         backgroundColor: '#013366'
       }}>
