@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "COVID-19 Vaccini",
+  "name": "COVID-19 Dashboard Vaccini",
   "icons": [
     {
       "src": "favicon.ico",
