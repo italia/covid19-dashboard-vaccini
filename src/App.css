@@ -48,7 +48,7 @@ body {
   min-height: 180px;
   background-color: #0066cc;
   color: white;
-  font-size: 48px;
+  font-size: 2.7rem;
 }
 .table thead {
   border-bottom: black 1px solid;
@@ -58,11 +58,20 @@ body {
 .table th:first-child {
   border-right: black 1px solid;
 }
-.table td,
+
 .table th {
   padding: 5px !important;
   font-size: 14px;
+  border-bottom: 1px solid #0f0f0f !important;
 }
+
+.table td {
+  padding: 5px !important;
+  font-size: 14px;
+  border-bottom: 0px solid transparent !important;
+}
+
+
 .table th:nth-child(n+2),
 .table td:nth-child(n+2) {
   text-align: center !important;

@@ -11,38 +11,34 @@ export const HeaderBar = () => {
     <>
       <Header small={false} theme="" type="slim">
         <div className="row justify-content-center">
-        <div className="col-md-4 d-flex justify-content-center logo-section pt-1 pb-2">
-          <div>
+          <div className="col-4 col-md-3 d-flex logo-section pt-2 pb-2">
+              <div>
+                <a href="http://www.governo.it" target="_blank" rel="noreferrer">
+                  <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
+                </a>
+              </div>
+            <div>
+              <p>Presidenza del Consiglio dei Ministri</p>
+            </div>
+          </div>
+          <div className="col-4 col-md-3 d-flex logo-section pt-2 pb-2">          
+              <div>
+                <a href="http://www.governo.it" target="_blank" rel="noreferrer">
+                  <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
+                </a>
+              </div>
+            <div>
+              <p>Commissario Straordinario Covid-19</p>
+            </div>
+          </div>
+          <div className="col-4 col-md-3 d-flex logo-section pt-2 pb-2">
+          
             <div>
               <a href="http://www.governo.it" target="_blank" rel="noreferrer">
                 <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
               </a>
             </div>
-          </div>
-          <div>
-            <p>Presidenza del Consiglio dei Ministri</p>
-          </div>
-        </div>
-        <div className="col-md-4 d-flex justify-content-center logo-section pt-1 pb-2">
-          <div>
-            <div>
-              <a href="http://www.governo.it" target="_blank" rel="noreferrer">
-                <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
-              </a>
-            </div>
-          </div>
-          <div>
-            <p>Commissario Straordinario Covid-19</p>
-          </div>
-        </div>
-        <div className="col-md-4 d-flex justify-content-center logo-section pt-1 pb-2">
-          <div>
-            <div>
-              <a href="http://www.governo.it" target="_blank" rel="noreferrer">
-                <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
-              </a>
-            </div>
-          </div>
+         
           <div>
             <p>Ministero della Salute</p>
           </div>
