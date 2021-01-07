@@ -9,144 +9,52 @@ import { Icon } from "design-react-kit";
 export const FooterBar = () => {
   return (
     <>
-      <div className="footer-wrapper section section_grey_darker clearfix">
+      <div className="footer-wrapper p-4 clearfix">
         <footer className="footer_container container" id="footer">
           <div className="row title_row">
-            <div className="col-md-12">
-              <div className="logo_container clearfix">
-                <div className="logo_wrapper clearfix">
-                  <a href="http://www.governo.it">
-                    <img src="logo.svg" className="logo_footer" alt="Emblema della Repubblica Italiana" />
-                  </a>
-                </div>
-                <div className="logo_text clearfix">
-                  <h1><strong>Governo Italiano</strong> Presidenza del Consiglio dei Ministri</h1>
-                </div>
-              </div>
+
+          <div className="col-md-4 d-flex justify-content-center logo-section pt-1 pb-2">
+          <div>
+            <div>
+              <a href="http://www.governo.it" target="_blank" rel="noreferrer">
+                <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
+              </a>
             </div>
           </div>
-
-          <div className="row">
-            <div className="col-md-9">
-              <div className="row title_row">
-                <div className="col-md-12">
-                  <h3 className="contacts_footer">Contatti</h3>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-3">
-              <div className="row title_row">
-
-                <div className="col-md-12">
-                  <h3 className="h3_footer">Seguici su</h3>
-                  <div className="footer_social clearfix social_footer">
-                    <a href="https://www.facebook.com/palazzochigi.it/" title="Seguici su Facebook">
-                      <Icon
-                        color="white"
-                        icon="it-facebook"
-                        padding={true}
-                        size="small"
-                      /></a>
-                    <a href="https://twitter.com/Palazzo_Chigi" title="Seguici su Twitter">
-                      <Icon
-                        color="white"
-                        icon="it-twitter"
-                        padding={true}
-                        size="small"
-                      /></a>
-                    <a href="https://www.instagram.com/palazzo_chigi/" title="Seguici su Instagram">
-                      <Icon
-                        color="white"
-                        icon="it-instagram"
-                        padding={true}
-                        size="small"
-                      /></a>
-                    <a href="https://www.youtube.com/palazzochigi" title="Seguici su YouTube">
-                      <Icon
-                        color="white"
-                        icon="it-youtube"
-                        padding={true}
-                        size="small"
-                      /></a>
-                    <a href="https://www.linkedin.com/company/presidenza-del-consiglio-dei-ministri" title="Seguici su LinkedIn">
-                      <Icon
-                        color="white"
-                        icon="it-linkedin"
-                        padding={true}
-                        size="small"
-                      />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-12">
-              <div className="row">
-                <div className="col-md-3">
-                  <div className="box_text box_text_footer new_footer clearfix">
-                    <h4>Presidenza del Consiglio dei Ministri</h4>
-                    <p>Palazzo Chigi<br />
-                      Piazza Colonna 370<br />
-                        00187 Roma - Italia</p>
-                  </div>
-                </div>
-                <div className="col-md-3">
-                  <div className="box_text box_text_footer new_footer clearfix">
-                    <h4>Corrispondenza cartacea</h4>
-                    <p>Via dell'Impresa 89<br />
-                      00186 Roma - Italia</p>
-
-                    <p><strong>È opportuno indicare chiaramente sull'involucro la Struttura destinataria</strong></p>
-                  </div>
-                </div>
-                <div className="col-md-3">
-                  <div className="box_text box_text_footer new_footer clearfix">
-                    <h4>Indirizzi di posta elettronica</h4>
-                    <p><a href="http://presidenza.governo.it/AmministrazioneTrasparente/Organizzazione/TelefonoPostaElettronica/PEC.html">Elenco PEC</a></p>
-
-                    <p><a href="http://presidenza.governo.it/AmministrazioneTrasparente/Organizzazione/TelefonoPostaElettronica/email.html">Elenco e-Mail</a></p>
-                  </div>
-                </div>
-                <div className="col-md-3">
-                  <div className="box_text box_text_footer new_footer clearfix">
-                    <h4>Recapiti telefonici</h4>
-                    <p>Centralino: (+39) 06.6779.1</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
+          <div>
+            <p>Presidenza del Consiglio dei Ministri</p>
           </div>
-
-          <div className="row">
-            <div className="col-md-12">
-              <ul className="footer_links clearfix"><li><a href="http://www.governo.it/sala-stampa" title="">Sala stampa</a></li>
-                <li><a href="http://www.governo.it/privacy-policy" title="">Privacy policy</a></li>
-                <li><a href="http://www.governo.it/note-legali" title="">Note legali</a></li>
-                <a href="http://www.governo.it/feed/rss" title="Feed RSS" className="rss_feed"><span className="icon-rss-two"></span></a>
-                <li><a href="https://github.com/italia/covid19-dashboard-vaccini" title="">
-                  <Icon
-                    color="white"
-                    icon="it-github"
-                    padding={true}
-                    size="small"
-                  />
-                  GitHub
-              </a></li>
-                <li><a href="https://github.com/italia/covid19-opendata-vaccini" title="">
-                  <Icon
-                    color="white"
-                    icon="it-github"
-                    padding={true}
-                    size="small"
-                  />
-                Open Data
-              </a></li>
-              </ul>
+        </div>
+        <div className="col-md-4 d-flex justify-content-center logo-section pt-1 pb-2">
+          <div>
+            <div>
+              <a href="http://www.governo.it" target="_blank" rel="noreferrer">
+                <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
+              </a>
             </div>
           </div>
+          <div>
+            <p>Commissario Straordinario Covid-19</p>
+          </div>
+        </div>
+        <div className="col-md-4 d-flex justify-content-center logo-section pt-1 pb-2">
+          <div>
+            <div>
+              <a href="http://www.governo.it" target="_blank" rel="noreferrer">
+                <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
+              </a>
+            </div>
+          </div>
+          <div>
+            <p>Ministero della Salute</p>
+          </div>
+        </div>
+
+           
+          </div>
+
+
+          
         </footer>
       </div>
     </>

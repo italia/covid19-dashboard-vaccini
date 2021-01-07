@@ -68,6 +68,12 @@ body {
   text-align: center !important;
 }
 
+.it-header-slim-wrapper {
+  height: 55px !important;
+  padding: 0;
+}
+
+
 /*
  * Footer
  *
@@ -78,7 +84,7 @@ body {
 }
 
 .footer-wrapper {
-  background-color: #30373d;
+  background-color: #01254C;
   color: white;
 }
 

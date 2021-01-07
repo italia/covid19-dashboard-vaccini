@@ -10,7 +10,8 @@ export const HeaderBar = () => {
   return (
     <>
       <Header small={false} theme="" type="slim">
-        <div className="d-flex mb-3 logo-section mx-auto pt-1 pb-2">
+        <div className="row justify-content-center">
+        <div className="col-md-4 d-flex justify-content-center logo-section pt-1 pb-2">
           <div>
             <div>
               <a href="http://www.governo.it" target="_blank" rel="noreferrer">
@@ -19,9 +20,35 @@ export const HeaderBar = () => {
             </div>
           </div>
           <div>
-            <p><strong>Governo Italiano</strong> Presidenza del Consiglio dei Ministri</p>
+            <p>Presidenza del Consiglio dei Ministri</p>
           </div>
         </div>
+        <div className="col-md-4 d-flex justify-content-center logo-section pt-1 pb-2">
+          <div>
+            <div>
+              <a href="http://www.governo.it" target="_blank" rel="noreferrer">
+                <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
+              </a>
+            </div>
+          </div>
+          <div>
+            <p>Commissario Straordinario Covid-19</p>
+          </div>
+        </div>
+        <div className="col-md-4 d-flex justify-content-center logo-section pt-1 pb-2">
+          <div>
+            <div>
+              <a href="http://www.governo.it" target="_blank" rel="noreferrer">
+                <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
+              </a>
+            </div>
+          </div>
+          <div>
+            <p>Ministero della Salute</p>
+          </div>
+        </div>
+        </div>
+        
       </Header>
       <div className="d-flex flex-column justify-content-center mainBanner">
         <div className="d-flex justify-content-center">
