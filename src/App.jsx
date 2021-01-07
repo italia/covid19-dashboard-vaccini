@@ -107,7 +107,10 @@ function App() {
 
 
         <div className="row">
-        <img src="reset.png" className="logo" />
+          <div className="col-12 d-flex align-items-end">
+             <img src="reset.png"/>
+          </div>
+       
         </div>
         <div className="row" style={{ backgroundColor: '#F8FBFE' }}>
           <div className="col-12 col-md-6 h-100">
