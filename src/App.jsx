@@ -120,7 +120,7 @@ function App() {
               className="mr-5 h-100"
             />
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-6 pt-5 pl-5">
             <MapArea
               summary={{ ...summary }}
               handleCountryClick={handleCountryClick}
