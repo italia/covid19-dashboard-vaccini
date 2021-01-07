@@ -96,7 +96,6 @@ function App() {
           <div className="col-12">
             <div
               className="text-center font-22"
-              style={{ height: 100 }}
             >
               <StaticBlock
                 classes="text-black text-uppercase font-weight-bold"
