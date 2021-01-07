@@ -80,7 +80,7 @@ function App() {
 
           </div>
         </div>
-        <div className="row ">
+        <div className="row">
           <div className="col-12 col-md-6">
             <StaticBlock
               classes="bg-primary text-white"
@@ -93,30 +93,35 @@ function App() {
               text="Dal 30 Dicembre al 1° Gennaio sono state consegnate 469.950 dosi di vaccino."
             />
           </div>
+          <div className="col-12">
+            <div
+              className="text-center"
+              style={{ height: 150 }}
+            >
+              <StaticBlock
+                classes="text-black text-uppercase font-weight-bold"
+                text="Le somministrazioni delle 469.950 dosi di vaccino su tutto il territorio sono iniziate il 31 dicembre"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12 col-md-6">
+            <Table
+              summary={{ ...summary }}
+              selected={selected}
+              className="mr-5 h-100"
+            />
+          </div>
+          <div className="col-12 col-md-6">
+            <MapArea
+              summary={{ ...summary }}
+              handleCountryClick={handleCountryClick}
+              className="ml-5 w-100 h-100"
+            />
+          </div>
         </div>
 
-
-        <div
-          className="d-flex justify-content-center w-75 mx-auto"
-          style={{ height: 150 }}
-        >
-          <StaticBlock
-            classes="text-black text-uppercase font-weight-bold"
-            text="Le somministrazioni delle 469.950 dosi di vaccino su tutto il territorio sono iniziate il 31 dicembre"
-          />
-        </div>
-        <div className=" w-75 mx-auto h-100 mt-3">
-          <Table
-            summary={{ ...summary }}
-            selected={selected}
-            className="mr-5 h-100"
-          />
-          <MapArea
-            summary={{ ...summary }}
-            handleCountryClick={handleCountryClick}
-            className="ml-5 w-100 h-100"
-          />
-        </div>
         <h4 className="text-center mt-5">Vaccinazioni per fasce di età</h4>
         <div className=" w-100 mx-auto h-100 mt-3" style={{
           backgroundColor: '#013366'
