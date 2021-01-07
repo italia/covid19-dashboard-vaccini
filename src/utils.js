@@ -1,13 +1,13 @@
 export const sumDose = (acc, x) => acc + +x?.TML_DOSE_1 + +x?.TML_DOSE_2;
 export const sumDoseXY = (y, z) => (acc, x) => acc + +x?.[y] + +x?.[z];
-export const sum = (accumulator, currentValue) => accumulator + currentValue;
+export const sumYear = (accumulator, currentValue) => accumulator + currentValue;
 export const sumDoseX = (y) => (acc, x) => acc + +x?.[y];
 export const maxX = (y) => (acc, x) => (x?.[y] > acc ? x?.[y] : acc);
 export const age = ["16-19", "20-29", "30-39", "40-49", "50-59", "60-69", "70-79", "80-89", "90+"];
 export const groupByAge = (array) => {
   let _age = age.map(el => {
-    let resFemale = array.filter(_el => _el.fascia_anagrafica === el).map(__el => __el.sesso_maschile).reduce(sum);
-    let resMale = array.filter(_el => _el.fascia_anagrafica === el).map(__el => __el.sesso_femminile).reduce(sum);
+    let resFemale = array.filter(_el => _el.fascia_anagrafica === el).map(__el => __el.sesso_maschile).reduce(sumYear);
+    let resMale = array.filter(_el => _el.fascia_anagrafica === el).map(__el => __el.sesso_femminile).reduce(sumYear);
     return { fascia_anagrafica: el, sesso_femminile: resFemale, sesso_maschile: resMale, totale: resMale + resFemale };
   });
   return _age;
@@ -18,7 +18,7 @@ export const mapArrayByProp = (array, prop) => {
   })
 };
 export const reduceSum = (array) => {
-  return array.reduce(sum);
+  return array.reduce(sumYear);
 }
 export const allTotalGender = (array) => {
   let sessoMaschile = reduceSum(mapArrayByProp(array, 'sesso_maschile'));
