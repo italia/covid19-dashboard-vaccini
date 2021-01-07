@@ -156,7 +156,7 @@ function App() {
               </div>
               <div className="text-white w-100">
                 <div className="w-100 h-100 d-flex justify-content-end pr-5">
-                  <img src="logo.png" width="30" height="30" alt="Logo" className="img-fluid" />
+                  <img src="logo.png" width="30" height="30" alt="Logo" />
                 </div>
                 <div className="w-100  h-100 d-flex justify-content-end">
                   <h3>Vaccinazioni<br></br> per fasce di età</h3>
