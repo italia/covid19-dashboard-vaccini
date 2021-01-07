@@ -77,13 +77,13 @@ export const BarChart = (props) => {
       .attr("text-anchor", "middle")
       .attr(props.title);
 
-    svg
-      .append("text")
-      .attr("x", width / 2 + margin.x)
-      .attr("y", margin.y * 2)
-      .attr("transform", `translate(0,${height - margin.y / 4})`)
-      .attr("class", "title")
-      .text(props.xtitle);
+    // svg
+    //   .append("text")
+    //   .attr("x", width / 2 + margin.x)
+    //   .attr("y", margin.y * 2)
+    //   .attr("transform", `translate(0,${height - margin.y / 4})`)
+    //   .attr("class", "title-bar")
+    //   .text(props.xtitle);
 
     svg
       .append("text")
@@ -97,17 +97,18 @@ export const BarChart = (props) => {
       .append("g")
       .attr("transform", `translate(${margin.x},${margin.y})`);
 
-    chart.append("g").attr("class", "axis").call(d3.axisLeft(yScale));
+    // chart.append("g").attr("class", "axis").call(d3.axisLeft(yScale));
     chart
       .append("g")
       .attr("class", "axis")
       .attr("transform", `translate(0,${height})`)
+      .style('font-size',20)
       .call(d3.axisBottom(xScale));
 
-    chart
-      .append("g")
-      .attr("class", "grid-hline")
-      .call(d3.axisLeft().scale(yScale).tickSize(-width, 0, 0).tickFormat(""));
+    // chart
+    //   .append("g")
+    //   .attr("class", "grid-hline")
+    //   .call(d3.axisLeft().scale(yScale).tickSize(-width, 0, 0).tickFormat(""));
 
     const path = chart.selectAll().data(data);
 
@@ -122,7 +123,8 @@ export const BarChart = (props) => {
       .append("title")
       .attr("x", (d) => xScale(d[props.property.xprop]))
       .attr("y", (d) => yScale(d[props.property.yprop]))
-      .text((d) => `Fascia ${d[props.property.xprop]} totale: ${d[props.property.yprop]}`);
+      
+      .text((d) => `Fascia ${d[props.property.xprop]} totale: ${d[props.property.yprop]}`)
 
     path
       .enter()

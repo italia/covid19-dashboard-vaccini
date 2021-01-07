@@ -33,9 +33,9 @@ export const Table = (props) => {
     }
   });
   return (
-    <div id="datatable" className="d-flex">
+    <div id="datatable">
       <table
-        className="table table-borderless compact table-striped table-hover"
+        className="table h-100 table-borderless compact table-striped table-hover"
         cellSpacing="0"
         width="100%"
       />

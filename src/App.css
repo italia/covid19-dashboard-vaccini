@@ -269,6 +269,24 @@ ul.footer_links li {
   text-anchor: middle;
   fill: #fff;
 }
+.title-bar {
+  font-size: 20px;
+  text-anchor: middle;
+  fill: #fff;
+  padding:10px;
+}
+.max-height-plot-1{
+  height: 757px !important;
+}
+.bg-gradient-bar{
+  height: 50%;
+  width: 100%;
+  position: absolute;
+  bottom:0;
+  left:0;
+  background: #013366;
+
+}
 .bar {
   fill: #fff;
   stroke: #fff;
@@ -296,16 +314,13 @@ ul.footer_links li {
 .max-width-total{
   max-width: 450px;
 }
-
-/**
-* FONT SIZE
-*
-*/
-
-.font-25{
-  font-size: 25px;
+.position-powerbi{
+  position: relative;
+  /* bottom:50px;  */
 }
 
-.font-22{
-  font-size: 22px;
+@media (max-width: 767px) {
+  .max-height-plot-1{
+      height:100% !important;
+  }
 }
