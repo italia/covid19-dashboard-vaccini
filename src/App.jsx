@@ -107,7 +107,7 @@ function App() {
 
 
         <div className="row">
-          <div className="col-12 d-flex align-items-end">
+          <div className="col-12 d-flex justify-content-end">
              <img src="reset.png"/>
           </div>
        
