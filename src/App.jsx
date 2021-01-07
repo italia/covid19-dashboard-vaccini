@@ -218,7 +218,7 @@ function App() {
             <MapArea
               summary={{ ...summary }}
               handleCountryClick={handleCountryClickLocations}
-              className="ml-5 w-100 h-100"
+              className="w-100 h-100"
             />
           </div>
 

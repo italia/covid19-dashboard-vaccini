@@ -318,9 +318,24 @@ ul.footer_links li {
   position: relative;
   /* bottom:50px;  */
 }
-
-@media (max-width: 767px) {
-  .max-height-plot-1{
-      height:100% !important;
+/* .map-area{
+  zoom:0.77;
+} */
+@media (max-width: 992px) {
+  .map-area{
+    zoom:0.77;
   }
+}
+
+/**
+* FONT SIZE
+*
+*/
+
+.font-25{
+  font-size: 25px;
+}
+
+.font-22{
+  font-size: 22px;
 }

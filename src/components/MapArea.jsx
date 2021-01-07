@@ -39,8 +39,8 @@ export const MapArea = (props) => {
   }, []);
 
   return (
-    <div className="h-100 align-self-center">
-      <svg width={width} height={height}>
+    <div className="map-area mt-2">
+      <svg className="h-100 w-100" height={height} >
         <g className="countries">
           {geographies.map((d, i) => {
             const regions = props.summary?.deliverySummary?.filter(filterByArea(d.properties.reg_name));
