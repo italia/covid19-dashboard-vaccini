@@ -13,11 +13,13 @@ const puntiSommSummaryURL = `${baseURL}/punti-somministrazione-latest.json`;
 const lastUpdateURL = `${baseURL}/last-update-dataset.json`;
 
 const elaborate = (data) => {
-  console.log(data);
+  
   const tot = data.dataSommVaxSummary.data
     .filter(filterByAreaITA)
     .reduce(sumDoseX("totale"), 0);
   // datatable and map
+  const dataSomeVaxDetail = data.dataSommVaxDetail.data.map(replaceArea);
+
   const deliverySummary = data.dataVaxSummary.data.map(replaceArea);
 
   // categories and ages summary
@@ -97,8 +99,9 @@ const elaborate = (data) => {
     categoriesByRegions,
     locations,
     gender,
+    dataSomeVaxDetail
   };
-  console.log(aggr);
+  // console.log(aggr);
 
   return aggr;
 };

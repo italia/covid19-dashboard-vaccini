@@ -1,0 +1,18 @@
+[0106/165555.180:ERROR:process_reader_win.cc(151)] SuspendThread: Accesso negato. (0x5)
+[0106/165555.181:ERROR:exception_snapshot_win.cc(99)] thread ID 7112 not found in process
+[0106/165857.074:ERROR:directory_reader_win.cc(43)] FindFirstFile: Impossibile trovare il percorso specificato. (0x3)
+[0107/100350.508:ERROR:directory_reader_win.cc(43)] FindFirstFile: Impossibile trovare il percorso specificato. (0x3)
+[0107/100905.516:ERROR:process_reader_win.cc(151)] SuspendThread: Accesso negato. (0x5)
+[0107/100905.516:ERROR:exception_snapshot_win.cc(99)] thread ID 19972 not found in process
+[0107/100911.503:ERROR:process_reader_win.cc(151)] SuspendThread: Accesso negato. (0x5)
+[0107/100911.503:ERROR:exception_snapshot_win.cc(99)] thread ID 23300 not found in process
+[0107/102619.215:ERROR:process_reader_win.cc(151)] SuspendThread: Accesso negato. (0x5)
+[0107/102619.215:ERROR:exception_snapshot_win.cc(99)] thread ID 3652 not found in process
+[0107/103214.998:ERROR:process_reader_win.cc(151)] SuspendThread: Accesso negato. (0x5)
+[0107/103214.998:ERROR:exception_snapshot_win.cc(99)] thread ID 5772 not found in process
+[0107/103248.818:ERROR:process_reader_win.cc(151)] SuspendThread: Accesso negato. (0x5)
+[0107/103248.818:ERROR:exception_snapshot_win.cc(99)] thread ID 20824 not found in process
+[0107/110103.996:ERROR:process_reader_win.cc(151)] SuspendThread: Accesso negato. (0x5)
+[0107/110103.997:ERROR:exception_snapshot_win.cc(99)] thread ID 19224 not found in process
+[0107/144023.580:ERROR:process_reader_win.cc(151)] SuspendThread: Accesso negato. (0x5)
+[0107/144023.581:ERROR:exception_snapshot_win.cc(99)] thread ID 21652 not found in process

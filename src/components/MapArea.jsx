@@ -29,7 +29,6 @@ export const MapArea = (props) => {
     .parallels([35, 45])
     .scale(2200)
     .translate([width / 2, height / 2]);
-
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("data/geo/it.json");
@@ -44,9 +43,7 @@ export const MapArea = (props) => {
       <svg width={width} height={height}>
         <g className="countries">
           {geographies.map((d, i) => {
-            const regions = props.summary?.deliverySummary?.filter(
-              filterByArea(d.properties.reg_name)
-            );
+            const regions = props.summary?.deliverySummary?.filter(filterByArea(d.properties.reg_name));
             let region = {};
             if (regions && regions.length > 0) {
               region = regions[0];
@@ -56,9 +53,8 @@ export const MapArea = (props) => {
                 key={`path-${i}`}
                 d={d3.geoPath().projection(projection)(d)}
                 className="country"
-                fill={`rgba(0,102,204,${
-                  (1 / 100) * region.percentuale_somministrazione
-                })`}
+                fill={`rgba(0,102,204,${(1 / 50) * region.percentuale_somministrazione
+                  })`}
                 stroke="#FFFFFF"
                 strokeWidth={0.7}
                 onClick={() => handleClick(region.index)}

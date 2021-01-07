@@ -22,7 +22,6 @@ export const HBarChart = (props) => {
       width = parseInt(svg.style("width"), 10),
       height = parseInt(svg.style("height"), 10),
       aspect = width / height;
-
     // Add viewBox attribute to set the value to initial size
     // add preserveAspectRatio attribute to specify how to scale
     // and call resize so that svg resizes on page load

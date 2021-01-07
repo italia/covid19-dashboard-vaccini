@@ -46,6 +46,7 @@ export const BarChart = (props) => {
 
   const draw = () => {
     const data = props?.data || [];
+    console.log(data);
     const maxScale = data?.reduce(maxX(props.property.yprop), 0) || 0;
 
     // append element

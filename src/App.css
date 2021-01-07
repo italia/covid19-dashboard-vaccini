@@ -277,3 +277,7 @@ ul.footer_links li {
   color: #fff;
   fill: #fff
 }
+
+.max-width-total{
+  max-width: 450px;
+}

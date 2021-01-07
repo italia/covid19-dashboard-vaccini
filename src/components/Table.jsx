@@ -17,13 +17,14 @@ export const Table = (props) => {
       .find("table")
       .DataTable({
         dom:
-          "<'row'<'col-sm-12 col-md-12'lf>>" +
+          "<'row'<'col-sm-12 col-md-12'l>>" +
           "<'row'<'col-sm-12'tr>>",
         paging: false,
         searching: true,
         destroy: true,
         data: props.summary?.deliverySummary || [],
         columns,
+        
       });
     if (props?.selected?.area) {
       table.search(props.selected.area).draw();
