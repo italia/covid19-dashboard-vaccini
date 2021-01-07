@@ -81,13 +81,13 @@ function App() {
           </div>
         </div>
         <div className="row">
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-6 font-25">
             <StaticBlock
               classes="bg-primary text-white"
               text="Il 27 dicembre sono state consegnate 9.750 dosi di vaccino, interamente somministrate."
             />
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-6 font-25">
             <StaticBlock
               classes="bg-primary text-white"
               text="Dal 30 Dicembre al 1° Gennaio sono state consegnate 469.950 dosi di vaccino."
@@ -95,8 +95,8 @@ function App() {
           </div>
           <div className="col-12">
             <div
-              className="text-center"
-              style={{ height: 150 }}
+              className="text-center font-22"
+              style={{ height: 100 }}
             >
               <StaticBlock
                 classes="text-black text-uppercase font-weight-bold"
