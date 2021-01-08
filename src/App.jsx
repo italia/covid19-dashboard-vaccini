@@ -10,6 +10,7 @@ import { loadData } from "./loadData";
 import { BarChart } from "./components/BarChart";
 import { HBarChart } from "./components/HBarChart";
 import { areaMappingReverse, groupByAge, allTotalGender } from "./utils";
+import * as _ from 'lodash';
 import "./App.css";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
   const handleRectClick = (currentRect) => {
     if (currentRect) {
       let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => el.fascia_anagrafica === currentRect.fascia_anagrafica);
+      // console.log(vaccinAdministrationListReportByAge);
       setTotalAgeByGender({ gen_m: currentRect?.sesso_maschile, gen_f: currentRect?.sesso_femminile });
       setSelectedAge(currentRect)
     } else {
@@ -137,33 +139,33 @@ function App() {
               className="mr-5 h-100"
             />
           </div>
-          <div className="col-12 col-md-6 pt-2 pl-5"> 
-          <div className="p-4 position-absolute" style={{right:'50px', top:'110px'}}>            
-              
-                <div className="w-100 h-100 d-flex justify-content-start pr-5">
-                  <img src="logo.png" width="35" height="35" alt="Logo" />
-                </div>
-                <div className="w-100 h-100 d-flex justify-content-end text-black">
-                  <h5>Vaccinazioni <br/>per regione</h5>
+          <div className="col-12 col-md-6 pt-3 pl-5">
+            <div className="p-4 position-absolute" style={{ right: '0px', top: '30px' }}>
 
-                </div>
-              
+              <div className="w-100 h-100 d-flex justify-content-start pr-5">
+                <img src="logo.png" width="35" height="35" alt="Logo" />
+              </div>
+              <div className="w-100 h-100 d-flex justify-content-end text-black">
+                <h5>Distribuzione vaccinazioni<br />rispetto alle consegne</h5>
 
-            </div>
-            <h6>
-            distribuzione delle somministrazioni rispetto alle consegne 
-            </h6>
+              </div>
+
+
+            </div>            
             <MapArea
               summary={{ ...summary }}
               selected={selectedLocationMap}
               handleCountryClick={handleCountryClick}
               className="ml-5 w-100 h-100"
             />
-          <div className="p-4 position-relative">              
+            <div className="p-4 position-relative">
               <div className="text-black w-100">
                 <div className="w-100 h-100 d-flex justify-content-start pr-5">
-                  <img src="logo.png" width="35" height="35" alt="Logo" />
+                  <img src="logo.png" width="40" height="40" alt="Logo" />
+                  <span className="font-30 bold pl-3" >{_.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]) ? _.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]).toLocaleString('it') : 0}</span>
+                  
                 </div>
+                
                 <div className="w-100  h-100 d-flex justify-content-start">
                   <h5>Totale vaccinazioni</h5>
                 </div>
@@ -172,11 +174,6 @@ function App() {
             </div>
           </div>
         </div>
-
-
-
-
-
         <div className="row position-powerbi" style={{ backgroundColor: '#F8FBFE' }}>
           <div className="col-12 col-md-6">
           </div>
@@ -203,10 +200,10 @@ function App() {
                 <img src="group_person.svg" alt="Logo" className="img-fluid" />
               </div>
               <div className="text-white w-100">
-                <div className="w-100 h-100 d-flex justify-content-end pr-5">
-                  <img src="logo.png" width="30" height="30" alt="Logo" />
+                <div className="w-100 h-100 d-flex justify-content-end">
+                  <img src="logo.png" width="40" height="40" alt="Logo" />
                 </div>
-                <div className="w-100  h-100 d-flex justify-content-end">
+                <div className="w-100  h-100 d-flex justify-content-end text-right">
                   <h3>Vaccinazioni<br></br> per fasce di età</h3>
 
                 </div>
@@ -257,7 +254,27 @@ function App() {
         </div>
 
         <div className="row">
-          <div className="col-12 col-md-6">
+        <div className="col-12 col-md-6" >
+            <LocationsTable
+              summary={{ ...summary }}
+              selected={selectedLocation}
+              className="mr-5 h-100"
+            />
+          </div>
+
+          <div className="col-12 col-md-6 pt-5">
+          <div className="pt-5 position-absolute" style={{ right: '0px', top: '30px' }}>
+
+<div className="w-100 h-100 d-flex justify-content-start pr-5">
+  <img src="logo.png" width="35" height="35" alt="Logo" />
+</div>
+<div className="w-100 h-100 d-flex justify-content-end text-black">
+  <h5>Punti di somministrazione<br />per regione</h5>
+
+</div>
+
+
+</div>  
             
             <MapArea
               summary={{ ...summary }}
@@ -265,25 +282,15 @@ function App() {
               className="w-100 h-100"
             />
           </div>
-
-        </div>
-        <div className="row" style={{ backgroundColor: '#013366' }}>
-          <div className="col-12 col-md-12" >
-            <LocationsTable
-              summary={{ ...summary }}
-              selected={selectedLocation}
-              className="mr-5 h-100"
-            />
-          </div>
-          
-
-          <p className="text-center pt-5">
+          </div>  
+          <div className="row">
+          <div className="col-12 text-center pt-5 pb-3">
             I dati visualizzati sono disponibili all'indirizzo{" "}
             <a href="https://github.com/italia/covid19-opendata-vaccini">
               https://github.com/italia/covid19-opendata-vaccini
         </a>
-          </p>
-          </div>          
+          </div>
+          </div>        
       </div>
       <FooterBar />
 

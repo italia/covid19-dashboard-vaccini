@@ -331,6 +331,10 @@ ul.footer_links li {
 * FONT SIZE
 *
 */
+.font-30{
+  font-size: 30px;
+}
+
 
 .font-25{
   font-size: 25px;
@@ -338,4 +342,8 @@ ul.footer_links li {
 
 .font-22{
   font-size: 22px;
+}
+
+.bold {
+  font-weight: bold;
 }

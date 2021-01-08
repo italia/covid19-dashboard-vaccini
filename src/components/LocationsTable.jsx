@@ -19,13 +19,13 @@ export const LocationsTable = (props) => {
         dom:
           "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
           "<'row'<'col-sm-12'tr>>" +
-          "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+          "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",       
         paging: true,
         searching: true,
         destroy: true,
-        LengthChange: false,
-        pagingType: "full_numbers",
-        pageLength: '20',
+        bLengthChange: false,
+        pagingType: "numbers",
+        pageLength: '15',
         data: props.summary?.locations || [],
         columns,
       });
@@ -38,7 +38,7 @@ export const LocationsTable = (props) => {
   return (
     <div id="datatable-locations">
       <table
-        className="table table-borderless compact table-striped table-hover"
+        className="table table-borderless compact table-hover"
         cellSpacing="0"
         width="100%"
       />

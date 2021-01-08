@@ -6,7 +6,7 @@ import "datatables.net-bs4/css/dataTables.bootstrap4.min.css";
 $.DataTable = DataTable;
 const columns = [
   { title: "Regioni", data: "area" },
-  { title: "Somministrazioni", data: "dosi_somministrate" },
+  { title: "Vaccinazione", data: "dosi_somministrate" },
   { title: "Consegne", data: "dosi_consegnate" },
   { title: "%", data: "percentuale_somministrazione" },
 ];
