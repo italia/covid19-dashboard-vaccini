@@ -35,7 +35,7 @@ export const Table = (props) => {
   return (
     <div id="datatable">
       <table
-        className="table h-100 table-borderless compact table-striped table-hover"
+        className="table h-100 table-borderless compact table-hover"
         cellSpacing="0"
         width="100%"
       />
