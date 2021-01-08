@@ -1,4 +1,4 @@
-import { React, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import "../App.css";
 import { maxX } from "../utils";
@@ -8,11 +8,22 @@ export const HBarChart = (props) => {
     height = +props.height;
   const myRef = useRef();
   const divRef = useRef();
+  const [select, setSelected] = useState(null);
+
+  const handleRectClick = (x) => {
+    if (select === x) {
+      props.handleRectClick(null);
+      setSelected(null);
+    } else {
+      props.handleRectClick(x);
+      setSelected(x);
+    }
+  };
 
   useEffect(() => {
     doExit();
     draw();
-  });
+  },[props]);
 
   const responsivefy = (svg) => {
     // Container is the DOM element, svg is appended.
@@ -53,22 +64,25 @@ export const HBarChart = (props) => {
       .append("svg")
       .attr("width", width)
       .attr("height", height);
-    const margin = { y: 80, x: 50 };
+    const margin = { y: 50, x: 160 };
 
     // Add X axis
-    const xScale = d3.scaleLinear().domain([0, maxScale]).range([0, width]);
+    const xScale = d3.scaleLinear().domain([0, maxScale]).range([0, width-20]);
     // Y axis
     const yScale = d3
       .scaleBand()
+      .padding(0.4)
       .range([0, height])
       .domain(data.map((d) => d[props.property.xprop]))
-      .padding(0.1);
+      
+      
 
     svg
       .attr("width", width + 2 * margin.x)
       .attr("height", height + 2 * margin.y)
       .call(responsivefy) // Call responsivefy to make the chart responsive
       .attr("id", "svg-horizontal-bar");
+    
 
     svg
       .append("text")
@@ -78,46 +92,56 @@ export const HBarChart = (props) => {
       .attr("text-anchor", "middle")
       .attr(props.title);
 
-    svg
-      .append("text")
-      .attr("x", width / 2 + margin.x)
-      .attr("y", margin.y * 2)
-      .attr("transform", `translate(0,${height - margin.y / 4})`)
-      .attr("class", "hb-title")
-      .text(props.xtitle);
+    // svg
+    //   .append("text")
+    //   .attr("x", width / 2 + margin.x)
+    //   .attr("y", margin.y * 2)
+    //   .attr("transform", `translate(0,${height - margin.y / 4})`)
+    //   .attr("class", "hb-title")
+    //   .text(props.xtitle);
 
-    svg
-      .append("text")
-      .attr("x", -(height / 2) - margin.y)
-      .attr("y", margin.x / 2.4)
-      .attr("transform", "rotate(-90)")
-      .attr("class", "hb-title")
-      .text(props.ytitle);
+    // svg
+    //   .append("text")
+    //   .attr("x", -(height / 2) - margin.y)
+    //   .attr("y", margin.x / 2.4)
+    //   .attr("transform", "rotate(-90)")
+    //   .attr("class", "hb-title")
+    //   .text(props.ytitle);
 
     const chart = svg
       .append("g")
       .attr("transform", `translate(${margin.x},${margin.y})`);
 
-    chart.append("g").attr("class", "hb-axis").call(d3.axisLeft(yScale));
-    chart
-      .append("g")
-      .attr("class", "hb-axis")
-      .attr("transform", `translate(0,${height})`)
-      .call(d3.axisBottom(xScale).tickFormat(d => d.toLocaleString('it')))
-      .selectAll("text")
-      .attr("transform", "translate(-10,0)rotate(-45)")
-      .style("text-anchor", "end");
+    chart.append("g").attr("class", "hb-axis").call(d3.axisLeft(yScale)).style("font-size", "20px")
 
-    chart
-      .append("g")
-      .attr("class", "hb-grid-hline")
-      .call(d3.axisLeft().scale(yScale).tickSize(-width, 0, 0).tickFormat(""));
+    // chart
+    //   .append("g")
+    //   .attr("class", "hb-axis")
+    //   .attr("transform", `translate(0,${height})`)
+    //   .call(d3.axisBottom(xScale).tickFormat(d => d.toLocaleString('it')))
+    //   .selectAll("text")
+    //   .attr("transform", "translate(-10,0)rotate(-45)")
+    //   .style("text-anchor", "end");
+
+    // chart
+    //   .append("g")
+    //   .attr("class", "hb-grid-hline")
+    //   .call(d3.axisLeft().scale(yScale).tickSize(-width, 0, 0).tickFormat(""));
 
     const path = chart.selectAll().data(data);
 
     path
       .enter()
-      .append("rect")
+      .append("rect").on('click', (e, d) => {
+        handleRectClick(d);
+      })
+      .attr('opacity', (d) => {
+        // // console.log(select)
+        // console.log(props?.selected);
+        let opac = props?.selectedCodeCategory === d.code ? 1 : !props?.selectedCodeCategory ? 1 : 0.3;
+        //  console.log(test);
+        return opac;
+      })
       .attr("class", "hb-bar")
       .attr("x", xScale(0))
       .attr("y", (d) => yScale(d[props.property.xprop]))
@@ -139,8 +163,8 @@ export const HBarChart = (props) => {
       .attr("fill", "white")
       .attr("x", (d) => xScale(d[props.property.yprop]) + 35)
       .attr("y", (d) =>
-        height - yScale(d[props.property.xprop]) >= 60
-          ? yScale(d[props.property.xprop]) + 60
+        height - yScale(d[props.property.xprop]) >= 0
+          ? yScale(d[props.property.xprop]) + 35
           : yScale(d[props.property.xprop])
       )
       .text((d) => d[props.property.yprop].toLocaleString('it'));

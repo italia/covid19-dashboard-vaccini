@@ -53,7 +53,7 @@ const inverse = (obj) => {
   }
   return retobj;
 };
-export const replaceArea = (x) => ({ ...x, area: areaMapping[x.area] });
+export const replaceArea = (x) => ({ ...x, area: areaMapping[x.area], code: x.area });
 export const areaMapping = {
   ABR: "Abruzzo",
   BAS: "Basilicata",

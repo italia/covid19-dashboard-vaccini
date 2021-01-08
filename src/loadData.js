@@ -1,4 +1,4 @@
-import { sumDoseX, filterByAreaITA, replaceArea, aggrBy } from "./utils";
+import { sumDoseX, filterByAreaITA, replaceArea, aggrBy, mapBy } from "./utils";
 const baseURL =
   "https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati";
 
@@ -26,7 +26,7 @@ const elaborate = (data) => {
   const categoriesAndAges = data.dataProfileSummary.data;
   const categories = [
     {
-      name: "Categoria OSS",
+      name: "Operatori Sanitari e Sociosanitari",
       code: "cat_oss",
       total: categoriesAndAges.reduce(
         sumDoseX("categoria_operatori_sanitari_sociosanitari"),
@@ -34,12 +34,12 @@ const elaborate = (data) => {
       ),
     },
     {
-      name: "Categoria Ospiti RSA",
+      name: "Ospiti Strutture Residenziali",
       code: "cat_rsa",
       total: categoriesAndAges.reduce(sumDoseX("categoria_ospiti_rsa"), 0),
     },
     {
-      name: "Categoria Personale non sanitario",
+      name: "Personale non sanitario",
       code: "cat_pns",
       total: categoriesAndAges.reduce(
         sumDoseX("categoria_personale_non_sanitario"),
@@ -51,11 +51,12 @@ const elaborate = (data) => {
     aggrBy("area"),
     {}
   );
+
   let categoriesByRegions = {};
   Object.keys(categoriesByRegionRAW).map((x) => {
     categoriesByRegions[x] = [
       {
-        name: "Categoria OSS",
+        name: "Operatori Sanitari e Sociosanitari",
         code: "cat_oss",
         total: categoriesByRegionRAW[x].reduce(
           sumDoseX("categoria_operatori_sanitari_sociosanitari"),
@@ -81,6 +82,13 @@ const elaborate = (data) => {
     ];
     return categoriesByRegions;
   });
+
+  deliverySummary.forEach(ds => {
+    ds['byCategory'] = categoriesByRegions[ds.code].reduce(
+      aggrBy("code"),
+      {}
+    )
+  })
 
   const locations = data.dataVaxLocations.data.map(replaceArea);
 
