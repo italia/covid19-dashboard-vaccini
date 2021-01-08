@@ -132,14 +132,14 @@ function App() {
 
         </div>
         <div className="row" style={{ backgroundColor: '#F8FBFE' }}>
-          <div className="col-12 col-md-6 h-100">
+          <div className="col-12 col-md-5 h-100">
             <Table
               summary={{ ...summary }}
               selected={selected}
               className="mr-5 h-100"
             />
           </div>
-          <div className="col-12 col-md-6 pt-3 pl-5">
+          <div className="col-12 col-md-7 pt-5 pl-5">
             <div className="p-4 position-absolute" style={{ right: '0px', top: '30px' }}>
 
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
@@ -281,6 +281,26 @@ function App() {
               handleCountryClick={handleCountryClickLocations}
               className="w-100 h-100"
             />
+
+<div className="p-4 position-relative">
+              <div className="text-black w-100">
+                <div className="w-100 h-100 d-flex justify-content-end pr-5">
+                  <img src="logo.png" width="40" height="40" alt="Logo" />
+                  
+                  
+                </div>
+                
+                <div className="w-100  h-100 d-flex justify-content-end">
+                  <h5 className="text-al">Totale vaccinazioni</h5>                  
+                </div>
+                <div className="w-100  h-100 d-flex justify-content-end">                 
+                <h5 className="text-al">{_.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]) ? _.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]).toLocaleString('it') : 0}</h5>
+                </div>
+              </div>
+
+            </div>
+
+
           </div>
           </div>  
           <div className="row">
