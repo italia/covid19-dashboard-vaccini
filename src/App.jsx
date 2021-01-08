@@ -12,17 +12,18 @@ import { HBarChart } from "./components/HBarChart";
 import { areaMappingReverse, groupByAge, allTotalGender } from "./utils";
 import * as _ from 'lodash';
 import "./App.css";
+import { omit } from "lodash";
 
 function App() {
   const [summary, setSummary] = useState({});
-  const [selected, setSelected] = useState({});
+  const [selected, setSelected] = useState(null);
   const [totalAgeByGender, setTotalAgeByGender] = useState({});
   const [barState, setBarState] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState({});
   const [selectedLocationMap, setSelectedLocationMap] = useState(null);
   const [selectedAge, setSelectedAge] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState([]);
-
+  const [selectedFilterByAge, setSelectedFilterByAge] = useState(null);
   const resetFilter = () => {
     setSelected(null);
     setSelectedCategory(summary.categories);
@@ -30,19 +31,31 @@ function App() {
     setTotalAgeByGender(summary.gender);
     setSelectedAge(null);
     setSelectedLocationMap(null);
-
+    setSelectedFilterByAge(null);
   }
   const handleRectClick = (currentRect) => {
     if (currentRect) {
-      let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => el.fascia_anagrafica === currentRect.fascia_anagrafica);
-      // console.log(vaccinAdministrationListReportByAge);
+      let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => (el.fascia_anagrafica.trim()) === (currentRect.fascia_anagrafica.trim()));
+      var grouped = _.mapValues(_.groupBy(vaccinAdministrationListReportByAge, 'area'),
+        z => _.sum(z.map(x => _.sum([x.sesso_maschile, x.sesso_femminile]))));
+
+      let _summary = summary.deliverySummary;
+      _summary = _summary.map((e) => {
+        let x = omit(e, ['dosi_somministrate', 'percentuale_somministrazione', 'ultimo_aggiornamento']);
+        let y = { dosi_somministrate: grouped[e.area] };
+        let z = { percentuale_somministrazione: ((y.dosi_somministrate / x.dosi_consegnate) * 100).toFixed(1) }
+        return { ...x, ...y, ...z };
+      });
+      selected ? setSelectedFilterByAge(null) : setSelectedFilterByAge(_summary);
       setTotalAgeByGender({ gen_m: currentRect?.sesso_maschile, gen_f: currentRect?.sesso_femminile });
       setSelectedAge(currentRect)
+
     } else {
       setBarState(summary.categoriesAndAges);
       setTotalAgeByGender(summary.gender);
+      setSelectedFilterByAge(null);
       setSelectedAge(null)
-
+      setSelected(null);
     }
   }
   const handleCountryClick = (countryIndex) => {
@@ -51,9 +64,11 @@ function App() {
 
     setSelected({ ..._selected });
     setSelectedAge(null);
+    setSelectedFilterByAge(null);
+
     setSelectedLocationMap(_selected);
 
-    if (countryIndex || countryIndex == 0) {
+    if (countryIndex || countryIndex === 0) {
       let vaccinAdministrationListReportByArea = summary.dataSomeVaxDetail.filter(el => el.area === _selected.area);
 
       setBarState(groupByAge(vaccinAdministrationListReportByArea));
@@ -85,6 +100,7 @@ function App() {
       setSelectedCategory(d.categories);
       setBarState(d.categoriesAndAges);
       setTotalAgeByGender(d.gender);
+      setSelectedFilterByAge(null);
     });
   }, []);
 
@@ -134,6 +150,7 @@ function App() {
         <div className="row" style={{ backgroundColor: '#F8FBFE' }}>
           <div className="col-12 col-md-6 h-100">
             <Table
+              summaryFilter={selectedFilterByAge}
               summary={{ ...summary }}
               selected={selected}
               className="mr-5 h-100"
@@ -153,6 +170,7 @@ function App() {
 
             </div>
             <MapArea
+              summaryFilter={selectedFilterByAge}
               summary={{ ...summary }}
               selected={selectedLocationMap}
               handleCountryClick={handleCountryClick}

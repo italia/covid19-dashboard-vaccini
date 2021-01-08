@@ -41,20 +41,23 @@ export const MapArea = (props) => {
   return (
     <div className="map-area mt-2">
       <svg className="h-100 w-100" height={height} >
-        <g className="countries">
+        <g className="countries" >
           {geographies.map((d, i) => {
-            const regions = props.summary?.deliverySummary?.filter(filterByArea(d.properties.reg_name));
+            let _summary = (props.summaryFilter || props.summary.deliverySummary);
+            const regions = _summary?.filter(filterByArea(d.properties.reg_name));
             let region = {};
             if (regions && regions.length > 0) {
               region = regions[0];
             }
+            let scaleOp = props && props.summaryFilter ? (1 / 80) * region.percentuale_somministrazione : props?.selected === region ? 1 : !props?.selected ? (1 / 80) * region.percentuale_somministrazione : (0.5 / 50) * region.percentuale_somministrazione;
             return (
               <path
+               
                 key={`path-${i}`}
                 d={d3.geoPath().projection(projection)(d)}
                 className="country"
 
-                fill={`rgba(0,102,204, ${props?.selected === region ? 1 : !props?.selected ? (1 / 80) * region.percentuale_somministrazione : (0.5 / 50) * region.percentuale_somministrazione}) `}
+                fill={`rgba(0,102,204,${scaleOp}) `}
                 stroke="#FFFFFF"
                 strokeWidth={0.7}
                 onClick={() => handleClick(region.index)}

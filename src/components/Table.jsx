@@ -12,7 +12,7 @@ const columns = [
 ];
 
 export const Table = (props) => {
- 
+
   useEffect(() => {
     const table = $("#datatable")
       .find("table")
@@ -23,7 +23,7 @@ export const Table = (props) => {
         paging: false,
         searching: true,
         destroy: true,
-        data: props.summary?.deliverySummary || [],
+        data: ((props.summaryFilter || props.summary?.deliverySummary) || []),
         columns,
 
       });
