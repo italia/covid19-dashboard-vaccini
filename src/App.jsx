@@ -125,7 +125,7 @@ function App() {
 
 
         <div className="row">
-          <div className="col-12 d-flex align-items-end">
+          <div className="col-12 d-flex justify-content-end">
             <img src="reset.png" onClick={resetFilter} />
           </div>
 
@@ -138,13 +138,36 @@ function App() {
               className="mr-5 h-100"
             />
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-6 pt-5 pl-5"> 
+          <div className="p-4 position-absolute" style={{right:'50px', top:'110px'}}>            
+              
+                <div className="w-100 h-100 d-flex justify-content-start pr-5">
+                  <img src="logo.png" width="35" height="35" alt="Logo" />
+                </div>
+                <div className="w-100 h-100 d-flex justify-content-end text-black">
+                  <h5>Vaccinazioni <br/>per regione</h5>
+
+                </div>
+              
+
+            </div>
             <MapArea
               summary={{ ...summary }}
               selected={selectedLocationMap}
               handleCountryClick={handleCountryClick}
               className="ml-5 w-100 h-100"
             />
+          <div className="p-4 position-relative">              
+              <div className="text-black w-100">
+                <div className="w-100 h-100 d-flex justify-content-start pr-5">
+                  <img src="logo.png" width="35" height="35" alt="Logo" />
+                </div>
+                <div className="w-100  h-100 d-flex justify-content-start">
+                  <h5>Totale vaccinazioni</h5>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
 
