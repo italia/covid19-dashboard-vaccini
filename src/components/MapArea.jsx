@@ -7,7 +7,7 @@ import "./MapArea.css"
 
 export const MapArea = (props) => {
   const [geographies, setGeographies] = useState([]);
-  const [select, setSelected] = useState([]);
+  const [select, setSelected] = useState(null);
 
   const handleClick = (x) => {
     if (select === x) {
@@ -48,13 +48,16 @@ export const MapArea = (props) => {
             if (regions && regions.length > 0) {
               region = regions[0];
             }
+            // console.log(region);
+            // console.log(props?.selected);
+            // console.log(select);
             return (
               <path
                 key={`path-${i}`}
                 d={d3.geoPath().projection(projection)(d)}
                 className="country"
-                fill={`rgba(1,37,76,${(1 / 80) * region.percentuale_somministrazione
-                  })`}
+
+                fill={`rgba(0,102,204, ${props?.selected === region ? 1 : !props?.selected ? (1 / 50) * region.percentuale_somministrazione : (0.5 / 50) * region.percentuale_somministrazione}) `}
                 stroke="#FFFFFF"
                 strokeWidth={0.7}
                 onClick={() => handleClick(region.index)}

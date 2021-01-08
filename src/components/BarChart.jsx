@@ -1,4 +1,4 @@
-import { React, useEffect, useRef } from "react";
+import { React, useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import "../App.css";
 import { maxX } from "../utils";
@@ -8,7 +8,17 @@ export const BarChart = (props) => {
     height = +props.height;
   const myRef = useRef();
   const divRef = useRef();
+  const [select, setSelected] = useState(null);
 
+  const handleRectClick = (x) => {
+    if (select === x) {
+      props.handleRectClick(null);
+      setSelected(null);
+    } else {
+      props.handleRectClick(x);
+      setSelected(x);
+    }
+  };
   useEffect(() => {
     doExit();
     draw();
@@ -46,9 +56,7 @@ export const BarChart = (props) => {
 
   const draw = () => {
     const data = props?.data || [];
-    console.log(data);
     const maxScale = data?.reduce(maxX(props.property.yprop), 0) || 0;
-
     // append element
     const svg = d3
       .select(divRef.current)
@@ -102,7 +110,7 @@ export const BarChart = (props) => {
       .append("g")
       .attr("class", "axis")
       .attr("transform", `translate(0,${height})`)
-      .style('font-size',20)
+      .style('font-size', 20)
       .call(d3.axisBottom(xScale));
 
     // chart
@@ -114,7 +122,17 @@ export const BarChart = (props) => {
 
     path
       .enter()
-      .append("rect")
+      .append("rect").on('click', (e, d) => {
+        handleRectClick(d);
+      })
+      .attr('opacity', (d) => {
+        // console.log(select === d);
+        // // console.log(select)
+        // console.log(props?.selected);
+        let test = props?.selected === d ? 1 : !props?.selected ? 1 : 0.3;
+        //  console.log(test);
+        return test;
+      })
       .attr("class", "bar")
       .attr("x", (d) => xScale(d[props.property.xprop]))
       .attr("y", (d) => yScale(d[props.property.yprop]))
@@ -123,7 +141,6 @@ export const BarChart = (props) => {
       .append("title")
       .attr("x", (d) => xScale(d[props.property.xprop]))
       .attr("y", (d) => yScale(d[props.property.yprop]))
-      
       .text((d) => `Fascia ${d[props.property.xprop]} totale: ${d[props.property.yprop]}`)
 
     path

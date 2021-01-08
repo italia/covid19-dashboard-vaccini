@@ -12,6 +12,7 @@ const columns = [
 ];
 
 export const Table = (props) => {
+ 
   useEffect(() => {
     const table = $("#datatable")
       .find("table")
@@ -24,7 +25,7 @@ export const Table = (props) => {
         destroy: true,
         data: props.summary?.deliverySummary || [],
         columns,
-        
+
       });
     if (props?.selected?.area) {
       table.search(props.selected.area).draw();

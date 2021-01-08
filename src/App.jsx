@@ -18,27 +18,45 @@ function App() {
   const [totalAgeByGender, setTotalAgeByGender] = useState({});
   const [barState, setBarState] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState({});
+  const [selectedLocationMap, setSelectedLocationMap] = useState(null);
+  const [selectedAge, setSelectedAge] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState([]);
 
+  const resetFilter = () => {
+    setSelected(null);
+    setSelectedCategory(summary.categories);
+    setBarState(summary.categoriesAndAges);
+    setTotalAgeByGender(summary.gender);
+    setSelectedAge(null);
+    setSelectedLocationMap(null);
+
+  }
+  const handleRectClick = (currentRect) => {
+    if (currentRect) {
+      // let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => el.fascia_anagrafica === currentRect.fascia_anagrafica);
+      setTotalAgeByGender({ gen_m: currentRect?.sesso_maschile, gen_f: currentRect?.sesso_femminile });
+      setSelectedAge(currentRect)
+    } else {
+      setBarState(summary.categoriesAndAges);
+      setTotalAgeByGender(summary.gender);
+      setSelectedAge(null)
+
+    }
+  }
   const handleCountryClick = (countryIndex) => {
     // console.log(summary);
     let _selected = summary.deliverySummary[countryIndex];
 
     setSelected({ ..._selected });
+    setSelectedAge(null);
+    setSelectedLocationMap(_selected);
 
     if (countryIndex || countryIndex == 0) {
-      let vaccinAdministrationListReportByArea = summary.dataSomeVaxDetail.filter(el => el.area == _selected.area);
+      let vaccinAdministrationListReportByArea = summary.dataSomeVaxDetail.filter(el => el.area === _selected.area);
 
       setBarState(groupByAge(vaccinAdministrationListReportByArea));
       setTotalAgeByGender(allTotalGender(groupByAge(vaccinAdministrationListReportByArea)));
-      calcGenderByAge(summary?.categoriesAndAges)
-      function calcGenderByAge(arg) {
-        if (Array.isArray(arg)) {
-          arg.map((el) => {
-            return el.sesso_maschile;
-          })
-        }
-      }
+
     } else {
       setBarState(summary.categoriesAndAges);
       setTotalAgeByGender(summary.gender);
@@ -107,10 +125,10 @@ function App() {
 
 
         <div className="row">
-          <div className="col-12 d-flex justify-content-end">
-             <img src="reset.png"/>
+          <div className="col-12 d-flex align-items-end">
+            <img src="reset.png" onClick={resetFilter} />
           </div>
-       
+
         </div>
         <div className="row" style={{ backgroundColor: '#F8FBFE' }}>
           <div className="col-12 col-md-6 h-100">
@@ -120,9 +138,10 @@ function App() {
               className="mr-5 h-100"
             />
           </div>
-          <div className="col-12 col-md-6 pt-5 pl-5">
+          <div className="col-12 col-md-6">
             <MapArea
               summary={{ ...summary }}
+              selected={selectedLocationMap}
               handleCountryClick={handleCountryClick}
               className="ml-5 w-100 h-100"
             />
@@ -178,7 +197,9 @@ function App() {
               xtitle="Fascia d'età"
               ytitle=""
               width="800"
+              handleRectClick={handleRectClick}
               height="300"
+              selected={selectedAge}
               property={{ xprop: "fascia_anagrafica", yprop: "totale" }}
               data={barState}
             />
