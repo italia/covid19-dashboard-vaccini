@@ -33,7 +33,7 @@ function App() {
   }
   const handleRectClick = (currentRect) => {
     if (currentRect) {
-      // let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => el.fascia_anagrafica === currentRect.fascia_anagrafica);
+      let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => el.fascia_anagrafica === currentRect.fascia_anagrafica);
       setTotalAgeByGender({ gen_m: currentRect?.sesso_maschile, gen_f: currentRect?.sesso_femminile });
       setSelectedAge(currentRect)
     } else {
@@ -72,7 +72,6 @@ function App() {
     const area = summary.deliverySummary[countryIndex]?.area;
     const areaCode = areaMappingReverse[area];
     const data = summary.categoriesByRegions[areaCode];
-
     setSelectedCategory(
       countryIndex ? data?.slice() || [] : summary.categories
     );

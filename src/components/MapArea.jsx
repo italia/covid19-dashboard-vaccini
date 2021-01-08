@@ -48,9 +48,6 @@ export const MapArea = (props) => {
             if (regions && regions.length > 0) {
               region = regions[0];
             }
-            // console.log(region);
-            // console.log(props?.selected);
-            // console.log(select);
             return (
               <path
                 key={`path-${i}`}

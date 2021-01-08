@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 export const sumDose = (acc, x) => acc + +x?.TML_DOSE_1 + +x?.TML_DOSE_2;
 export const sumDoseXY = (y, z) => (acc, x) => acc + +x?.[y] + +x?.[z];
 export const sumYear = (accumulator, currentValue) => accumulator + currentValue;
@@ -8,8 +9,8 @@ export const groupByAge = (array) => {
   let _age;
   if (Array.isArray(array) && array.length > 0) {
     _age = age.map(el => {
-      let resFemale = array.filter(_el => _el.fascia_anagrafica === el).map(__el => __el.sesso_maschile)?.reduce(sumYear);
-      let resMale = array.filter(_el => _el.fascia_anagrafica === el).map(__el => __el.sesso_femminile)?.reduce(sumYear);
+      let resMale = _.sum(array.filter(_el => _el.fascia_anagrafica === el).map(__el => __el.sesso_maschile));
+      let resFemale = _.sum(array.filter(_el => _el.fascia_anagrafica === el).map(__el => __el.sesso_femminile));
       return { fascia_anagrafica: el, sesso_femminile: resFemale, sesso_maschile: resMale, totale: resMale + resFemale };
     });
   }
@@ -59,21 +60,21 @@ export const areaMapping = {
   CAL: "Calabria",
   CAM: "Campania",
   EMR: "Emilia-Romagna",
-  FVG: "Friuli-Venezia Giulia",
+  FVG: "Friuli Venezia Giulia",
   LAZ: "Lazio",
   LIG: "Liguria",
   LOM: "Lombardia",
   MAR: "Marche",
   MOL: "Molise",
-  PAB: "Trentino-Alto Adige/Südtirol",
-  PAT: "Prov. Aut. Trento",
+  PAB: "P.A. Bolzano",
+  PAT: "P.A. Trento",
   PIE: "Piemonte",
   PUG: "Puglia",
   SAR: "Sardegna",
   SIC: "Sicilia",
   TOS: "Toscana",
   UMB: "Umbria",
-  VDA: "Valle d'Aosta/Vallée d'Aoste",
+  VDA: "Valle d'Aosta",
   VEN: "Veneto",
 };
 export const areaMappingReverse = inverse(areaMapping);
