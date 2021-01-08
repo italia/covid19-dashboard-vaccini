@@ -23,7 +23,9 @@ export const LocationsTable = (props) => {
         paging: true,
         searching: true,
         destroy: true,
+        LengthChange: false,
         pagingType: "full_numbers",
+        pageLength: '20',
         data: props.summary?.locations || [],
         columns,
       });
@@ -34,7 +36,7 @@ export const LocationsTable = (props) => {
     }
   });
   return (
-    <div id="datatable-locations" style={{ width: '80%' }}>
+    <div id="datatable-locations">
       <table
         className="table table-borderless compact table-striped table-hover"
         cellSpacing="0"
