@@ -10,6 +10,7 @@ import { loadData } from "./loadData";
 import { BarChart } from "./components/BarChart";
 import { HBarChart } from "./components/HBarChart";
 import { areaMappingReverse, groupByAge, allTotalGender } from "./utils";
+import * as _ from 'lodash';
 import "./App.css";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
   const handleRectClick = (currentRect) => {
     if (currentRect) {
       let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => el.fascia_anagrafica === currentRect.fascia_anagrafica);
+      // console.log(vaccinAdministrationListReportByAge);
       setTotalAgeByGender({ gen_m: currentRect?.sesso_maschile, gen_f: currentRect?.sesso_femminile });
       setSelectedAge(currentRect)
     } else {
@@ -137,17 +139,17 @@ function App() {
               className="mr-5 h-100"
             />
           </div>
-          <div className="col-12 col-md-6 pt-5 pl-5"> 
-          <div className="p-4 position-absolute" style={{right:'50px', top:'110px'}}>            
-              
-                <div className="w-100 h-100 d-flex justify-content-start pr-5">
-                  <img src="logo.png" width="35" height="35" alt="Logo" />
-                </div>
-                <div className="w-100 h-100 d-flex justify-content-end text-black">
-                  <h5>Vaccinazioni <br/>per regione</h5>
+          <div className="col-12 col-md-6 pt-5 pl-5">
+            <div className="p-4 position-absolute" style={{ right: '50px', top: '110px' }}>
 
-                </div>
-              
+              <div className="w-100 h-100 d-flex justify-content-start pr-5">
+                <img src="logo.png" width="35" height="35" alt="Logo" />
+              </div>
+              <div className="w-100 h-100 d-flex justify-content-end text-black">
+                <h5>Vaccinazioni <br />per regione</h5>
+
+              </div>
+
 
             </div>
             <MapArea
@@ -156,13 +158,13 @@ function App() {
               handleCountryClick={handleCountryClick}
               className="ml-5 w-100 h-100"
             />
-          <div className="p-4 position-relative">              
+            <div className="p-4 position-relative">
               <div className="text-black w-100">
                 <div className="w-100 h-100 d-flex justify-content-start pr-5">
                   <img src="logo.png" width="35" height="35" alt="Logo" />
                 </div>
                 <div className="w-100  h-100 d-flex justify-content-start">
-                  <h5>Totale vaccinazioni</h5>
+                  <h5>Totale vaccinazioni {_.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]) ? _.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]).toLocaleString('it') : 0}</h5>
                 </div>
               </div>
 
