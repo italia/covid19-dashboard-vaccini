@@ -1,4 +1,4 @@
-import {useState,useEffect} from 'react';
+import { useEffect, useState } from "react";
 import { HeaderBar } from "./components/HeaderBar";
 import { FooterBar } from "./components/FooterBar";
 import { MapArea } from "./components/MapArea";
@@ -13,12 +13,10 @@ import { HBarChart } from "./components/HBarChart";
 import { areaMappingReverse, groupByAge, allTotalGender } from "./utils";
 import * as _ from 'lodash';
 import "./App.css";
-import { omit } from "lodash";
-
 
 function App() {
   const [summary, setSummary] = useState({});
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState({});
   const [totalAgeByGender, setTotalAgeByGender] = useState({});
   const [barState, setBarState] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState({});
@@ -26,59 +24,31 @@ function App() {
   const [selectedLocationCategoryMap, setSelectedLocationCategoryMap] = useState(null);
   const [selectedAge, setSelectedAge] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState([]);
-  const [selectedFilterByAge, setSelectedFilterByAge] = useState(null);
   const [selectedCodeCategory, setSelectedCodeCategory] = useState(null);
   const [totalByCategory, setTotalByCategory] = useState(0);
   const [maxByCategory, setMaxByCategory] = useState(0);
+
   const resetFilter = () => {
     setSelected(null);
     setSelectedCategory(summary.categories);
     setBarState(summary.categoriesAndAges);
     setTotalAgeByGender(summary.gender);
     setSelectedAge(null);
-    setSelectedLocation(null);
     setSelectedLocationMap(null);
-    setSelectedFilterByAge(null);
     setSelectedCodeCategory(null);
     setSelectedLocationCategoryMap(null);
   }
-  async function asyncReset() {
-    await resetFilter();
-  }
-  function loadRect(rect) {
-    setSelectedAge(rect)
-    setTotalAgeByGender({ gen_m: rect?.sesso_maschile, gen_f: rect?.sesso_femminile });
-    setSelectedAge(rect)
-  }
   const handleRectClick = (currentRect) => {
     if (currentRect) {
-
-      if (selected) {
-        asyncReset().then(() => {
-          let currentRectDefault = summary?.categoriesAndAges.filter((e) => e?.fascia_anagrafica == currentRect?.fascia_anagrafica);
-          loadRect(currentRectDefault[0])
-        })
-      } else {
-        let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => (el.fascia_anagrafica.trim()) === (currentRect.fascia_anagrafica.trim()));
-        var grouped = _.mapValues(_.groupBy(vaccinAdministrationListReportByAge, 'area'),
-          z => _.sum(z.map(x => _.sum([x.sesso_maschile, x.sesso_femminile]))));
-        let _summary = summary.deliverySummary;
-        _summary = _summary.map((e) => {
-          let x = omit(e, ['dosi_somministrate', 'percentuale_somministrazione', 'ultimo_aggiornamento']);
-          let y = { dosi_somministrate: grouped[e.area] };
-          let z = { percentuale_somministrazione: ((y.dosi_somministrate / x.dosi_consegnate) * 100).toFixed(1) }
-          return { ...x, ...y, ...z };
-        });
-        setSelectedFilterByAge(_summary);
-        loadRect(currentRect);
-      }
-
+      let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => el.fascia_anagrafica === currentRect.fascia_anagrafica);
+      // console.log(vaccinAdministrationListReportByAge);
+      setTotalAgeByGender({ gen_m: currentRect?.sesso_maschile, gen_f: currentRect?.sesso_femminile });
+      setSelectedAge(currentRect)
     } else {
       setBarState(summary.categoriesAndAges);
       setTotalAgeByGender(summary.gender);
-      setSelectedFilterByAge(null);
       setSelectedAge(null)
-      setSelected(null);
+
     }
   }
 
@@ -96,11 +66,9 @@ function App() {
 
     setSelected({ ..._selected });
     setSelectedAge(null);
-    setSelectedFilterByAge(null);
-
     setSelectedLocationMap(_selected);
 
-    if (countryIndex || countryIndex === 0) {
+    if (countryIndex || countryIndex == 0) {
       let vaccinAdministrationListReportByArea = summary.dataSomeVaxDetail.filter(el => el.area === _selected.area);
 
       setBarState(groupByAge(vaccinAdministrationListReportByArea));
@@ -141,7 +109,6 @@ function App() {
       setSelectedCategory(d.categories);
       setBarState(d.categoriesAndAges);
       setTotalAgeByGender(d.gender);
-      setSelectedFilterByAge(null);
     });
   }, []);
 
@@ -220,7 +187,6 @@ function App() {
         <div className="row" style={{ backgroundColor: '#F8FBFE' }}>
           <div className="col-12 col-md-5 h-100">
             <Table
-              summaryFilter={selectedFilterByAge}
               summary={{ ...summary }}
               selected={selected}
               className="mr-5 h-100"
@@ -240,7 +206,6 @@ function App() {
 
             </div>
             <MapArea
-              summaryFilter={selectedFilterByAge}
               summary={{ ...summary }}
               selected={selectedLocationMap}
               handleCountryClick={handleCountryClick}
@@ -324,27 +289,27 @@ function App() {
             <h4 className="text-center">Vaccinazioni per categoria</h4>
           </div>
           <div className="col-12 col-md-12 h-100 ">
-            <div className="col-3 col-md-6 h-100 ">
+            <div className="col-3 col-md-3 h-100 ">
               <div style={{
                 position: 'relative',
-                width: 300,
-                height: 180,
+                // width: 300,
+                // height: 180,
                 background: '#013366',
                 top: -50,
                 left: 20
               }}>
                 <div className="text-white w-100">
-                  <div className="w-100  h-100 d-flex justify-content-center">
-                    <h3>Totale<br></br>vaccinazioni</h3>
+                  <div className="w-100  h-100 d-flex justify-content-start pt-3 pl-2">
+                    <h5>Totale<br></br>vaccinazioni</h5>
                   </div>
-                  <div className="w-100  h-100 d-flex justify-content-center">
-                    <h3>{(!selectedCodeCategory && !selectedLocationCategoryMap)
+                  <div className="w-100  h-100 d-flex justify-content-start pl-2">
+                    <h4>{(!selectedCodeCategory && !selectedLocationCategoryMap)
                       ? summary.tot?.toLocaleString('it')
                       : totalByCategory?.toLocaleString('it')}
-                    </h3>
+                    </h4>
                   </div>
-                  <div className="col-12 d-flex justify-content-end">
-                    <img src="reset_white.png" onClick={resetFilter} height={35} />
+                  <div className="col-12 d-flex justify-content-end  pb-2">
+                    <img src="reset_white.png" onClick={resetFilter} height={35}/>
                   </div>
                 </div>
               </div>
@@ -376,7 +341,7 @@ function App() {
           </div>
         </div>
 
-        <div className="row">
+        <div className="row" style={{ backgroundColor: '#F8FBFE' }}>
           <div className="col-12 col-md-6" >
             <LocationsTable
               summary={{ ...summary }}
@@ -405,24 +370,38 @@ function App() {
               className="w-100 h-100"
             />
 
-            <div className="p-4 position-relative">
-              <div className="text-black w-100">
-                <div className="w-100 h-100 d-flex justify-content-end pr-5">
-                  <img src="logo.png" width="40" height="40" alt="Logo" />
-
-
-                </div>
-
-                <div className="w-100  h-100 d-flex justify-content-end">
-                  <h5 className="text-al">Totale vaccinazioni</h5>
-                </div>
-                <div className="w-100  h-100 d-flex justify-content-end">
-                  <h5 className="text-al">{_.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]) ? _.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]).toLocaleString('it') : 0}</h5>
+            <div className="col-12 col-md-12 h-100 mb-3">
+            <img src="logo.png" width="100" height="100" alt="Logo"
+                style={{
+                  position: 'relative',
+                  left: 200,
+                  top: 73,
+                  zIndex: 10
+                }}
+            
+            />
+            <div className="col-3 col-md-6 h-100 pl-4 pt-4">
+              <div style={{
+                position: 'relative',
+                background: '#013366',
+                left: 230
+              }}>
+                
+                <div className="text-white w-100">
+                  <div className="w-100  h-100 d-flex justify-content-start pl-5 pt-4">
+                    <h5>Totale punti di<br></br>somministrazione</h5>
+                  </div>
+                  <div className="w-100  h-100 d-flex justify-content-start pl-5 pt-4">
+                    <h4>00000000
+                    </h4>
+                  </div>
+                  <div className="col-12 d-flex justify-content-end pb-2">
+                    <img src="reset_white.png" onClick={resetFilter} height={35} />
+                  </div>
                 </div>
               </div>
-
             </div>
-
+          </div>
 
           </div>
         </div>
