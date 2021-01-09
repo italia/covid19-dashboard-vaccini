@@ -9,7 +9,7 @@ export const MapArea = (props) => {
   const [geographies, setGeographies] = useState([]);
   const [select, setSelected] = useState(null);
 
-  const handleClick = (x) => {
+  const handleClick = (x) => {  
     if (select === x) {
       props.handleCountryClick(null);
       setSelected(null);
@@ -52,11 +52,11 @@ export const MapArea = (props) => {
             let scaleOp = props && props.summaryFilter ? (1 / 80) * region.percentuale_somministrazione : props?.selected === region ? 1 : !props?.selected ? (1 / 80) * region.percentuale_somministrazione : (0.5 / 50) * region.percentuale_somministrazione;
             return (
               <path
-               
+
                 key={`path-${i}`}
                 d={d3.geoPath().projection(projection)(d)}
                 className="country"
-
+                id={`${region?.area?.trim()}`}
                 fill={`rgba(0,102,204,${scaleOp}) `}
                 stroke="#FFFFFF"
                 strokeWidth={0.7}

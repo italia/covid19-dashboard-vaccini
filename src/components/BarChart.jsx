@@ -126,11 +126,7 @@ export const BarChart = (props) => {
         handleRectClick(d);
       })
       .attr('opacity', (d) => {
-        // console.log(select === d);
-        // // console.log(select)
-        // console.log(props?.selected);
-        let test = props?.selected === d ? 1 : !props?.selected ? 1 : 0.3;
-        //  console.log(test);
+        let test = props?.selected?.fascia_anagrafica === d?.fascia_anagrafica ? 1 : !props?.selected ? 1 : 0.3;
         return test;
       })
       .attr("class", "bar")

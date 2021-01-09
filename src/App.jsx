@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import {useState,useEffect} from 'react';
 import { HeaderBar } from "./components/HeaderBar";
 import { FooterBar } from "./components/FooterBar";
 import { MapArea } from "./components/MapArea";
+import { MapAreaByCat } from "./components/MapAreaByCat";
 import { StaticBlock } from "./components/StaticBlock";
 import { LocationsTable } from "./components/LocationsTable";
 import { Table } from "./components/Table";
@@ -12,48 +13,94 @@ import { HBarChart } from "./components/HBarChart";
 import { areaMappingReverse, groupByAge, allTotalGender } from "./utils";
 import * as _ from 'lodash';
 import "./App.css";
+import { omit } from "lodash";
+
 
 function App() {
   const [summary, setSummary] = useState({});
-  const [selected, setSelected] = useState({});
+  const [selected, setSelected] = useState(null);
   const [totalAgeByGender, setTotalAgeByGender] = useState({});
   const [barState, setBarState] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState({});
   const [selectedLocationMap, setSelectedLocationMap] = useState(null);
+  const [selectedLocationCategoryMap, setSelectedLocationCategoryMap] = useState(null);
   const [selectedAge, setSelectedAge] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState([]);
-
+  const [selectedFilterByAge, setSelectedFilterByAge] = useState(null);
+  const [selectedCodeCategory, setSelectedCodeCategory] = useState(null);
+  const [totalByCategory, setTotalByCategory] = useState(0);
+  const [maxByCategory, setMaxByCategory] = useState(0);
   const resetFilter = () => {
     setSelected(null);
     setSelectedCategory(summary.categories);
     setBarState(summary.categoriesAndAges);
     setTotalAgeByGender(summary.gender);
     setSelectedAge(null);
+    setSelectedLocation(null);
     setSelectedLocationMap(null);
-
+    setSelectedFilterByAge(null);
+    setSelectedCodeCategory(null);
+    setSelectedLocationCategoryMap(null);
+  }
+  async function asyncReset() {
+    await resetFilter();
+  }
+  function loadRect(rect) {
+    setSelectedAge(rect)
+    setTotalAgeByGender({ gen_m: rect?.sesso_maschile, gen_f: rect?.sesso_femminile });
+    setSelectedAge(rect)
   }
   const handleRectClick = (currentRect) => {
     if (currentRect) {
-      let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => el.fascia_anagrafica === currentRect.fascia_anagrafica);
-      // console.log(vaccinAdministrationListReportByAge);
-      setTotalAgeByGender({ gen_m: currentRect?.sesso_maschile, gen_f: currentRect?.sesso_femminile });
-      setSelectedAge(currentRect)
+
+      if (selected) {
+        asyncReset().then(() => {
+          let currentRectDefault = summary?.categoriesAndAges.filter((e) => e?.fascia_anagrafica == currentRect?.fascia_anagrafica);
+          loadRect(currentRectDefault[0])
+        })
+      } else {
+        let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => (el.fascia_anagrafica.trim()) === (currentRect.fascia_anagrafica.trim()));
+        var grouped = _.mapValues(_.groupBy(vaccinAdministrationListReportByAge, 'area'),
+          z => _.sum(z.map(x => _.sum([x.sesso_maschile, x.sesso_femminile]))));
+        let _summary = summary.deliverySummary;
+        _summary = _summary.map((e) => {
+          let x = omit(e, ['dosi_somministrate', 'percentuale_somministrazione', 'ultimo_aggiornamento']);
+          let y = { dosi_somministrate: grouped[e.area] };
+          let z = { percentuale_somministrazione: ((y.dosi_somministrate / x.dosi_consegnate) * 100).toFixed(1) }
+          return { ...x, ...y, ...z };
+        });
+        setSelectedFilterByAge(_summary);
+        loadRect(currentRect);
+      }
+
     } else {
       setBarState(summary.categoriesAndAges);
       setTotalAgeByGender(summary.gender);
+      setSelectedFilterByAge(null);
       setSelectedAge(null)
-
+      setSelected(null);
     }
   }
+
+  const handleHRectClick = (currentRect) => {
+    if (currentRect) {
+      setSelectedCodeCategory(currentRect?.code)
+    } else {
+      setSelectedCodeCategory(null)
+    }
+  }
+
   const handleCountryClick = (countryIndex) => {
     // console.log(summary);
     let _selected = summary.deliverySummary[countryIndex];
 
     setSelected({ ..._selected });
     setSelectedAge(null);
+    setSelectedFilterByAge(null);
+
     setSelectedLocationMap(_selected);
 
-    if (countryIndex || countryIndex == 0) {
+    if (countryIndex || countryIndex === 0) {
       let vaccinAdministrationListReportByArea = summary.dataSomeVaxDetail.filter(el => el.area === _selected.area);
 
       setBarState(groupByAge(vaccinAdministrationListReportByArea));
@@ -71,9 +118,18 @@ function App() {
   };
 
   const handleCountryClickCategories = (countryIndex) => {
+    setSelectedCodeCategory(null)
     const area = summary.deliverySummary[countryIndex]?.area;
     const areaCode = areaMappingReverse[area];
     const data = summary.categoriesByRegions[areaCode];
+
+    let _selected = summary.deliverySummary[countryIndex];
+
+    setSelectedLocationCategoryMap(_selected);
+
+    setTotalByCategory(
+      countryIndex ? _selected.dosi_somministrate : summary.tot
+    )
     setSelectedCategory(
       countryIndex ? data?.slice() || [] : summary.categories
     );
@@ -85,8 +141,38 @@ function App() {
       setSelectedCategory(d.categories);
       setBarState(d.categoriesAndAges);
       setTotalAgeByGender(d.gender);
+      setSelectedFilterByAge(null);
     });
   }, []);
+
+  useEffect(() => {
+    let totalSumm = 0;
+    let maxSumm = 0;
+
+    if (selectedCodeCategory) {
+      setSelectedLocationCategoryMap(null)
+    }
+
+    if (!selectedLocationCategoryMap) {
+      summary?.deliverySummary?.forEach(i => {
+        Object.keys(i.byCategory).forEach(cat => {
+          if (!selectedCodeCategory) {
+            totalSumm = totalSumm + (i.byCategory[cat].length && i.byCategory[cat][0].total) || 0
+            maxSumm = (i.byCategory[cat].length && i.byCategory[cat][0].total) > maxSumm ?
+              (i.byCategory[cat].length && i.byCategory[cat][0].total) : maxSumm
+
+          } else if (selectedCodeCategory && cat === selectedCodeCategory) {
+            totalSumm = totalSumm + (i.byCategory[cat].length && i.byCategory[cat][0].total) || 0
+            maxSumm = (i.byCategory[cat].length && i.byCategory[cat][0].total) > maxSumm ?
+              (i.byCategory[cat].length && i.byCategory[cat][0].total) : maxSumm
+          }
+        })
+      });
+
+      setMaxByCategory(maxSumm)
+      setTotalByCategory(totalSumm)
+    }
+  }, [selectedCodeCategory, summary, totalByCategory])
 
   return (
     <div>
@@ -134,6 +220,7 @@ function App() {
         <div className="row" style={{ backgroundColor: '#F8FBFE' }}>
           <div className="col-12 col-md-5 h-100">
             <Table
+              summaryFilter={selectedFilterByAge}
               summary={{ ...summary }}
               selected={selected}
               className="mr-5 h-100"
@@ -151,8 +238,9 @@ function App() {
               </div>
 
 
-            </div>            
+            </div>
             <MapArea
+              summaryFilter={selectedFilterByAge}
               summary={{ ...summary }}
               selected={selectedLocationMap}
               handleCountryClick={handleCountryClick}
@@ -163,9 +251,9 @@ function App() {
                 <div className="w-100 h-100 d-flex justify-content-start pr-5">
                   <img src="logo.png" width="40" height="40" alt="Logo" />
                   <span className="font-30 bold pl-3" >{_.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]) ? _.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]).toLocaleString('it') : 0}</span>
-                  
+
                 </div>
-                
+
                 <div className="w-100  h-100 d-flex justify-content-start">
                   <h5>Totale vaccinazioni</h5>
                 </div>
@@ -228,33 +316,68 @@ function App() {
           </div>
         </div>
         <div className="row ">
-          <div className="col-12  d-flex justify-content-center align-items-center p-5">
+          <div
+            className="col-12  d-flex justify-content-center align-items-center p-5"
+            style={{ backgroundColor: '#F4F9FD' }}
+          >
             <img src="logo.png" width="75" height="75" alt="Logo" className="img-fluid" />
             <h4 className="text-center">Vaccinazioni per categoria</h4>
           </div>
+          <div className="col-12 col-md-12 h-100 ">
+            <div className="col-3 col-md-6 h-100 ">
+              <div style={{
+                position: 'relative',
+                width: 300,
+                height: 180,
+                background: '#013366',
+                top: -50,
+                left: 20
+              }}>
+                <div className="text-white w-100">
+                  <div className="w-100  h-100 d-flex justify-content-center">
+                    <h3>Totale<br></br>vaccinazioni</h3>
+                  </div>
+                  <div className="w-100  h-100 d-flex justify-content-center">
+                    <h3>{(!selectedCodeCategory && !selectedLocationCategoryMap)
+                      ? summary.tot?.toLocaleString('it')
+                      : totalByCategory?.toLocaleString('it')}
+                    </h3>
+                  </div>
+                  <div className="col-12 d-flex justify-content-end">
+                    <img src="reset_white.png" onClick={resetFilter} height={35} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-          <div className="col-12 col-md-6 h-100 ">
+          <div className="col-12 col-md-6 h-100 " style={{ position: 'relative', left: 40 }}>
             <HBarChart
               title=""
               xtitle="Vaccinazioni per categoria"
+              handleRectClick={handleHRectClick}
               ytitle=""
-              width="400"
-              height="400"
+              width="500"
+              height="350"
               property={{ xprop: "name", yprop: "total" }}
               data={selectedCategory?.slice() || []}
+              selectedCodeCategory={selectedCodeCategory}
             />
           </div>
-          <div className="col-12 col-md-6 h-100">
-            <MapArea
+          <div className="col-12 col-md-6 h-100" style={{ position: 'relative', top: -40 }}>
+            <MapAreaByCat
               summary={{ ...summary }}
+              selected={selectedLocationCategoryMap}
               handleCountryClick={handleCountryClickCategories}
+              maxByCategory={maxByCategory}
+              selectedCodeCategory={selectedCodeCategory}
               className="w-100 h-100"
             />
           </div>
         </div>
 
         <div className="row">
-        <div className="col-12 col-md-6" >
+          <div className="col-12 col-md-6" >
             <LocationsTable
               summary={{ ...summary }}
               selected={selectedLocation}
@@ -263,38 +386,38 @@ function App() {
           </div>
 
           <div className="col-12 col-md-6 pt-5">
-          <div className="pt-5 position-absolute" style={{ right: '0px', top: '30px' }}>
+            <div className="pt-5 position-absolute" style={{ right: '0px', top: '30px' }}>
 
-<div className="w-100 h-100 d-flex justify-content-start pr-5">
-  <img src="logo.png" width="35" height="35" alt="Logo" />
-</div>
-<div className="w-100 h-100 d-flex justify-content-end text-black">
-  <h5>Punti di somministrazione<br />per regione</h5>
+              <div className="w-100 h-100 d-flex justify-content-start pr-5">
+                <img src="logo.png" width="35" height="35" alt="Logo" />
+              </div>
+              <div className="w-100 h-100 d-flex justify-content-end text-black">
+                <h5>Punti di somministrazione<br />per regione</h5>
 
-</div>
+              </div>
 
 
-</div>  
-            
+            </div>
+
             <MapArea
               summary={{ ...summary }}
               handleCountryClick={handleCountryClickLocations}
               className="w-100 h-100"
             />
 
-<div className="p-4 position-relative">
+            <div className="p-4 position-relative">
               <div className="text-black w-100">
                 <div className="w-100 h-100 d-flex justify-content-end pr-5">
                   <img src="logo.png" width="40" height="40" alt="Logo" />
-                  
-                  
+
+
                 </div>
-                
+
                 <div className="w-100  h-100 d-flex justify-content-end">
-                  <h5 className="text-al">Totale vaccinazioni</h5>                  
+                  <h5 className="text-al">Totale vaccinazioni</h5>
                 </div>
-                <div className="w-100  h-100 d-flex justify-content-end">                 
-                <h5 className="text-al">{_.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]) ? _.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]).toLocaleString('it') : 0}</h5>
+                <div className="w-100  h-100 d-flex justify-content-end">
+                  <h5 className="text-al">{_.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]) ? _.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]).toLocaleString('it') : 0}</h5>
                 </div>
               </div>
 
@@ -302,15 +425,15 @@ function App() {
 
 
           </div>
-          </div>  
-          <div className="row">
+        </div>
+        <div className="row">
           <div className="col-12 text-center pt-5 pb-3">
             I dati visualizzati sono disponibili all'indirizzo{" "}
             <a href="https://github.com/italia/covid19-opendata-vaccini">
               https://github.com/italia/covid19-opendata-vaccini
         </a>
           </div>
-          </div>        
+        </div>
       </div>
       <FooterBar />
 
