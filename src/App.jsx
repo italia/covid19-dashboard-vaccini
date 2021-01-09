@@ -316,7 +316,7 @@ function App() {
             </div>
           </div>
 
-          <div className="col-12 col-md-6 h-100 " style={{ position: 'relative', left: 40 }}>
+          <div className="col-12 col-md-7 h-100 " style={{ position: 'relative', left: 40 }}>
             <HBarChart
               title=""
               xtitle="Vaccinazioni per categoria"
@@ -329,7 +329,7 @@ function App() {
               selectedCodeCategory={selectedCodeCategory}
             />
           </div>
-          <div className="col-12 col-md-6 h-100" style={{ position: 'relative', top: -40 }}>
+          <div className="col-12 col-md-5 h-100" style={{ position: 'relative', top: -40 }}>
             <MapAreaByCat
               summary={{ ...summary }}
               selected={selectedLocationCategoryMap}
@@ -342,7 +342,7 @@ function App() {
         </div>
 
         <div className="row" style={{ backgroundColor: '#F8FBFE' }}>
-          <div className="col-12 col-md-6" >
+          <div className="col-12 col-md-6 pt-3 pl-3" >
             <LocationsTable
               summary={{ ...summary }}
               selected={selectedLocation}

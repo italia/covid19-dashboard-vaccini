@@ -223,6 +223,8 @@ ul.footer_links li {
  * HBarChart
  *
  */
+
+
 .hb-grid-hline .tick line,
 .hb-grid-hline .domain {
   stroke: #3333330f;
@@ -237,10 +239,12 @@ ul.footer_links li {
   stroke: #06f;
 }
 .hb-axis .tick line {
-  stroke: #333;
+  stroke: #fff;
 }
 .hb-axis .tick text {
-  fill: #333;
+  fill: #19191a;
+  font-family: "Titillium Web";
+  font-size: 1 rem;
 }
 .hb-axis .domain {
   stroke: #fff;
