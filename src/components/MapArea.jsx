@@ -9,7 +9,7 @@ export const MapArea = (props) => {
   const [geographies, setGeographies] = useState([]);
   const [select, setSelected] = useState(null);
 
-  const handleClick = (x) => {  
+  const handleClick = (x) => {
     if (select === x) {
       props.handleCountryClick(null);
       setSelected(null);
@@ -37,7 +37,7 @@ export const MapArea = (props) => {
     };
     fetchData();
   }, []);
-
+  
   return (
     <div className="map-area mt-2">
       <svg className="h-100 w-100" height={height} >

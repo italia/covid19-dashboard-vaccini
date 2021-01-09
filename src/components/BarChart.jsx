@@ -125,6 +125,7 @@ export const BarChart = (props) => {
       .append("rect").on('click', (e, d) => {
         handleRectClick(d);
       })
+      .attr('id', (d) => d?.fascia_anagrafica)
       .attr('opacity', (d) => {
         let test = props?.selected?.fascia_anagrafica === d?.fascia_anagrafica ? 1 : !props?.selected ? 1 : 0.3;
         return test;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { HeaderBar } from "./components/HeaderBar";
 import { FooterBar } from "./components/FooterBar";
 import { MapArea } from "./components/MapArea";
@@ -10,7 +10,7 @@ import { Total } from "./components/Total";
 import { loadData } from "./loadData";
 import { BarChart } from "./components/BarChart";
 import { HBarChart } from "./components/HBarChart";
-import { areaMappingReverse, groupByAge, allTotalGender } from "./utils";
+import { areaMappingReverse, groupByAge, allTotalGender, hideLoader } from "./utils";
 import * as _ from 'lodash';
 import "./App.css";
 import { omit } from "lodash";
@@ -30,25 +30,31 @@ function App() {
   const [selectedCodeCategory, setSelectedCodeCategory] = useState(null);
   const [totalByCategory, setTotalByCategory] = useState(0);
   const [maxByCategory, setMaxByCategory] = useState(0);
+  const inputNameRef = useRef()
+  const simulateClick = (id) => {
+    if (document.getElementById(id) && id) {
+      let clickEvt = new MouseEvent('click', {
+        'bubbles': true,
+        'cancelable': true
+      });
+      document.getElementById(id).dispatchEvent(clickEvt);
+    }
+  }
+
+
+
   const resetFilter = () => {
+    simulateClick(selected?.area);
+    simulateClick(selectedAge?.fascia_anagrafica)
     setSelected(null);
     setSelectedCategory(summary.categories);
-    setBarState(summary.categoriesAndAges);
-    setTotalAgeByGender(summary.gender);
-    setSelectedAge(null);
-    setSelectedLocation(null);
-    setSelectedLocationMap(null);
-    setSelectedFilterByAge(null);
     setSelectedCodeCategory(null);
     setSelectedLocationCategoryMap(null);
   }
-  async function asyncReset() {
-    await resetFilter();
-  }
+
   function loadRect(rect) {
     setSelectedAge(rect)
     setTotalAgeByGender({ gen_m: rect?.sesso_maschile, gen_f: rect?.sesso_femminile });
-    setSelectedAge(rect)
   }
 
   function setTableFilteredVaccini(currentRect) {
@@ -65,8 +71,8 @@ function App() {
     setSelectedFilterByAge(_summary);
   }
   const handleRectClick = (currentRect) => {
+    console.log(currentRect);
     if (currentRect) {
-
       if (selected) {
         resetFilter();
         let currentRectDefault = summary?.categoriesAndAges.filter((e) => e?.fascia_anagrafica == currentRect?.fascia_anagrafica);
@@ -76,7 +82,6 @@ function App() {
         setTableFilteredVaccini(currentRect);
         loadRect(currentRect);
       }
-
     } else {
       setBarState(summary.categoriesAndAges);
       setTotalAgeByGender(summary.gender);
@@ -96,6 +101,7 @@ function App() {
 
   const handleCountryClick = (countryIndex) => {
     // console.log(summary);
+    // console.log(_selected);
     let _selected = summary.deliverySummary[countryIndex];
 
     setSelected({ ..._selected });
@@ -146,7 +152,9 @@ function App() {
       setBarState(d.categoriesAndAges);
       setTotalAgeByGender(d.gender);
       setSelectedFilterByAge(null);
-    });
+    }).finally(() => {
+      hideLoader();
+    })
   }, []);
 
   useEffect(() => {
