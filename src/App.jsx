@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { HeaderBar } from "./components/HeaderBar";
 import { FooterBar } from "./components/FooterBar";
 import { MapArea } from "./components/MapArea";
@@ -30,7 +30,6 @@ function App() {
   const [selectedCodeCategory, setSelectedCodeCategory] = useState(null);
   const [totalByCategory, setTotalByCategory] = useState(0);
   const [maxByCategory, setMaxByCategory] = useState(0);
-  const inputNameRef = useRef()
   const simulateClick = (id) => {
     if (document.getElementById(id) && id) {
       let clickEvt = new MouseEvent('click', {
