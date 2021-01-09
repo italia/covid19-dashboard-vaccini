@@ -285,8 +285,8 @@ function App() {
             className="col-12  d-flex justify-content-center align-items-center p-5"
             style={{ backgroundColor: '#F4F9FD' }}
           >
-            <img src="logo.png" width="75" height="75" alt="Logo" className="img-fluid" />
-            <h4 className="text-center">Vaccinazioni per categoria</h4>
+            <img src="logo.png" width="86" height="86" alt="Logo" className="img-fluid" style={{ zIndex:10 }}/>
+            <h3 className="text-center">Vaccinazioni per categoria</h3>
           </div>
           <div className="col-12 col-md-12 h-100 ">
             <div className="col-3 col-md-3 h-100 ">
@@ -295,8 +295,8 @@ function App() {
                 // width: 300,
                 // height: 180,
                 background: '#013366',
-                top: -50,
-                left: 20
+                top: -90,
+                left: 105
               }}>
                 <div className="text-white w-100">
                   <div className="w-100  h-100 d-flex justify-content-start pt-3 pl-2">
@@ -351,7 +351,7 @@ function App() {
           </div>
 
           <div className="col-12 col-md-6 pt-5">
-            <div className="pt-5 position-absolute" style={{ right: '0px', top: '30px' }}>
+            <div className="pt-5 position-absolute" style={{ right: '15px', top: '30px' }}>
 
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
                 <img src="logo.png" width="35" height="35" alt="Logo" />
@@ -371,7 +371,7 @@ function App() {
             />
 
             <div className="col-12 col-md-12 h-100 mb-3">
-            <img src="logo.png" width="100" height="100" alt="Logo"
+            <img src="logo.png" width="86" height="86" alt="Logo"
                 style={{
                   position: 'relative',
                   left: 200,
