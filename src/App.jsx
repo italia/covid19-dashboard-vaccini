@@ -82,7 +82,7 @@ function App() {
         />
       </div>
       <h4 className="text-center mt-5">Vaccinazioni per fasce di età</h4>
-      <div className="d-flex flex-column flex-sm-row justify-content-center w-100 mx-auto h-100 mt-3" style={{
+      <div className="d-flex flex-column flex-xl-row justify-content-center w-100 mx-auto h-100 mt-3" style={{
         backgroundColor: '#013366'
       }}>
         <BarChart
@@ -94,20 +94,24 @@ function App() {
           property={{ xprop: "fascia_anagrafica", yprop: "totale" }}
           data={summary?.categoriesAndAges?.slice() || []}
         />
-        <div className="d-flex flex-column justify-content-center">
-          <img src="user_f.png" alt="users" className="d-flex" width="140px"/>
-          <span className="text-center font-weight-light text-white">
-            <h3>{summary?.gender?.gen_f?.toLocaleString('it')}</h3>
-          </span>
-          <img src="user_m.png" alt="users" className="d-flex" width="140px"/>
-          <span className="text-center font-weight-light text-white">
-            <h3>{summary?.gender?.gen_m?.toLocaleString('it')}</h3>
-          </span>
+        <div className="d-flex flex-column justify-content-center p-3">
+          <div className="d-flex flex-row flex-xl-column justify-content-center align-items-center">
+            <img src="user_f.png" alt="users" width="80px"/>
+            <span className="mx-3 text-center font-weight-light text-white">
+              <h3>{summary?.gender?.gen_f?.toLocaleString('it')}</h3>
+            </span>
+          </div>
+          <div className="d-flex flex-row flex-xl-column justify-content-center align-items-center">
+            <img src="user_m.png" alt="users" width="80px"/>
+            <span className="mx-3 text-center font-weight-light text-white">
+              <h3>{summary?.gender?.gen_m?.toLocaleString('it')}</h3>
+            </span>
+          </div>
         </div>
       </div>
 
       <h4 className="text-center mt-5">Vaccinazioni per categoria</h4>
-      <div className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3">
+      <div className="d-flex flex-column flex-sm-row justify-content-center mx-auto h-100 mt-3">
         <HBarChart
           title=""
           xtitle="Vaccinazioni per categoria"
