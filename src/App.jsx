@@ -99,22 +99,17 @@ function App() {
   }
 
   const handleCountryClick = (countryIndex) => {
-    // console.log(summary);
-    // console.log(_selected);
     let _selected = summary.deliverySummary[countryIndex];
 
     setSelected({ ..._selected });
     setSelectedAge(null);
     setSelectedFilterByAge(null);
-
     setSelectedLocationMap(_selected);
 
     if (countryIndex || countryIndex === 0) {
       let vaccinAdministrationListReportByArea = summary.dataSomeVaxDetail.filter(el => el.area === _selected.area);
-
       setBarState(groupByAge(vaccinAdministrationListReportByArea));
       setTotalAgeByGender(allTotalGender(groupByAge(vaccinAdministrationListReportByArea)));
-
     } else {
       setBarState(summary.categoriesAndAges);
       setTotalAgeByGender(summary.gender);
