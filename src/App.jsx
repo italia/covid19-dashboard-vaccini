@@ -50,26 +50,30 @@ function App() {
     setTotalAgeByGender({ gen_m: rect?.sesso_maschile, gen_f: rect?.sesso_femminile });
     setSelectedAge(rect)
   }
+
+  function setTableFilteredVaccini(currentRect) {
+    let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => (el.fascia_anagrafica.trim()) === (currentRect.fascia_anagrafica.trim()));
+    var grouped = _.mapValues(_.groupBy(vaccinAdministrationListReportByAge, 'area'),
+      z => _.sum(z.map(x => _.sum([x.sesso_maschile, x.sesso_femminile]))));
+    let _summary = summary.deliverySummary;
+    _summary = _summary.map((e) => {
+      let x = omit(e, ['dosi_somministrate', 'percentuale_somministrazione', 'ultimo_aggiornamento']);
+      let y = { dosi_somministrate: grouped[e.area] };
+      let z = { percentuale_somministrazione: ((y.dosi_somministrate / x.dosi_consegnate) * 100).toFixed(1) }
+      return { ...x, ...y, ...z };
+    });
+    setSelectedFilterByAge(_summary);
+  }
   const handleRectClick = (currentRect) => {
     if (currentRect) {
 
       if (selected) {
-        asyncReset().then(() => {
-          let currentRectDefault = summary?.categoriesAndAges.filter((e) => e?.fascia_anagrafica == currentRect?.fascia_anagrafica);
-          loadRect(currentRectDefault[0])
-        })
+        resetFilter();
+        let currentRectDefault = summary?.categoriesAndAges.filter((e) => e?.fascia_anagrafica == currentRect?.fascia_anagrafica);
+        setTableFilteredVaccini(currentRect);
+        loadRect(currentRectDefault[0])
       } else {
-        let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => (el.fascia_anagrafica.trim()) === (currentRect.fascia_anagrafica.trim()));
-        var grouped = _.mapValues(_.groupBy(vaccinAdministrationListReportByAge, 'area'),
-          z => _.sum(z.map(x => _.sum([x.sesso_maschile, x.sesso_femminile]))));
-        let _summary = summary.deliverySummary;
-        _summary = _summary.map((e) => {
-          let x = omit(e, ['dosi_somministrate', 'percentuale_somministrazione', 'ultimo_aggiornamento']);
-          let y = { dosi_somministrate: grouped[e.area] };
-          let z = { percentuale_somministrazione: ((y.dosi_somministrate / x.dosi_consegnate) * 100).toFixed(1) }
-          return { ...x, ...y, ...z };
-        });
-        setSelectedFilterByAge(_summary);
+        setTableFilteredVaccini(currentRect);
         loadRect(currentRect);
       }
 
