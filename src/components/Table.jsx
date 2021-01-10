@@ -19,6 +19,9 @@ export const Table = (props) => {
         dom:
           "<'row'<'col-sm-12 col-md-12'lf>>" +
           "<'row'<'col-sm-12'tr>>",
+        language: {
+          search: "Cerca"
+        },
         paging: false,
         searching: true,
         destroy: true,

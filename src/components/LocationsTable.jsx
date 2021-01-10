@@ -25,6 +25,16 @@ export const LocationsTable = (props) => {
           "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
           "<'row'<'col-sm-12'tr>>" +
           "<'row pagination-wrapper'<'col-sm-12 pagination'p><'col-sm-12'i>>",
+        language: {
+          lengthMenu: "Mostra _MENU_ risultati per pagina",
+          info: "Risultati pagina _PAGE_ di _PAGES_",
+          infoFiltered: "(filtrati su _MAX_ risultati)",
+          search: "Cerca",
+          paginate: {
+            next: ">",
+            previous: "<"
+          },
+        },
         paging: true,
         searching: true,
         destroy: true,
