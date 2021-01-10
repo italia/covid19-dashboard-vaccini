@@ -69,7 +69,7 @@ function App() {
           text="Le somministrazioni delle 469.950 dosi di vaccino su tutto il territorio sono iniziate il 31 dicembre"
         />
       </div>
-      <div className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3">
+      <div className="d-flex flex-column flex-xl-row justify-content-center w-75 mx-auto h-100 mt-3">
         <Table
           summary={{ ...summary }}
           selected={selected}
@@ -111,7 +111,7 @@ function App() {
       </div>
 
       <h4 className="text-center mt-5">Vaccinazioni per categoria</h4>
-      <div className="d-flex flex-column flex-sm-row justify-content-center mx-auto h-100 mt-3">
+      <div className="d-flex flex-column flex-xl-row justify-content-center mx-auto h-100 mt-3">
         <HBarChart
           title=""
           xtitle="Vaccinazioni per categoria"
@@ -129,7 +129,7 @@ function App() {
       </div>
 
       <h4 className="text-center mt-5">Punti di somministrazione</h4>
-      <div className="d-flex flex-column flex-sm-row justify-content-center w-75 mx-auto h-100 mt-3">
+      <div className="d-flex flex-column flex-xl-row justify-content-center w-75 mx-auto h-100 mt-3">
         <LocationsTable
           summary={{ ...summary }}
           selected={selectedLocation}
