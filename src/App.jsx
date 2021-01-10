@@ -142,7 +142,7 @@ function App() {
         />
       </div>
 
-      <p className="text-center pt-20">
+      <p className="text-center mt-5">
         I dati visualizzati sono disponibili all'indirizzo{" "}
         <a href="https://github.com/italia/covid19-opendata-vaccini">
           https://github.com/italia/covid19-opendata-vaccini
