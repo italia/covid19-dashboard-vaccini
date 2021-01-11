@@ -57,7 +57,7 @@ export const MapArea = (props) => {
                 d={d3.geoPath().projection(projection)(d)}
                 className="country"
                 fill={`rgba(0,102,204,${
-                  (1 / 50) * region.percentuale_somministrazione
+                  (1 / 100) * region.percentuale_somministrazione
                 })`}
                 stroke="#FFFFFF"
                 strokeWidth={0.7}
