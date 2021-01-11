@@ -35,12 +35,18 @@ export const Table = (props) => {
         destroy: true,
         data: ((props.summaryFilter || props.summary?.deliverySummary) || []),
         columns,
-        columnDefs: [{
-          "targets": [1,2,3],
-          render: (data, type, row)=>{
-            return Number(data).toLocaleString('it')
+        columnDefs: [
+          {
+            targets: 0,
+            width: '150px'
+          },
+          {
+            "targets": [1,2,3],
+            render: (data, type, row)=>{
+              return Number(data).toLocaleString('it')
+            }
           }
-        }],
+        ],
         footerCallback: (row, data, start, end, display)=>{
           var api =$("#datatable")
           .find("table")

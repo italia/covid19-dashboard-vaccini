@@ -62,13 +62,13 @@ body {
 
 .table th {
   padding: 5px !important;
-  font-size: 14px;
+  font-size: 18px;
   border-bottom: 1px solid #0f0f0f !important;
 }
 
 .table td {
   padding: 5px !important;
-  font-size: 14px;
+  font-size: 18px;
   border-bottom: 0px solid transparent !important;
 }
 
