@@ -28,8 +28,10 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [selectedFilterByAge, setSelectedFilterByAge] = useState(null);
   const [selectedCodeCategory, setSelectedCodeCategory] = useState(null);
+  const [categoryRegionSelect, setCategoryRegionSelect] = useState(null);
   const [totalByCategory, setTotalByCategory] = useState(0);
   const [maxByCategory, setMaxByCategory] = useState(0);
+
   const simulateClick = (id) => {
     if (document.getElementById(id) && id) {
       let clickEvt = new MouseEvent('click', {
@@ -40,8 +42,6 @@ function App() {
     }
   }
 
-
-
   const resetFilter = () => {
     simulateClick(selected?.area);
     simulateClick(selectedAge?.fascia_anagrafica)
@@ -49,6 +49,7 @@ function App() {
     setSelectedCategory(summary.categories);
     setSelectedCodeCategory(null);
     setSelectedLocationCategoryMap(null);
+    setCategoryRegionSelect(null);
   }
 
   function loadRect(rect) {
@@ -387,6 +388,8 @@ function App() {
               handleCountryClick={handleCountryClickCategories}
               maxByCategory={maxByCategory}
               selectedCodeCategory={selectedCodeCategory}
+              setCategoryRegionSelect={setCategoryRegionSelect}
+              categoryRegionSelect={categoryRegionSelect}
               className="w-100 h-100"
             />
           </div>

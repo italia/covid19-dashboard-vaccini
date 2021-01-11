@@ -64,7 +64,7 @@ const elaborate = (data) => {
         ),
       },
       {
-        name: "Categoria Ospiti RSA",
+        name: "Ospiti Strutture Residenziali",
         code: "cat_rsa",
         total: categoriesByRegionRAW[x].reduce(
           sumDoseX("categoria_ospiti_rsa"),
@@ -72,7 +72,7 @@ const elaborate = (data) => {
         ),
       },
       {
-        name: "Categoria Personale non sanitario",
+        name: "Personale non sanitario",
         code: "cat_pns",
         total: categoriesByRegionRAW[x].reduce(
           sumDoseX("categoria_personale_non_sanitario"),

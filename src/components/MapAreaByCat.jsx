@@ -4,17 +4,27 @@ import * as topojson from "topojson-client";
 import { filterByArea } from "../utils";
 import "./MapArea.css"
 
-export const MapAreaByCat = (props) => {
+export const MapAreaByCat = (
+    {
+        selectedLocationCategoryMap,
+        handleCountryClick, 
+        selectedCodeCategory,
+        maxByCategory,
+        summary,
+        selected,
+        categoryRegionSelect,
+        setCategoryRegionSelect
+    }
+    ) => {
   const [geographies, setGeographies] = useState([]);
-  const [select, setSelected] = useState(null);
 
   const handleClick = (x) => {
-    if (select === x) {
-      props.handleCountryClick(null);
-      setSelected(null);
+    if (categoryRegionSelect === x) {
+      handleCountryClick(null);
+      setCategoryRegionSelect(null);
     } else {
-      props.handleCountryClick(x);
-      setSelected(x);
+      handleCountryClick(x);
+      setCategoryRegionSelect(x);
     }
   };
 
@@ -38,24 +48,24 @@ export const MapAreaByCat = (props) => {
   }, []);
 
   const getCategoryQuantity = (region) => {
-      if(!props.selectedCodeCategory){
+      if(!selectedCodeCategory){
         return region.dosi_somministrate
       }else{
-        return region.byCategory[props.selectedCodeCategory].length 
-            &&   region.byCategory[props.selectedCodeCategory][0].total
+        return region.byCategory[selectedCodeCategory].length 
+            &&   region.byCategory[selectedCodeCategory][0].total
       }
   }
 
   const fillRegion = (region) => {
-      let dosi = props.selectedCodeCategory ? (region.byCategory[props.selectedCodeCategory].length 
-      && region.byCategory[props.selectedCodeCategory][0].total) : region.dosi_somministrate
+      let dosi = selectedCodeCategory ? (region.byCategory[selectedCodeCategory].length 
+      && region.byCategory[selectedCodeCategory][0].total) : region.dosi_somministrate
 
-      if(props?.selected === region){
+      if(selected === region){
             return 1
-      }else if(!props?.selected){
-            return (1 / 50) * (dosi/props.maxByCategory*100)
+      }else if(!selected){
+            return (1 / 50) * (dosi/maxByCategory*100)
       }else{
-            return (0.5 / 50) * (dosi/props.maxByCategory*100/2)
+            return (0.5 / 50) * (dosi/maxByCategory*100/2)
       }
   }
 
@@ -64,14 +74,12 @@ export const MapAreaByCat = (props) => {
       <svg className="h-100 w-100" height={height} >
         <g className="countries">
           {geographies.map((d, i) => {
-            const regions = props.summary?.deliverySummary?.filter(filterByArea(d.properties.reg_name));
+            const regions = summary?.deliverySummary?.filter(filterByArea(d.properties.reg_name));
             let region = {};
             if (regions && regions.length > 0) {
               region = regions[0];
             }
-            // console.log(region);
-            // console.log(props?.selected);
-            // console.log(select);
+
             return (
               <path
                 key={`path-${i}`}
