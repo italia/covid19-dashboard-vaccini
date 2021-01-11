@@ -429,7 +429,7 @@ function App() {
             <img src="logo.png" width="86" height="86" alt="Logo" className="img-fluid" style={{ zIndex: 10 }} />
             <h3 className="text-center">Punti di somministrazione per regione</h3>
           </div>
-          <div className="col-12 col-md-12 h-100  ">
+          <div className="col-12 col-md-12 h-100 p-0">
             <div className="mb-5  d-lg-none " style={{
               position: 'relative',
               background: '#013366',
