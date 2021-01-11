@@ -12,38 +12,24 @@ export const HeaderBar = () => {
       {/* <Header small={false} theme="" type="slim">
       
       </Header> */}
-      <div className="row m-0 justify-content-center" style={{ backgroundColor: '#0059b3' }}>
-        <div className="col-12 col-md-4 d-flex logo-section pt-2 pb-2">
-          <div>
-            <a href="http://www.governo.it" target="_blank" rel="noreferrer">
-              <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
+      <div className="row m-0" style={{ backgroundColor: '#0059b3' }}>
+        <div className="col-12 col-md-4 d-flex justify-content-center logo-section pt-2 pb-2">
+             <a href="http://www.governo.it" target="_blank" rel="noreferrer">
+              <img src="logo.svg" height="4px" alt="Logo" className="logo pl-5 pr-2" />
             </a>
-          </div>
-          <div>
-            <p>Presidenza del Consiglio dei Ministri</p>
-          </div>
+            <p className="pt-sm-0">Presidenza del Consiglio dei Ministri</p>
         </div>
-        <div className="col-12 col-md-4 d-flex logo-section pt-2 pb-2">
-          <div>
+        <div className="col-12 col-md-4 d-flex justify-content-center logo-section pr-0 pt-2 pb-2">
             <a href="http://www.governo.it" target="_blank" rel="noreferrer">
-              <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
+              <img src="logo.svg" height="4px" alt="Logo" className="logo pl-5 pr-2" />
             </a>
-          </div>
-          <div>
-            <p>Commissario Straordinario Covid-19</p>
-          </div>
+            <p className="pt-sm-0">Commissario Straordinario Covid-19</p>
         </div>
-        <div className="col-12 col-md-4 d-flex logo-section pt-2 pb-2">
-
-          <div>
+        <div className="col-12 col-md-4 d-flex logo-section pt-2 pb-2 pr-sm-3">
             <a href="http://www.governo.it" target="_blank" rel="noreferrer">
-              <img src="logo.svg" height="4px" alt="Logo" className="logo ml-5 mr-2" />
+              <img src="logo.svg" height="4px" alt="Logo" className="logo pl-5 pr-2" />
             </a>
-          </div>
-
-          <div>
-            <p>Ministero della Salute</p>
-          </div>
+            <p className="pt-sm-0">Ministero della Salute</p>
         </div>
         {/** TITLE + LOGO*/}
         <div className="col-12 d-flex flex-column justify-content-center mainBanner">
