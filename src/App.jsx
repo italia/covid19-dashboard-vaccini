@@ -256,7 +256,7 @@ function App() {
               <div className="text-black w-100">
                 <div className="w-100 h-100 d-flex justify-content-start pr-5">
                   <img src="logo.png" width="40" height="40" alt="Logo" />
-                  <span className="font-30 bold pl-3" >{_.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]) ? _.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]).toLocaleString('it') : 0}</span>
+                  <span className="font-50 bold pl-3" >{_.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]) ? _.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]).toLocaleString('it') : 0}</span>
 
                 </div>
 
@@ -288,7 +288,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="col-12 col-md-5" style={{ backgroundColor: '#013366' }}>
+          <div className="col-12 col-md-5" style={{ backgroundColor: '#17324D' }}>
             <div className="p-4 position-relative">
               <div style={{ height: 100 }}>
                 <img src="group_person.svg" alt="Logo" className="img-fluid" />
@@ -306,7 +306,7 @@ function App() {
             </div>
           </div>
           <div className="col-12  col-md-7" style={{
-            backgroundColor: '#013366'
+            backgroundColor: '#17324D'
           }}>
             <BarChart
               title=""
@@ -335,7 +335,7 @@ function App() {
                 position: 'relative',
                 // width: 300,
                 // height: 180,
-                background: '#013366',
+                background: '#17324D',
                 top: -90,
                 left: 105
               }}>
@@ -395,7 +395,7 @@ function App() {
                 position: 'relative',
                 // width: 300,
                 // height: 180,
-                background: '#013366',
+                background: '#17324D',
                 top: -90,
                 left: 50
               }}>
@@ -451,7 +451,7 @@ function App() {
               <div className="col-3 col-md-6 h-100 pl-4 pt-4">
                 <div style={{
                   position: 'relative',
-                  background: '#013366',
+                  background: '#17324D',
                   left: 230
                 }}>
 

@@ -299,7 +299,7 @@ ul.footer_links li {
   position: absolute;
   bottom:0;
   left:0;
-  background: #013366;
+  background: #17324D;
 
 }
 
@@ -347,6 +347,10 @@ ul.footer_links li {
 * FONT SIZE
 *
 */
+.font-50{
+  font-size:50px;
+}
+
 .font-30{
   font-size: 30px;
 }
