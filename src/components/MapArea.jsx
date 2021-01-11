@@ -39,7 +39,7 @@ export const MapArea = (props) => {
   }, []);
   
   return (
-    <div className="map-area mt-2">
+    <div className="map-area mt-sx-3">
       <svg className="h-100 w-100" height={height} >
         <g className="countries" >
           {geographies.map((d, i) => {

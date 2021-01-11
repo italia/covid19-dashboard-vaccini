@@ -232,14 +232,24 @@ function App() {
               className="mr-5 h-100"
             />
           </div>
-          <div className="col-12 col-md-7 pt-5 pl-5">
-            <div className="p-4 position-absolute" style={{ right: '0px', top: '30px' }}>
+          <div className="col-12 col-md-7"> 
+              <div className="p-4 position-relative d-lg-none">
 
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
                 <img src="logo.png" width="35" height="35" alt="Logo" />
+              
+                <h5 className="pl-3 pl-sm-1">Distribuzione vaccinazioni<br/> rispetto alle consegne</h5>
+
               </div>
-              <div className="w-100 h-100 d-flex justify-content-end text-black">
-                <h5>Distribuzione vaccinazioni<br />rispetto alle consegne</h5>
+
+
+            </div>
+            <div className="p-4 position-relative d-none d-lg-block" style={{ left: '300px', top: '190px' }}>
+
+              <div className="w-100 h-100 d-flex justify-content-start pr-5">
+                <img src="logo.png" width="35" height="35" alt="Logo" />
+              
+                <h5 className="pl-3 pl-sm-1">Distribuzione vaccinazioni<br/> rispetto alle consegne</h5>
 
               </div>
 
@@ -254,9 +264,9 @@ function App() {
             />
             <div className="p-4 position-relative">
               <div className="text-black w-100">
-                <div className="w-100 h-100 d-flex justify-content-start pr-5">
-                  <img src="logo.png" width="40" height="40" alt="Logo" />
-                  <span className="font-50 bold pl-3" >{_.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]) ? _.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]).toLocaleString('it') : 0}</span>
+                <div className="w-100 h-100 d-flex justify-content-start ">
+                  <img src="logo.png" width="45" height="45" alt="Logo" className="mt-3"/>
+                  <span className="font-50 pl-3" >{_.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]) ? _.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]).toLocaleString('it') : 0}</span>
 
                 </div>
 
