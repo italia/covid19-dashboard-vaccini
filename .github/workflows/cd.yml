@@ -30,7 +30,7 @@ jobs:
       
     - name: gh_pages_deploy
       run: |
-        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/italia/covid19-dashboard-vaccini.git
+        git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/umberto-titola/covid19-dashboard-vaccini.git
         yarn deploy -- --dotfiles -m "Automated deployment: ${CIRCLE_SHA1} [ci skip]"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
