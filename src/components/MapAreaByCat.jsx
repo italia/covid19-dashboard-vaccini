@@ -49,10 +49,11 @@ export const MapAreaByCat = (
 
   const getCategoryQuantity = (region) => {
       if(!selectedCodeCategory){
-        return region.dosi_somministrate.toLocaleString('it')
+        return region.dosi_somministrate && region.dosi_somministrate.toLocaleString('it')
       }else{
         return region.byCategory[selectedCodeCategory].length 
-            &&   region.byCategory[selectedCodeCategory][0].total.toLocaleString('it')
+            &&   region.byCategory[selectedCodeCategory][0].total
+            && region.byCategory[selectedCodeCategory][0].total.toLocaleString('it')
       }
   }
 
