@@ -31,6 +31,7 @@ function App() {
   const [categoryRegionSelect, setCategoryRegionSelect] = useState(null);
   const [totalByCategory, setTotalByCategory] = useState(0);
   const [maxByCategory, setMaxByCategory] = useState(0);
+  const [locationTableRef, setLocationTableRef] = useState(0);
 
   const simulateClick = (id) => {
     if (document.getElementById(id) && id) {
@@ -50,6 +51,7 @@ function App() {
     setSelectedCodeCategory(null);
     setSelectedLocationCategoryMap(null);
     setCategoryRegionSelect(null);
+    setSelectedLocation(null);
   }
 
   function loadRect(rect) {
@@ -462,9 +464,7 @@ function App() {
                     <h5>Totale punti di<br></br>somministrazione</h5>
                   </div>
                   <div className="w-100  h-100 d-flex justify-content-start pl-2">
-                    <h4>{(!selectedCodeCategory && !selectedLocationCategoryMap)
-                      ? summary.tot?.toLocaleString('it')
-                      : totalByCategory?.toLocaleString('it')}
+                    <h4>{locationTableRef}
                     </h4>
                   </div>
                   <div className="col-12 d-flex justify-content-end  pb-2">
@@ -486,6 +486,7 @@ function App() {
               summary={{ ...summary }}
               selected={selectedLocation}
               className="mr-5 h-100"
+              setLocationTableRef={setLocationTableRef}
             />
           </div>
         </div>

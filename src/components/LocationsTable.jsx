@@ -12,7 +12,10 @@ const columns = [
 ];
 
 export const LocationsTable = (props) => {
+
   useEffect(() => {
+    const {setLocationTableRef} = props;
+
     const table = $("#datatable-locations")
       .find("table")
       .DataTable({
@@ -35,6 +38,8 @@ export const LocationsTable = (props) => {
     } else {
       table.search(" ").draw();
     }
+
+    setLocationTableRef(table.rows( {search:'applied'} ).count()/2)
   });
   return (
     <div id="datatable-locations">
