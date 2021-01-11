@@ -10,7 +10,7 @@ import { Total } from "./components/Total";
 import { loadData } from "./loadData";
 import { BarChart } from "./components/BarChart";
 import { HBarChart } from "./components/HBarChart";
-import { areaMappingReverse, groupByAge, allTotalGender, hideLoader } from "./utils";
+import { areaMappingReverse, groupByAge, allTotalGender, hideLoader, showLoader } from "./utils";
 import * as _ from 'lodash';
 import "./App.css";
 import { omit } from "lodash";
@@ -71,25 +71,28 @@ function App() {
     setSelectedFilterByAge(_summary);
   }
   const handleRectClick = (currentRect) => {
-    console.log(currentRect);
-    if (currentRect) {
-      if (selected) {
-        resetFilter();
-        let currentRectDefault = summary?.categoriesAndAges.filter((e) => e?.fascia_anagrafica == currentRect?.fascia_anagrafica);
-        setTableFilteredVaccini(currentRect);
-        loadRect(currentRectDefault[0])
-      } else {
-        setTableFilteredVaccini(currentRect);
-        loadRect(currentRect);
-      }
-    } else {
+    let currentRectExist = currentRect ? true : false;
+    let selectedExist = selected ? true : false;
+    if (!currentRectExist) {
       setBarState(summary.categoriesAndAges);
       setTotalAgeByGender(summary.gender);
       setSelectedFilterByAge(null);
       setSelectedAge(null)
       setSelected(null);
     }
+    if (currentRectExist && selectedExist) {
+      resetFilter();
+      let currentRectDefault = summary?.categoriesAndAges.filter((e) => e?.fascia_anagrafica === currentRect?.fascia_anagrafica);
+      setTableFilteredVaccini(currentRect);
+      loadRect(currentRectDefault[0])
+    }
+    if (currentRectExist && !selectedExist) {
+      setTableFilteredVaccini(currentRect);
+      loadRect(currentRect);
+    }
+
   }
+
 
   const handleHRectClick = (currentRect) => {
     if (currentRect) {
@@ -340,8 +343,29 @@ function App() {
             <img src="logo.png" width="86" height="86" alt="Logo" className="img-fluid" style={{ zIndex: 10 }} />
             <h3 className="text-center">Vaccinazioni per categoria</h3>
           </div>
-          <div className="col-12 col-md-12 h-100 ">
-            <div className="col-3 col-md-3 h-100 ">
+          <div className="col-12 col-md-12 h-100  ">
+            <div className="mb-5  d-lg-none " style={{
+              position: 'relative',
+              background: '#013366',
+
+            }}>
+              <div className="text-white w-100">
+                <div className="w-100  h-100 d-flex justify-content-start pt-3 pl-2">
+                  <h5>Totale<br></br>vaccinazioni</h5>
+                </div>
+                <div className="w-100  h-100 d-flex justify-content-start pl-2">
+                  <h4>{(!selectedCodeCategory && !selectedLocationCategoryMap)
+                    ? summary.tot?.toLocaleString('it')
+                    : totalByCategory?.toLocaleString('it')}
+                  </h4>
+                </div>
+                <div className="col-12 d-flex justify-content-end  pb-2">
+                  <img src="reset_white.png" onClick={resetFilter} height={35} />
+                </div>
+              </div>
+            </div>
+
+            <div className="col-3 col-md-3 h-100 d-none d-lg-block">
               <div style={{
                 position: 'relative',
                 // width: 300,
@@ -381,7 +405,7 @@ function App() {
               selectedCodeCategory={selectedCodeCategory}
             />
           </div>
-          <div className="col-12 col-md-5 h-100" style={{ position: 'relative', top: -40 }}>
+          <div className="col-12 col-md-6 h-100" style={{ position: 'relative', top: -40 }}>
             <MapAreaByCat
               summary={{ ...summary }}
               selected={selectedLocationCategoryMap}
@@ -429,14 +453,14 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="col-12 col-md-7 pt-3 pl-3" style={{top:-50}} >
+          <div className="col-12 col-md-7 pt-3 pl-3" style={{ top: -50 }} >
             <LocationsTable
               summary={{ ...summary }}
               selected={selectedLocation}
               className="mr-5 h-100"
             />
           </div>
-          <div className="col-12 col-md-5 pt-5" style={{top:-150}}>
+          <div className="col-12 col-md-5 pt-5" style={{ top: -150 }}>
             {/* <div className="pt-5 position-absolute" style={{ right: '15px', top: '30px' }}>
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
                 <img src="logo.png" width="35" height="35" alt="Logo" />
