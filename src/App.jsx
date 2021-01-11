@@ -3,6 +3,7 @@ import { HeaderBar } from "./components/HeaderBar";
 import { FooterBar } from "./components/FooterBar";
 import { MapArea } from "./components/MapArea";
 import { MapAreaByCat } from "./components/MapAreaByCat";
+import { MapAreaByLocation } from "./components/MapAreaByLocation";
 import { StaticBlock } from "./components/StaticBlock";
 import { LocationsTable } from "./components/LocationsTable";
 import { Table } from "./components/Table";
@@ -230,7 +231,7 @@ function App() {
 
         </div>
         <div className="row" style={{ backgroundColor: '#F8FBFE' }}>
-          <div className="col-12 col-md-5 h-100">
+          <div className="col-12 col-lg-5 h-100 order-md-2">
             <Table
               summaryFilter={selectedFilterByAge}
               summary={{ ...summary }}
@@ -238,7 +239,7 @@ function App() {
               className="mr-5 h-100"
             />
           </div>
-          <div className="col-12 col-md-7"> 
+          <div className="col-12 col-lg-7 order-md-1"> 
               <div className="p-4 position-relative d-lg-none">
 
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
@@ -407,7 +408,7 @@ function App() {
               selectedCodeCategory={selectedCodeCategory}
             />
           </div>
-          <div className="col-12 col-md-6 h-100" style={{ position: 'relative', top: -40 }}>
+          <div className="col-12 col-md-6 h-100">
             <MapAreaByCat
               summary={{ ...summary }}
               selected={selectedLocationCategoryMap}
@@ -475,7 +476,7 @@ function App() {
             </div>
           </div>   
           <div className="col-12 col-md-6 pt-5">          
-            <MapArea
+            <MapAreaByLocation
               summary={{ ...summary }}
               handleCountryClick={handleCountryClickLocations}
               className="w-100 h-100"
