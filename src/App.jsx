@@ -373,8 +373,8 @@ function App() {
               xtitle="Vaccinazioni per categoria"
               handleRectClick={handleHRectClick}
               ytitle=""
-              width="500"
-              height="350"
+              width="220"
+              height="260"
               property={{ xprop: "name", yprop: "total" }}
               data={selectedCategory?.slice() || []}
               selectedCodeCategory={selectedCodeCategory}

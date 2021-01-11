@@ -64,7 +64,7 @@ export const HBarChart = (props) => {
       .append("svg")
       .attr("width", width)
       .attr("height", height);
-    const margin = { y: 50, x: 160 };
+    const margin = { y: 50, x: 170 };
 
     // Add X axis
     const xScale = d3.scaleLinear().domain([0, maxScale]).range([0, width-20]);
@@ -81,7 +81,7 @@ export const HBarChart = (props) => {
       .attr("width", width + 2 * margin.x)
       .attr("height", height + 2 * margin.y)
       .call(responsivefy) // Call responsivefy to make the chart responsive
-      .attr("id", "svg-horizontal-bar");
+      .attr("id", "svg-horizontal-bar")
     
 
     svg
@@ -111,8 +111,14 @@ export const HBarChart = (props) => {
     const chart = svg
       .append("g")
       .attr("transform", `translate(${margin.x},${margin.y})`);
+      
 
-    chart.append("g").attr("class", "hb-axis").call(d3.axisLeft(yScale)).style("font-size", "20px")
+    chart.append("g")
+      .attr("class", "hb-axis")
+      .call(d3.axisLeft(yScale))
+      .style("font-size", "18px")
+      .attr("transform", `translate(85,0)`)
+      
 
     // chart
     //   .append("g")
@@ -143,7 +149,7 @@ export const HBarChart = (props) => {
         return opac;
       })
       .attr("class", "hb-bar")
-      .attr("x", xScale(0))
+      .attr("x", xScale(0)+95)
       .attr("y", (d) => yScale(d[props.property.xprop]))
       .attr("width", (d) => xScale(d[props.property.yprop]))
       .attr("height", yScale.bandwidth())
@@ -153,7 +159,7 @@ export const HBarChart = (props) => {
       .text(
         (d) =>
           `Fascia ${d[props.property.xprop]} totale: ${d[props.property.yprop]}`
-      );
+      )
 
     path
       .enter()
@@ -161,10 +167,10 @@ export const HBarChart = (props) => {
       .attr("class", "hb-bartext")
       .attr("text-anchor", "middle")
       .attr("fill", "white")
-      .attr("x", (d) => xScale(d[props.property.yprop]) + 35)
+      .attr("x", (d) => xScale(d[props.property.yprop]) + 135)
       .attr("y", (d) =>
         height - yScale(d[props.property.xprop]) >= 0
-          ? yScale(d[props.property.xprop]) + 35
+          ? yScale(d[props.property.xprop]) + 30
           : yScale(d[props.property.xprop])
       )
       .text((d) => d[props.property.yprop].toLocaleString('it'));
