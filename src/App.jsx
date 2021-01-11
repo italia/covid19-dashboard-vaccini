@@ -419,22 +419,43 @@ function App() {
           </div>
         </div>
         <div className="row ">
-          <div
-            className="col-12  d-flex justify-content-center align-items-center p-5"
+        <div
+            className="col-12 d-flex justify-content-center align-items-center p-5"
             style={{ backgroundColor: '#F4F9FD' }}
           >
             <img src="logo.png" width="86" height="86" alt="Logo" className="img-fluid" style={{ zIndex: 10 }} />
-            <h3 className="text-center">Punti di somministrazione per regioni</h3>
+            <h3 className="text-center">Punti di somministrazione per regione</h3>
           </div>
-          <div className="col-12 col-md-12 h-100 ">
-            <div className="col-3 col-md-3 h-100 ">
+          <div className="col-12 col-md-12 h-100  ">
+            <div className="mb-5  d-lg-none " style={{
+              position: 'relative',
+              background: '#013366',
+
+            }}>
+              <div className="text-white w-100">
+                <div className="w-100  h-100 d-flex justify-content-start pt-3 pl-2">
+                  <h5>Punti di somministrazione per regione</h5>
+                </div>
+                <div className="w-100  h-100 d-flex justify-content-start pl-2">
+                  <h4>{(!selectedCodeCategory && !selectedLocationCategoryMap)
+                    ? summary.tot?.toLocaleString('it')
+                    : totalByCategory?.toLocaleString('it')}
+                  </h4>
+                </div>
+                <div className="col-12 d-flex justify-content-end  pb-2">
+                  <img src="reset_white.png" onClick={resetFilter} height={35} />
+                </div>
+              </div>
+            </div>
+
+            <div className="col-3 col-md-3 h-100 d-none d-lg-block">
               <div style={{
                 position: 'relative',
                 // width: 300,
                 // height: 180,
                 background: '#17324D',
                 top: -90,
-                left: 50
+                left: 40
               }}>
                 <div className="text-white w-100">
                   <div className="w-100  h-100 d-flex justify-content-start pt-3 pl-2">
@@ -452,61 +473,20 @@ function App() {
                 </div>
               </div>
             </div>
+          </div>   
+          <div className="col-12 col-md-6 pt-5">          
+            <MapArea
+              summary={{ ...summary }}
+              handleCountryClick={handleCountryClickLocations}
+              className="w-100 h-100"
+            />           
           </div>
-          <div className="col-12 col-md-7 pt-3 pl-3" style={{ top: -50 }} >
+          <div className="col-12 col-md-6 pt-3 pl-3">
             <LocationsTable
               summary={{ ...summary }}
               selected={selectedLocation}
               className="mr-5 h-100"
             />
-          </div>
-          <div className="col-12 col-md-5 pt-5" style={{ top: -150 }}>
-            {/* <div className="pt-5 position-absolute" style={{ right: '15px', top: '30px' }}>
-              <div className="w-100 h-100 d-flex justify-content-start pr-5">
-                <img src="logo.png" width="35" height="35" alt="Logo" />
-              </div>
-              <div className="w-100 h-100 d-flex justify-content-end text-black">
-                <h5>Punti di somministrazione<br />per regione</h5>
-              </div>
-
-            </div> */}
-            <MapArea
-              summary={{ ...summary }}
-              handleCountryClick={handleCountryClickLocations}
-              className="w-100 h-100"
-            />
-            {/* <div className="col-12  mb-3">
-              <img src="logo.png" width="86" height="86" alt="Logo"
-                style={{
-                  position: 'relative',
-                  left: 200,
-                  top: 73,
-                  zIndex: 10
-                }}
-
-              />
-              <div className="col-3 col-md-6 h-100 pl-4 pt-4">
-                <div style={{
-                  position: 'relative',
-                  background: '#17324D',
-                  left: 230
-                }}>
-
-                  <div className="text-white w-100">
-                    <div className="w-100  h-100 d-flex justify-content-start pl-5 pt-4">
-                      <h5>Totale punti di<br></br>somministrazione</h5>
-                    </div>
-                    <div className="w-100  h-100 d-flex justify-content-start pl-5 pt-4">
-                      <h4>00000000
-                    </h4>
-                    </div>
-                    <div className="col-12 d-flex justify-content-end pb-2">
-                      <img src="reset_white.png" onClick={resetFilter} height={35} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
           </div>
         </div>
         <div className="row">
