@@ -411,17 +411,17 @@ function App() {
             />
           </div>
           <div className="col-12 col-md-6 h-100">
-          <div className="p-4 position-relative d-lg-none">
-            <div className="w-100 h-100 d-flex justify-content-start pr-5">
-              <img src="logo.png" width="35" height="35" alt="Logo" />
-              <h5 className="pl-3 pl-sm-1">Vaccinazioni<br/> per regione</h5>
-            </div>
+            <div className="p-4 position-relative d-lg-none">
+              <div className="w-100 h-100 d-flex justify-content-start pr-5">
+                <img src="logo.png" width="35" height="35" alt="Logo" />
+                <h5 className="pl-3 pl-sm-1">Vaccinazioni<br/> per regione</h5>
+              </div>
             </div>
             <div className="p-4 position-relative d-none d-lg-block" style={{ left: '300px', top: '190px' }}>
-            <div className="w-100 h-100 d-flex justify-content-start pr-5">
-              <img src="logo.png" width="35" height="35" alt="Logo" />
-              <h5 className="pl-3 pl-sm-1">Vaccinazioni<br/> per regione</h5>
-            </div>
+              <div className="w-100 h-100 d-flex justify-content-start pr-5">
+                <img src="logo.png" width="35" height="35" alt="Logo" />
+                <h5 className="pl-3 pl-sm-1">Vaccinazioni<br/> per regione</h5>
+              </div>
             </div>
             <MapAreaByCat
               summary={{ ...summary }}
@@ -489,14 +489,26 @@ function App() {
               </div>
             </div>
           </div>   
-          <div className="col-12 col-md-6 pt-5">          
+          <div className="col-12 col-md-6 pt-5"> 
+          <div className="p-4 position-relative d-lg-none">
+              <div className="w-100 h-100 d-flex justify-content-start pr-5">
+                <img src="logo.png" width="35" height="35" alt="Logo" />
+                <h5 className="pl-3 pl-sm-1">Punti di<br/> somministrazione <br/> per regione</h5>
+              </div>
+            </div>
+            <div className="p-4 position-relative d-none d-lg-block" style={{ left: '300px', top: '190px' }}>
+              <div className="w-100 h-100 d-flex justify-content-start pr-5">
+                <img src="logo.png" width="35" height="35" alt="Logo" />
+                <h5 className="pl-3 pl-sm-1">Punti di<br/> somministrazione <br/> per regione</h5>
+              </div>
+            </div>            
           <MapAreaByDeliveryLocation
               summary={{ ...summary }}
               handleCountryClick={handleCountryClickLocations}
               className="w-100 h-100"
               setLocationRegionSelect={setLocationRegionSelect}
               locationRegionSelect={locationRegionSelect}
-            />         
+            />
           </div>
           <div className="col-12 col-md-6 pt-3 pl-3">
             <LocationsTable
