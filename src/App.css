@@ -302,15 +302,30 @@ ul.footer_links li {
   background: #17324D;
 
 }
+.container-info{
+  justify-content: flex-end;
+  position: relative;
+  bottom: -34px;
+  left: 26px;
+  z-index:99;
+}
 .circle-info{
-  height: 25px;
-  width: 25px;
-  background-color:black;
-  color:white;
+  
+  height: 20px;
+  width: 20px;
+  background-color:transparent;
+  color:black;
+  border:2px solid black;
   border-radius: 50%;
+  font-weight: bold;
+  font-size: 12px;
   display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 100;
+}
+.circle-info:hover{
+  cursor: pointer;
 }
 .bar {
   fill: #fff;

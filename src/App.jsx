@@ -234,6 +234,9 @@ function App() {
         </div>
         <div className="row" style={{ backgroundColor: '#F8FBFE' }}>
           <div className="col-12 col-lg-5 h-100 order-md-2 order-lg-1 ">
+            <div className="container-info d-none d-sm-none d-md-flex d-lg-flex" >
+              <span data-toggle="tooltip" title="% somministrazioni su dosi consegnate" className="circle-info">i</span>
+            </div>
             <Table
               summaryFilter={selectedFilterByAge}
               summary={{ ...summary }}
@@ -241,13 +244,13 @@ function App() {
               className="mr-5 h-100"
             />
           </div>
-          <div className="col-12 col-lg-7 order-md-1 order-lg-2"> 
-              <div className="p-4 position-relative d-lg-none">
+          <div className="col-12 col-lg-7 order-md-1 order-lg-2">
+            <div className="p-4 position-relative d-lg-none">
 
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
                 <img src="logo.png" width="35" height="35" alt="Logo" />
-              
-                <h5 className="pl-3 pl-sm-1">Distribuzione vaccinazioni<br/> rispetto alle consegne</h5>
+
+                <h5 className="pl-3 pl-sm-1">Distribuzione vaccinazioni<br /> rispetto alle consegne</h5>
 
               </div>
 
@@ -257,8 +260,8 @@ function App() {
 
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
                 <img src="logo.png" width="35" height="35" alt="Logo" />
-              
-                <h5 className="pl-3 pl-sm-1">Distribuzione vaccinazioni<br/> rispetto alle consegne</h5>
+
+                <h5 className="pl-3 pl-sm-1">Distribuzione vaccinazioni<br /> rispetto alle consegne</h5>
 
               </div>
 
@@ -274,7 +277,7 @@ function App() {
             <div className="p-4 position-relative">
               <div className="text-black w-100">
                 <div className="w-100 h-100 d-flex justify-content-start ">
-                  <img src="logo.png" width="45" height="45" alt="Logo" className="mt-3"/>
+                  <img src="logo.png" width="45" height="45" alt="Logo" className="mt-3" />
                   <span className="font-50 pl-3" >{_.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]) ? _.sum([totalAgeByGender?.gen_m, totalAgeByGender?.gen_f]).toLocaleString('it') : 0}</span>
 
                 </div>
@@ -385,7 +388,7 @@ function App() {
                     <h5>Totale<br></br>vaccinazioni</h5>
                   </div>
                   <div className="w-100  h-100 d-flex justify-content-start pl-4">
-                  <p className="numeri_box">{(!selectedCodeCategory && !selectedLocationCategoryMap)
+                    <p className="numeri_box">{(!selectedCodeCategory && !selectedLocationCategoryMap)
                       ? summary.tot?.toLocaleString('it')
                       : totalByCategory?.toLocaleString('it')}
                     </p>
@@ -415,13 +418,13 @@ function App() {
             <div className="p-4 position-relative d-lg-none">
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
                 <img src="logo.png" width="35" height="35" alt="Logo" />
-                <h5 className="pl-3 pl-sm-1">Vaccinazioni<br/> per regione</h5>
+                <h5 className="pl-3 pl-sm-1">Vaccinazioni<br /> per regione</h5>
               </div>
             </div>
             <div className="p-4 position-relative d-none d-lg-block" style={{ left: '300px', top: '190px' }}>
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
                 <img src="logo.png" width="35" height="35" alt="Logo" />
-                <h5 className="pl-3 pl-sm-1">Vaccinazioni<br/> per regione</h5>
+                <h5 className="pl-3 pl-sm-1">Vaccinazioni<br /> per regione</h5>
               </div>
             </div>
             <MapAreaByCat
@@ -437,7 +440,7 @@ function App() {
           </div>
         </div>
         <div className="row ">
-        <div
+          <div
             className="col-12 d-flex justify-content-center align-items-center p-5"
             style={{ backgroundColor: '#F4F9FD' }}
           >
@@ -455,7 +458,7 @@ function App() {
                   <h5>Punti di somministrazione per regione</h5>
                 </div>
                 <div className="w-100  h-100 d-flex justify-content-start pl-4">
-                <p className="numeri_box">{locationTableRef}
+                  <p className="numeri_box">{locationTableRef}
                   </p>
                 </div>
                 <div className="col-12 d-flex justify-content-end  pb-2">
@@ -478,7 +481,7 @@ function App() {
                     <h5>Totale punti di<br></br>somministrazione</h5>
                   </div>
                   <div className="w-100  h-100 d-flex justify-content-start pl-4">
-                  <p className="numeri_box">{locationTableRef}
+                    <p className="numeri_box">{locationTableRef}
                     </p>
                   </div>
                   <div className="col-12 d-flex justify-content-end  pb-2">
@@ -487,21 +490,21 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>   
-          <div className="col-12 col-md-6 pt-5"> 
-          <div className="p-4 position-relative d-lg-none">
+          </div>
+          <div className="col-12 col-md-6 pt-5">
+            <div className="p-4 position-relative d-lg-none">
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
                 <img src="logo.png" width="35" height="35" alt="Logo" />
-                <h5 className="pl-3 pl-sm-1">Punti di<br/> somministrazione <br/> per regione</h5>
+                <h5 className="pl-3 pl-sm-1">Punti di<br /> somministrazione <br /> per regione</h5>
               </div>
             </div>
             <div className="p-4 position-relative d-none d-lg-block" style={{ left: '300px', top: '190px' }}>
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
                 <img src="logo.png" width="35" height="35" alt="Logo" />
-                <h5 className="pl-3 pl-sm-1">Punti di<br/> somministrazione <br/> per regione</h5>
+                <h5 className="pl-3 pl-sm-1">Punti di<br /> somministrazione <br /> per regione</h5>
               </div>
-            </div>            
-          <MapAreaByDeliveryLocation
+            </div>
+            <MapAreaByDeliveryLocation
               summary={{ ...summary }}
               handleCountryClick={handleCountryClickLocations}
               className="w-100 h-100"
@@ -517,7 +520,7 @@ function App() {
               setLocationTableRef={setLocationTableRef}
             />
           </div>
-         
+
         </div>
         <div className="row">
           <div className="col-12 text-center pt-5 pb-3">
