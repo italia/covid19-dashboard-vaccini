@@ -14,7 +14,7 @@ import { HBarChart } from "./components/HBarChart";
 import { areaMappingReverse, groupByAge, allTotalGender, hideLoader } from "./utils";
 import * as _ from 'lodash';
 import "./App.css";
-// import { omit } from "lodash";
+import { omit } from "lodash";
 
 
 function App() {
@@ -57,44 +57,44 @@ function App() {
     setLocationRegionSelect(null);
   }
 
-  // const loadRect=(rect) =>{
-  //   setSelectedAge(rect)
-  //   setTotalAgeByGender({ gen_m: rect?.sesso_maschile, gen_f: rect?.sesso_femminile });
-  // }
+  const loadRect = (rect) => {
+    setSelectedAge(rect)
+    setTotalAgeByGender({ gen_m: rect?.sesso_maschile, gen_f: rect?.sesso_femminile });
+  }
 
-  // const  setTableFilteredVaccini = (currentRect)=> {
-  //   let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => (el.fascia_anagrafica.trim()) === (currentRect.fascia_anagrafica.trim()));
-  //   var grouped = _.mapValues(_.groupBy(vaccinAdministrationListReportByAge, 'area'),
-  //     z => _.sum(z.map(x => _.sum([x.sesso_maschile, x.sesso_femminile]))));
-  //   let _summary = summary.deliverySummary;
-  //   _summary = _summary.map((e) => {
-  //     let x = omit(e, ['dosi_somministrate', 'percentuale_somministrazione', 'ultimo_aggiornamento']);
-  //     let y = { dosi_somministrate: grouped[e.area] };
-  //     let z = { percentuale_somministrazione: ((y.dosi_somministrate / x.dosi_consegnate) * 100).toFixed(1) }
-  //     return { ...x, ...y, ...z };
-  //   });
-  //   setSelectedFilterByAge(_summary);
-  // }
+  const setTableFilteredVaccini = (currentRect) => {
+    let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => (el.fascia_anagrafica.trim()) === (currentRect.fascia_anagrafica.trim()));
+    var grouped = _.mapValues(_.groupBy(vaccinAdministrationListReportByAge, 'area'),
+      z => _.sum(z.map(x => _.sum([x.sesso_maschile, x.sesso_femminile]))));
+    let _summary = summary.deliverySummary;
+    _summary = _summary.map((e) => {
+      let x = omit(e, ['dosi_somministrate', 'percentuale_somministrazione', 'ultimo_aggiornamento']);
+      let y = { dosi_somministrate: grouped[e.area] };
+      let z = { percentuale_somministrazione: ((y.dosi_somministrate / x.dosi_consegnate) * 100).toFixed(1) }
+      return { ...x, ...y, ...z };
+    });
+    setSelectedFilterByAge(_summary);
+  }
   const handleRectClick = (currentRect) => {
-    // let currentRectExist = currentRect ? true : false;
-    // let selectedExist = selected ? true : false;
-    // if (!currentRectExist) {
-    //   setBarState(summary.categoriesAndAges);
-    //   setTotalAgeByGender(summary.gender);
-    //   setSelectedFilterByAge(null);
-    //   setSelectedAge(null)
-    //   setSelected(null);
-    // }
-    // if (currentRectExist && selectedExist) {
-    //   resetFilter();
-    //   let currentRectDefault = summary?.categoriesAndAges.filter((e) => e?.fascia_anagrafica === currentRect?.fascia_anagrafica);
-    //   setTableFilteredVaccini(currentRect);
-    //   loadRect(currentRectDefault[0])
-    // }
-    // if (currentRectExist && !selectedExist) {
-    //   setTableFilteredVaccini(currentRect);
-    //   loadRect(currentRect);
-    // }
+    let currentRectExist = currentRect ? true : false;
+    let selectedExist = selected ? true : false;
+    if (!currentRectExist) {
+      setBarState(summary.categoriesAndAges);
+      setTotalAgeByGender(summary.gender);
+      setSelectedFilterByAge(null);
+      setSelectedAge(null)
+      setSelected(null);
+    }
+    if (currentRectExist && selectedExist) {
+      resetFilter();
+      let currentRectDefault = summary?.categoriesAndAges.filter((e) => e?.fascia_anagrafica === currentRect?.fascia_anagrafica);
+      setTableFilteredVaccini(currentRect);
+      loadRect(currentRectDefault[0])
+    }
+    if (currentRectExist && !selectedExist) {
+      setTableFilteredVaccini(currentRect);
+      loadRect(currentRect);
+    }
   }
   const handleHRectClick = (currentRect) => {
 
@@ -107,7 +107,7 @@ function App() {
 
   const handleCountryClick = (countryIndex) => {
     let _selected = summary.deliverySummary[countryIndex];
-    
+
     setSelected({ ..._selected });
     setSelectedAge(null);
     setSelectedFilterByAge(null);
@@ -162,11 +162,9 @@ function App() {
     let maxSumm = 0;
 
     if (selectedCodeCategory) {
-      setSelectedCodeCategory(null);
-      // setSelectedLocationCategoryMap(null)
+      setSelectedLocationCategoryMap(null)
     }
-    // !selectedLocationCategoryMap
-    if (!selectedCodeCategory) {
+    if (!selectedLocationCategoryMap) {
       summary?.deliverySummary?.forEach(i => {
         Object.keys(i.byCategory).forEach(cat => {
           if (!selectedCodeCategory) {
@@ -185,6 +183,7 @@ function App() {
       setMaxByCategory(maxSumm)
       setTotalByCategory(totalSumm)
     }
+    // eslint-disable-next-line
   }, [selectedCodeCategory, summary, totalByCategory])
 
   return (
