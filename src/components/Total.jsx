@@ -12,12 +12,12 @@ export const Total = (props) => {
       </div>
       {/* <div className="container"> */}
       <div className="d-flex flex-column justify-content-center">
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center align-items-baseline">
           <img src="meds.png" alt="meds" className="pl-4 pr-5" />
           {" "}
           <h1 className="pl-5 mt-4 font-weight-light">{props.summary.tot?.toLocaleString('it')}</h1>
         </div>
-        <span className="border-top mt-2 mb-2"></span>
+        <span className="border-top mb-2"></span>
         <div className="d-flex justify-content-center">
           <img src="logo.png" alt="fiore" height="30" />
           <img src="logo.png" alt="fiore" height="30" />
