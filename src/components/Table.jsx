@@ -26,7 +26,12 @@ export const Table = (props) => {
         destroy: true,
         data: ((props.summaryFilter || props.summary?.deliverySummary) || []),
         columns,
-
+        columnDefs: [{
+          "targets": [1,2,3],
+          render: (data, type, row)=>{
+            return Number(data).toLocaleString('it')
+          }
+        }]
       });
     if (props?.selected?.area) {
       table.search(props.selected.area).draw();
