@@ -288,7 +288,8 @@ function App() {
           </div>
         </div>
         <div className="row position-powerbi" style={{ backgroundColor: '#F8FBFE' }}>
-          <div className="col-12 col-md-6">
+          <div className="col-12 col-md-6 d-flex align-items-end testo-info-campania">
+            Il dato della Campania evidenzia la prevista somministrazione della sesta dose, il che potrà avvenire anche nelle altre regioni.
           </div>
           <div className="col-12 col-md-6  position-relative" >
             <div className="bg-gradient-bar"></div>
@@ -296,13 +297,13 @@ function App() {
               <div className="col-6 d-flex align-items-baseline">
                 <img src="user_f.png" alt="users" width="75px" />
                 <span className="text-center font-weight-light text-white">
-                  <h3>{totalAgeByGender?.gen_f?.toLocaleString('it')}</h3>
+                  <h3 className="total_gender">{totalAgeByGender?.gen_f?.toLocaleString('it')}</h3>
                 </span>
               </div>
               <div className="col-6  d-flex align-items-baseline">
                 <img src="user_m.png" alt="users" width="75px" />
                 <span className="text-center font-weight-light text-white">
-                  <h3>{totalAgeByGender?.gen_m?.toLocaleString('it')}</h3>
+                  <h3 className="total_gender">{totalAgeByGender?.gen_m?.toLocaleString('it')}</h3>
                 </span>
               </div>
             </div>
@@ -454,9 +455,7 @@ function App() {
                   <h5>Punti di somministrazione per regione</h5>
                 </div>
                 <div className="w-100  h-100 d-flex justify-content-start pl-4">
-                <p className="numeri_box">{(!selectedCodeCategory && !selectedLocationCategoryMap)
-                    ? summary.tot?.toLocaleString('it')
-                    : totalByCategory?.toLocaleString('it')}
+                <p className="numeri_box">{locationTableRef}
                   </p>
                 </div>
                 <div className="col-12 d-flex justify-content-end  pb-2">
@@ -518,50 +517,7 @@ function App() {
               setLocationTableRef={setLocationTableRef}
             />
           </div>
-          <div className="col-12 col-md-5 pt-5" style={{ top: -150 }}>
-            {/* <div className="pt-5 position-absolute" style={{ right: '15px', top: '30px' }}>
-              <div className="w-100 h-100 d-flex justify-content-start pr-5">
-                <img src="logo.png" width="35" height="35" alt="Logo" />
-              </div>
-              <div className="w-100 h-100 d-flex justify-content-end text-black">
-                <h5>Punti di somministrazione<br />per regione</h5>
-              </div>
-
-            </div> */}
-
-            {/* <div className="col-12  mb-3">
-              <img src="logo.png" width="86" height="86" alt="Logo"
-                style={{
-                  position: 'relative',
-                  left: 200,
-                  top: 73,
-                  zIndex: 10
-                }}
-
-              />
-              <div className="col-3 col-md-6 h-100 pl-4 pt-4">
-                <div style={{
-                  position: 'relative',
-                  background: '#17324D',
-                  left: 230
-                }}>
-
-                  <div className="text-white w-100">
-                    <div className="w-100  h-100 d-flex justify-content-start pl-5 pt-4">
-                      <h5>Totale punti di<br></br>somministrazione</h5>
-                    </div>
-                    <div className="w-100  h-100 d-flex justify-content-start pl-5 pt-4">
-                      <h4>00000000
-                    </h4>
-                    </div>
-                    <div className="col-12 d-flex justify-content-end pb-2">
-                      <img src="reset_white.png" onClick={resetFilter} height={35} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-          </div>
+         
         </div>
         <div className="row">
           <div className="col-12 text-center pt-5 pb-3">

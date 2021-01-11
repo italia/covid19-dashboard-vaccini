@@ -350,6 +350,14 @@ ul.footer_links li {
   .map-area{
     zoom:0.77;
   }
+
+  .total_gender {
+    font-size: 20px;
+  }
+
+  testo-info-campania{
+    text-align: center;
+  }
 }
 
 /**
