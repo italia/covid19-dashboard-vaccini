@@ -94,6 +94,10 @@ export const Table = (props) => {
             $( api.column( 1 ).footer() ).html(
               totalVaccines.toLocaleString('it')
             );
+
+            $( api.column( 0 ).footer() ).html(
+              'Totale'
+            );
           }
       })
     if (props?.selected?.area) {
