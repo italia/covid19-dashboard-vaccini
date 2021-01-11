@@ -353,14 +353,14 @@ function App() {
 
             }}>
               <div className="text-white w-100">
-                <div className="w-100  h-100 d-flex justify-content-start pt-3 pl-2">
+                <div className="w-100  h-100 d-flex justify-content-start pt-5 pl-4">
                   <h5>Totale<br></br>vaccinazioni</h5>
                 </div>
-                <div className="w-100  h-100 d-flex justify-content-start pl-2">
-                  <h4>{(!selectedCodeCategory && !selectedLocationCategoryMap)
+                <div className="w-100  h-100 d-flex justify-content-start pl-4">
+                  <p className="numeri_box">{(!selectedCodeCategory && !selectedLocationCategoryMap)
                     ? summary.tot?.toLocaleString('it')
                     : totalByCategory?.toLocaleString('it')}
-                  </h4>
+                  </p>
                 </div>
                 <div className="col-12 d-flex justify-content-end  pb-2">
                   <img src="reset_white.png" onClick={resetFilter} height={35} />
@@ -378,14 +378,14 @@ function App() {
                 left: 105
               }}>
                 <div className="text-white w-100">
-                  <div className="w-100  h-100 d-flex justify-content-start pt-3 pl-2">
+                  <div className="w-100  h-100 d-flex justify-content-start pt-3 pl-4">
                     <h5>Totale<br></br>vaccinazioni</h5>
                   </div>
-                  <div className="w-100  h-100 d-flex justify-content-start pl-2">
-                    <h4>{(!selectedCodeCategory && !selectedLocationCategoryMap)
+                  <div className="w-100  h-100 d-flex justify-content-start pl-4">
+                  <p className="numeri_box">{(!selectedCodeCategory && !selectedLocationCategoryMap)
                       ? summary.tot?.toLocaleString('it')
                       : totalByCategory?.toLocaleString('it')}
-                    </h4>
+                    </p>
                   </div>
                   <div className="col-12 d-flex justify-content-end  pb-2">
                     <img src="reset_white.png" onClick={resetFilter} height={35} />
@@ -436,14 +436,14 @@ function App() {
 
             }}>
               <div className="text-white w-100">
-                <div className="w-100  h-100 d-flex justify-content-start pt-3 pl-2">
+                <div className="w-100  h-100 d-flex justify-content-start pt-5 pl-4">
                   <h5>Punti di somministrazione per regione</h5>
                 </div>
-                <div className="w-100  h-100 d-flex justify-content-start pl-2">
-                  <h4>{(!selectedCodeCategory && !selectedLocationCategoryMap)
+                <div className="w-100  h-100 d-flex justify-content-start pl-4">
+                <p className="numeri_box">{(!selectedCodeCategory && !selectedLocationCategoryMap)
                     ? summary.tot?.toLocaleString('it')
                     : totalByCategory?.toLocaleString('it')}
-                  </h4>
+                  </p>
                 </div>
                 <div className="col-12 d-flex justify-content-end  pb-2">
                   <img src="reset_white.png" onClick={resetFilter} height={35} />
@@ -461,12 +461,12 @@ function App() {
                 left: 40
               }}>
                 <div className="text-white w-100">
-                  <div className="w-100  h-100 d-flex justify-content-start pt-3 pl-2">
+                  <div className="w-100  h-100 d-flex justify-content-start pt-5 pl-4">
                     <h5>Totale punti di<br></br>somministrazione</h5>
                   </div>
-                  <div className="w-100  h-100 d-flex justify-content-start pl-2">
-                    <h4>{locationTableRef}
-                    </h4>
+                  <div className="w-100  h-100 d-flex justify-content-start pl-4">
+                  <p className="numeri_box">{locationTableRef}
+                    </p>
                   </div>
                   <div className="col-12 d-flex justify-content-end  pb-2">
                     <img src="reset_white.png" onClick={resetFilter} height={35} />

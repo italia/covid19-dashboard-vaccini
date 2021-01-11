@@ -368,6 +368,10 @@ ul.footer_links li {
   font-weight: bold;
 }
 
+.numeri_box {
+  font-size: 40px;
+}
+
 /*
 loader*/
 .box-loader {
