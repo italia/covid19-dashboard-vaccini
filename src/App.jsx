@@ -231,7 +231,7 @@ function App() {
 
         </div>
         <div className="row" style={{ backgroundColor: '#F8FBFE' }}>
-          <div className="col-12 col-lg-5 h-100 order-md-2">
+          <div className="col-12 col-lg-5 h-100 order-md-2 order-lg-1 ">
             <Table
               summaryFilter={selectedFilterByAge}
               summary={{ ...summary }}
@@ -239,7 +239,7 @@ function App() {
               className="mr-5 h-100"
             />
           </div>
-          <div className="col-12 col-lg-7 order-md-1"> 
+          <div className="col-12 col-lg-7 order-md-1 order-lg-2"> 
               <div className="p-4 position-relative d-lg-none">
 
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
