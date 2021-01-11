@@ -75,7 +75,7 @@ body {
 
 .table th:nth-child(n+2),
 .table td:nth-child(n+2) {
-  text-align: center !important;
+  text-align: right !important;
 }
 
 .it-header-slim-wrapper {
