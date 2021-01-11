@@ -127,8 +127,8 @@ export const BarChart = (props) => {
       })
       .attr('id', (d) => d?.fascia_anagrafica)
       .attr('opacity', (d) => {
-        let test = props?.selected?.fascia_anagrafica === d?.fascia_anagrafica ? 1 : !props?.selected ? 1 : 0.3;
-        return test;
+        let opac = props?.selected?.fascia_anagrafica === d?.fascia_anagrafica ? 1 : !props?.selected ? 1 : 0.3;
+        return opac;
       })
       .attr("class", "bar")
       .attr("x", (d) => xScale(d[props.property.xprop]))
