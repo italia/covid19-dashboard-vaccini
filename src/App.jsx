@@ -395,7 +395,7 @@ function App() {
             </div>
           </div>
 
-          <div className="col-12 col-md-6 h-100 " style={{ position: 'relative', left: 40 }}>
+          <div className="col-12 col-md-6 h-100">
             <HBarChart
               title=""
               xtitle="Vaccinazioni per categoria"
