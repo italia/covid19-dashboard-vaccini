@@ -1,5 +1,12 @@
 import * as _ from 'lodash';
-export const hideLoader = () => { if (document.getElementById('loader-custom')) document.getElementById('loader-custom').className = document.getElementById('loader-custom').className + ' d-none' }
+export const hideLoader = () => {
+  let loading = document.getElementById('loader-custom');
+  if (loading) loading.className = !loading.className.includes('d-none') ? loading.className + ' d-none' : loading.className;
+}
+export const showLoader = () => {
+  let loading = document.getElementById('loader-custom');
+  if (loading) loading.className = loading.className.includes('d-none') ? loading.className.replace('d-none', '') : loading.className;
+}
 export const sumDose = (acc, x) => acc + +x?.TML_DOSE_1 + +x?.TML_DOSE_2;
 export const sumDoseXY = (y, z) => (acc, x) => acc + +x?.[y] + +x?.[z];
 export const sumYear = (accumulator, currentValue) => accumulator + currentValue;
