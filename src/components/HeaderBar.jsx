@@ -4,7 +4,6 @@ import "bootstrap-italia/dist/css/bootstrap-italia.min.css";
 import "typeface-titillium-web";
 import "typeface-roboto-mono";
 import "typeface-lora";
-import { Header } from "design-react-kit";
 
 export const HeaderBar = () => {
   return (

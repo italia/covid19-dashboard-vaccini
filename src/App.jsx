@@ -11,7 +11,7 @@ import { Total } from "./components/Total";
 import { loadData } from "./loadData";
 import { BarChart } from "./components/BarChart";
 import { HBarChart } from "./components/HBarChart";
-import { areaMappingReverse, groupByAge, allTotalGender, hideLoader, showLoader } from "./utils";
+import { areaMappingReverse, groupByAge, allTotalGender, hideLoader } from "./utils";
 import * as _ from 'lodash';
 import "./App.css";
 import { omit } from "lodash";
@@ -165,10 +165,11 @@ function App() {
     let maxSumm = 0;
 
     if (selectedCodeCategory) {
-      setSelectedLocationCategoryMap(null)
+      setSelectedCodeCategory(null);
+      // setSelectedLocationCategoryMap(null)
     }
-
-    if (!selectedLocationCategoryMap) {
+  // !selectedLocationCategoryMap
+    if (!selectedCodeCategory) {
       summary?.deliverySummary?.forEach(i => {
         Object.keys(i.byCategory).forEach(cat => {
           if (!selectedCodeCategory) {
@@ -228,7 +229,7 @@ function App() {
 
         <div className="row">
           <div className="col-12 d-flex justify-content-end">
-            <img src="reset.png" onClick={resetFilter} />
+            <img alt="reset" src="reset.png" onClick={resetFilter} />
           </div>
 
         </div>
@@ -248,7 +249,7 @@ function App() {
             <div className="p-4 position-relative d-lg-none">
 
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
-                <img src="logo.png" width="35" height="35" alt="Logo" />
+                <img  src="logo.png" width="35" height="35" alt="Logo" />
 
                 <h5 className="pl-3 pl-sm-1">Distribuzione vaccinazioni<br /> rispetto alle consegne</h5>
 
@@ -369,7 +370,7 @@ function App() {
                   </p>
                 </div>
                 <div className="col-12 d-flex justify-content-end  pb-2">
-                  <img src="reset_white.png" onClick={resetFilter} height={35} />
+                  <img alt="reset-plot2" src="reset_white.png" onClick={resetFilter} height={35} />
                 </div>
               </div>
             </div>
@@ -394,7 +395,7 @@ function App() {
                     </p>
                   </div>
                   <div className="col-12 d-flex justify-content-end  pb-2">
-                    <img src="reset_white.png" onClick={resetFilter} height={35} />
+                    <img alt="Reset" src="reset_white.png" onClick={resetFilter} height={35} />
                   </div>
                 </div>
               </div>
@@ -462,7 +463,7 @@ function App() {
                   </p>
                 </div>
                 <div className="col-12 d-flex justify-content-end  pb-2">
-                  <img src="reset_white.png" onClick={resetFilter} height={35} />
+                  <img alt="reset-plot" src="reset_white.png" onClick={resetFilter} height={35} />
                 </div>
               </div>
             </div>
@@ -485,7 +486,7 @@ function App() {
                     </p>
                   </div>
                   <div className="col-12 d-flex justify-content-end  pb-2">
-                    <img src="reset_white.png" onClick={resetFilter} height={35} />
+                    <img  alt="reset-white" src="reset_white.png" onClick={resetFilter} height={35} />
                   </div>
                 </div>
               </div>

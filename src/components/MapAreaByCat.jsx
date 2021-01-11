@@ -6,7 +6,6 @@ import "./MapArea.css"
 
 export const MapAreaByCat = (
     {
-        selectedLocationCategoryMap,
         handleCountryClick, 
         selectedCodeCategory,
         maxByCategory,

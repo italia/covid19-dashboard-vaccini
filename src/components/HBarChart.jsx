@@ -23,7 +23,7 @@ export const HBarChart = (props) => {
   useEffect(() => {
     doExit();
     draw();
-  },[props]);
+  });
 
   const responsivefy = (svg) => {
     // Container is the DOM element, svg is appended.

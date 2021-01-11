@@ -1,4 +1,4 @@
-import { sumDoseX, filterByAreaITA, replaceArea, aggrBy, mapBy } from "./utils";
+import { sumDoseX, filterByAreaITA, replaceArea, aggrBy } from "./utils";
 import _ from 'lodash';
 const baseURL =
   "https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati";
