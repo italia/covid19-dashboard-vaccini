@@ -33,8 +33,8 @@ export const LocationsTable = (props) => {
         data: props.summary?.locations || [],
         columns,
       });
-    if (props?.selected?.area) {
-      table.search(props.selected.area).draw();
+    if (props?.selected) {
+      table.search(props.selected).draw();
     } else {
       table.search(" ").draw();
     }

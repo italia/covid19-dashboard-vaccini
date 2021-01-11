@@ -1,4 +1,5 @@
 import { sumDoseX, filterByAreaITA, replaceArea, aggrBy, mapBy } from "./utils";
+import _ from 'lodash';
 const baseURL =
   "https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati";
 
@@ -92,6 +93,16 @@ const elaborate = (data) => {
 
   const locations = data.dataVaxLocations.data.map(replaceArea);
 
+  let maxNumberOfLocations = 0
+
+  const locationsByRegion = _(data.dataVaxLocations.data.map(replaceArea))
+  .groupBy('area')
+  .map((items, area)=>{
+    maxNumberOfLocations = maxNumberOfLocations > items.length ? maxNumberOfLocations : items.length;
+    return {area: area, locations: items.length}
+  }).value()
+  ;
+
   const gender = {
     gen_m: categoriesAndAges.reduce(sumDoseX("sesso_maschile"), 0),
     gen_f: categoriesAndAges.reduce(sumDoseX("sesso_femminile"), 0),
@@ -107,7 +118,9 @@ const elaborate = (data) => {
     categoriesByRegions,
     locations,
     gender,
-    dataSomeVaxDetail
+    dataSomeVaxDetail,
+    locationsByRegion,
+    maxNumberOfLocations
   };
   // console.log(aggr);
 
