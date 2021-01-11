@@ -57,12 +57,12 @@ function App() {
     setLocationRegionSelect(null);
   }
 
-  function loadRect(rect) {
+  const loadRect=(rect) =>{
     setSelectedAge(rect)
     setTotalAgeByGender({ gen_m: rect?.sesso_maschile, gen_f: rect?.sesso_femminile });
   }
 
-  function setTableFilteredVaccini(currentRect) {
+  const  setTableFilteredVaccini = (currentRect)=> {
     let vaccinAdministrationListReportByAge = summary.dataSomeVaxDetail.filter(el => (el.fascia_anagrafica.trim()) === (currentRect.fascia_anagrafica.trim()));
     var grouped = _.mapValues(_.groupBy(vaccinAdministrationListReportByAge, 'area'),
       z => _.sum(z.map(x => _.sum([x.sesso_maschile, x.sesso_femminile]))));
@@ -97,9 +97,8 @@ function App() {
     }
 
   }
-
-
   const handleHRectClick = (currentRect) => {
+
     if (currentRect) {
       setSelectedCodeCategory(currentRect?.code)
     } else {
@@ -109,14 +108,14 @@ function App() {
 
   const handleCountryClick = (countryIndex) => {
     let _selected = summary.deliverySummary[countryIndex];
-
+    
     setSelected({ ..._selected });
     setSelectedAge(null);
     setSelectedFilterByAge(null);
     setSelectedLocationMap(_selected);
 
     if (countryIndex || countryIndex === 0) {
-      let vaccinAdministrationListReportByArea = summary.dataSomeVaxDetail.filter(el => el.area === _selected.area);
+      let vaccinAdministrationListReportByArea = summary.dataSomeVaxDetail.filter(el => el?.area?.trim() === _selected.area?.trim());
       setBarState(groupByAge(vaccinAdministrationListReportByArea));
       setTotalAgeByGender(allTotalGender(groupByAge(vaccinAdministrationListReportByArea)));
     } else {
@@ -168,7 +167,7 @@ function App() {
       setSelectedCodeCategory(null);
       // setSelectedLocationCategoryMap(null)
     }
-  // !selectedLocationCategoryMap
+    // !selectedLocationCategoryMap
     if (!selectedCodeCategory) {
       summary?.deliverySummary?.forEach(i => {
         Object.keys(i.byCategory).forEach(cat => {
@@ -249,7 +248,7 @@ function App() {
             <div className="p-4 position-relative d-lg-none">
 
               <div className="w-100 h-100 d-flex justify-content-start pr-5">
-                <img  src="logo.png" width="35" height="35" alt="Logo" />
+                <img src="logo.png" width="35" height="35" alt="Logo" />
 
                 <h5 className="pl-3 pl-sm-1">Distribuzione vaccinazioni<br /> rispetto alle consegne</h5>
 
@@ -486,7 +485,7 @@ function App() {
                     </p>
                   </div>
                   <div className="col-12 d-flex justify-content-end  pb-2">
-                    <img  alt="reset-white" src="reset_white.png" onClick={resetFilter} height={35} />
+                    <img alt="reset-white" src="reset_white.png" onClick={resetFilter} height={35} />
                   </div>
                 </div>
               </div>

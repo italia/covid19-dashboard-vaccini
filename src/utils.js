@@ -17,8 +17,8 @@ export const groupByAge = (array) => {
   let _age;
   if (Array.isArray(array) && array.length > 0) {
     _age = age.map(el => {
-      let resMale = _.sum(array.filter(_el => _el.fascia_anagrafica === el).map(__el => __el.sesso_maschile));
-      let resFemale = _.sum(array.filter(_el => _el.fascia_anagrafica === el).map(__el => __el.sesso_femminile));
+      let resMale = _.sum(array.filter(_el => _el.fascia_anagrafica.trim() === el).map(__el => __el.sesso_maschile));
+      let resFemale = _.sum(array.filter(_el => _el.fascia_anagrafica.trim() === el).map(__el => __el.sesso_femminile));
       return { fascia_anagrafica: el, sesso_femminile: resFemale, sesso_maschile: resMale, totale: resMale + resFemale };
     });
   }
