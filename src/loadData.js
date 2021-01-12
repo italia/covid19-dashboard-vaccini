@@ -35,11 +35,6 @@ const elaborate = (data) => {
       ),
     },
     {
-      name: "Ospiti Strutture Residenziali",
-      code: "cat_rsa",
-      total: categoriesAndAges.reduce(sumDoseX("categoria_ospiti_rsa"), 0),
-    },
-    {
       name: "Personale non sanitario",
       code: "cat_pns",
       total: categoriesAndAges.reduce(
@@ -47,6 +42,11 @@ const elaborate = (data) => {
         0
       ),
     },
+    {
+      name: "Ospiti Strutture Residenziali",
+      code: "cat_rsa",
+      total: categoriesAndAges.reduce(sumDoseX("categoria_ospiti_rsa"), 0),
+    }
   ];
   const categoriesByRegionRAW = data.dataSommVaxSummary.data.reduce(
     aggrBy("area"),
@@ -65,14 +65,6 @@ const elaborate = (data) => {
         ),
       },
       {
-        name: "Ospiti Strutture Residenziali",
-        code: "cat_rsa",
-        total: categoriesByRegionRAW[x].reduce(
-          sumDoseX("categoria_ospiti_rsa"),
-          0
-        ),
-      },
-      {
         name: "Personale non sanitario",
         code: "cat_pns",
         total: categoriesByRegionRAW[x].reduce(
@@ -80,6 +72,14 @@ const elaborate = (data) => {
           0
         ),
       },
+      {
+        name: "Ospiti Strutture Residenziali",
+        code: "cat_rsa",
+        total: categoriesByRegionRAW[x].reduce(
+          sumDoseX("categoria_ospiti_rsa"),
+          0
+        ),
+      }
     ];
     return categoriesByRegions;
   });
