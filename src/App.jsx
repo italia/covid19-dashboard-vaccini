@@ -206,8 +206,8 @@ function App() {
           </div>
           <div className="col-12 col-md-6 font-25">
             <StaticBlock
-              classes="bg-primary text-white"
-              text="Dal 30 Dicembre al 1° Gennaio sono state consegnate 469.950 dosi di vaccino."
+              classes="bg-primary text-white" 
+              text="Dal 30 dicembre al 07 gennaio sono state consegnate 908.700 dosi di vaccino. L'11 gennaio sono state consegnate 75.075 dosi di vaccino."
             />
           </div>
           <div className="col-12">
@@ -216,7 +216,7 @@ function App() {
             >
               <StaticBlock
                 classes="text-black text-uppercase font-weight-bold"
-                text="Le somministrazioni delle 469.950 dosi di vaccino su tutto il territorio sono iniziate il 31 dicembre"
+                text="Le somministrazioni delle 983.775 dosi di vaccino su tutto il territorio sono iniziate il 31 dicembre."
               />
             </div>
           </div>
@@ -289,7 +289,7 @@ function App() {
         </div>
         <div className="row position-powerbi" style={{ backgroundColor: '#F8FBFE' }}>
           <div className="col-12 col-md-6 d-flex align-items-end testo-info-campania">
-            Il dato della Campania evidenzia la prevista somministrazione della sesta dose, il che potrà avvenire anche nelle altre regioni.
+          Le quantità consegnate sono calcolate considerando, al momento, cinque dosi per fiala. Pertanto, eventuali valori percentuali superiori a 100 evidenziano l'utilizzo della sesta dose.
           </div>
           <div className="col-12 col-md-6  position-relative" >
             <div className="bg-gradient-bar"></div>
