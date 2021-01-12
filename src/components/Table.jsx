@@ -19,6 +19,9 @@ export const Table = (props) => {
         dom:
           "<'row'<'col-sm-12 col-md-12'lf>>" +
           "<'row'<'col-sm-12'tr>>",
+        language: {
+          search: "Cerca"
+        },
         paging: false,
         searching: true,
         destroy: true,
@@ -32,9 +35,9 @@ export const Table = (props) => {
     }
   });
   return (
-    <div id="datatable" className="d-flex">
+    <div id="datatable">
       <table
-        className="table table-borderless compact table-striped table-hover"
+        className="table table-borderless compact table-striped table-hover table-responsive-sm"
         cellSpacing="0"
         width="100%"
       />

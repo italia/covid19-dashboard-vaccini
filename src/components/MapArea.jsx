@@ -40,8 +40,8 @@ export const MapArea = (props) => {
   }, []);
 
   return (
-    <div className="mw-100 h-100 align-self-center">
-      <svg width={width} height={height}>
+    <div className="maparea-container align-self-center">
+      <svg viewBox={"0 0 " + width + " " + height} preserveAspectRatio="none">
         <g className="countries">
           {geographies.map((d, i) => {
             const regions = props.summary?.deliverySummary?.filter(

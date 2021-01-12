@@ -2,3 +2,9 @@
   fill: red;
   cursor: pointer;
 }
+
+
+.maparea-container { 
+  width: 100%;
+  max-width: 500px;
+}

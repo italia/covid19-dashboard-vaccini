@@ -54,7 +54,7 @@ export const HBarChart = (props) => {
       .append("svg")
       .attr("width", width)
       .attr("height", height);
-    const margin = { y: 80, x: 50 };
+    const margin = { y: 80, x: 200 };
 
     // Add X axis
     const xScale = d3.scaleLinear().domain([0, maxScale]).range([0, width]);

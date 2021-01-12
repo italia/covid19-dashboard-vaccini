@@ -4,6 +4,11 @@ import DataTable from "datatables.net";
 import "datatables.net-bs4/css/dataTables.bootstrap4.min.css";
 
 $.DataTable = DataTable;
+$.DataTable.ext.classes.sPageButton = 'btn';
+$.DataTable.ext.classes.sPageButtonActive = 'btn-primary text-white';
+$.DataTable.ext.classes.sPageButtonDisabled = 'btn-outline-primary disabled';
+$.DataTable.ext.classes.sPaging = '';
+
 const columns = [
   { title: "Regione", data: "area" },
   { title: "Provincia", data: "provincia" },
@@ -19,11 +24,21 @@ export const LocationsTable = (props) => {
         dom:
           "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
           "<'row'<'col-sm-12'tr>>" +
-          "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+          "<'row pagination-wrapper'<'col-sm-12 pagination'p><'col-sm-12'i>>",
+        language: {
+          lengthMenu: "Mostra _MENU_ risultati per pagina",
+          info: "Risultati pagina _PAGE_ di _PAGES_",
+          infoFiltered: "(filtrati su _MAX_ risultati)",
+          search: "Cerca",
+          paginate: {
+            next: ">",
+            previous: "<"
+          },
+        },
         paging: true,
         searching: true,
         destroy: true,
-        pagingType: "full_numbers",
+        pagingType: "simple_numbers",
         data: props.summary?.locations || [],
         columns,
       });
@@ -34,9 +49,9 @@ export const LocationsTable = (props) => {
     }
   });
   return (
-    <div id="datatable-locations" style={{ width: '80%' }}>
+    <div id="datatable-locations">
       <table
-        className="table table-borderless compact table-striped table-hover"
+        className="table table-borderless compact table-striped table-hover table-responsive-sm"
         cellSpacing="0"
         width="100%"
       />
