@@ -1,11 +1,21 @@
 [![License](https://img.shields.io/github/license/italia/covid19-dashboard-vaccini.svg)](https://github.com/italia/covid19-dashboard-vaccini/blob/master/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/italia/covid19-dashboard-vaccini.svg)](https://github.com/italia/covid19-dashboard-vaccini/issues)
-[![Join the #website channel](https://img.shields.io/badge/Slack%20channel-%23design-blue.svg)](https://developersitalia.slack.com/messages/C7VPAUVB3/)
+[![Join the #website channel](https://img.shields.io/badge/Slack%20channel-%23website-blue.svg)](https://developersitalia.slack.com/messages/C7VPAUVB3/)
 [![Get invited](https://slack.developers.italia.it/badge.svg)](https://slack.developers.italia.it/)
 ![GH Action](https://github.com/italia/covid19-dashboard-vaccini/workflows/CD/badge.svg)
 
-# COVID-19 Dashboard Vaccini
-> [Work in Progress] This is a WIP repository, please find further instructions below.
+# COVID-19 Dashboard Vaccini Example
+> This is an example repository, if you are looking for the official one please
+> see
+> [here](https://github.com/italia/report-vaccini-anti-covid-19)
+
+
+## Forks
+
+* [Official Report Vaccini Anti
+  Covid-19](https://github.com/italia/report-vaccini-anti-covid-19)
+  - Maintained by the Italian Commissario straordinario per l'emergenza
+Covid-19 development team.
 
 ## Introduction
 
@@ -17,8 +27,10 @@ The app uses the [opendata](https://github.com/italia/covid19-opendata-vaccini)
 made available by the Italian Commissario straordinario per l'emergenza
 Covid-19. 
 
-Every contribution is welcome, feel free to open issues and submit
-a pull request at any time.
+Every contribution to this example is welcome, feel free to open issues and submit
+a pull request at any time. If you find any issue while browsing the [official
+website](https://www.governo.it/it/cscovid19/report-vaccini/) please refer to
+[this repo](https://github.com/italia/report-vaccini-anti-covid-19).
 
 ## Technologies
 
