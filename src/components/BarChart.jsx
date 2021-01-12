@@ -1,14 +1,23 @@
-import { React, useEffect, useRef, useState } from "react";
+import { React, useEffect, useRef, useState, useLayoutEffect, usePrevious } from "react";
 import * as d3 from "d3";
 import "../App.css";
-import { maxX } from "../utils";
+import { maxX, showLoader } from "../utils";
 
 export const BarChart = (props) => {
+  function usePrevious(value) {
+    const ref = useRef();
+    useEffect(() => {
+      ref.current = value;
+    });
+    return ref.current;
+  }
   const width = +props.width, //hack to get int
     height = +props.height;
   const myRef = useRef();
   const divRef = useRef();
   const [select, setSelected] = useState(null);
+  const { data, selected } = props;
+  const prevData = usePrevious({ data, selected });
 
   const handleRectClick = (x) => {
     if (select === x) {
@@ -20,9 +29,12 @@ export const BarChart = (props) => {
     }
   };
   useEffect(() => {
-    doExit();
-    draw();
-  });
+    if (prevData?.data !== data || prevData?.selected !== selected) {
+      doExit();
+      draw();
+    }
+  }, [data, selected]);
+
 
   const responsivefy = (svg) => {
     // Container is the DOM element, svg is appended.
@@ -127,7 +139,7 @@ export const BarChart = (props) => {
       })
       .attr('id', (d) => d?.fascia_anagrafica)
       .attr('opacity', (d) => {
-        let opac = props?.selected?.fascia_anagrafica === d?.fascia_anagrafica ? 1 : !props?.selected ? 1 : 0.3;
+        let opac = props.selected?.fascia_anagrafica === d?.fascia_anagrafica ? 1 : !props.selected ? 1 : 0.3;
         return opac;
       })
       .attr("class", "bar")
