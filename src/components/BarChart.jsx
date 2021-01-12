@@ -1,7 +1,7 @@
-import { React, useEffect, useRef, useState, useLayoutEffect, usePrevious } from "react";
+import { React, useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import "../App.css";
-import { maxX, showLoader } from "../utils";
+import { maxX } from "../utils";
 
 export const BarChart = (props) => {
   function usePrevious(value) {
@@ -33,6 +33,7 @@ export const BarChart = (props) => {
       doExit();
       draw();
     }
+  // eslint-disable-next-line 
   }, [data, selected]);
 
 
