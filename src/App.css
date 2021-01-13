@@ -74,6 +74,10 @@ body {
   padding: 1em;
   color: white;
 }
+
+.topBanner a{
+  color: white;
+}
 /*
  * Footer
  *
