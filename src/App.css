@@ -68,6 +68,16 @@ body {
   text-align: center !important;
 }
 
+.topBanner {
+  font-family: "Titillium Web";
+  font-weight: 600;
+  padding: 1em;
+  color: white;
+}
+
+.topBanner a{
+  color: white;
+}
 /*
  * Footer
  *
