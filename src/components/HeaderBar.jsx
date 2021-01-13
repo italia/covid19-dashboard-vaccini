@@ -8,6 +8,11 @@ import "typeface-lora";
 export const HeaderBar = () => {
   return (
     <>
+      <div className="d-flex flex-column justify-content-center bg-danger topBanner">
+        <div className="d-flex justify-content-center">
+          <div className="primary">Questo è un esempio di dashboard, per quella ufficiale visita <a href="https://www.governo.it/it/cscovid19/report-vaccini/">report-covid</a></div>
+        </div>
+      </div>
       <div className="d-flex flex-column justify-content-center mainBanner">
         <div className="d-flex justify-content-center">
           <img src="logo.png" alt="Logo" className="main-logo" />
