@@ -10,7 +10,7 @@ export const HeaderBar = () => {
     <>
       <div className="d-flex flex-column justify-content-center bg-danger topBanner">
         <div className="d-flex justify-content-center">
-          <div className="primary">Questo è un esempio di dashboard, per quella ufficiale visita <a href="https://www.governo.it/it/cscovid19/report-vaccini/">report-covid</a></div>
+          <div className="primary">Questo è un esempio di dashboard, per quella ufficiale visita <a href="https://www.governo.it/it/cscovid19/report-vaccini/">report-vaccini</a> (<a href="https://github.com/italia/report-vaccini-anti-covid-19">GitHub</a>)</div>
         </div>
       </div>
       <div className="d-flex flex-column justify-content-center mainBanner">
